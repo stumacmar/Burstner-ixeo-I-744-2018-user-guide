@@ -8,17 +8,17 @@
       "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "assets/images/heating/alde-control-panel.jpg",
+          "src": "images/heating/alde-control-panel.jpg",
           "alt": "Alde 3020 control panel",
           "caption": "Alde control panel - select heating mode and set temperature"
         },
         {
-          "src": "assets/images/heating/alde-boiler.jpg",
+          "src": "images/heating/alde-boiler.jpg",
           "alt": "Alde boiler unit location",
           "caption": "Alde boiler location - usually under a seat or bed"
         },
         {
-          "src": "assets/images/heating/alde-radiator.jpg",
+          "src": "images/heating/alde-radiator.jpg",
           "alt": "Alde convector radiator",
           "caption": "Radiator convectors distribute heat throughout the vehicle"
         }
@@ -41,17 +41,17 @@
       "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "assets/images/comfort/fridge-interior.jpg",
+          "src": "images/comfort/fridge-interior.jpg",
           "alt": "Interior view of the 3-way fridge",
           "caption": "3-way fridge interior with adjustable shelves"
         },
         {
-          "src": "assets/images/comfort/fridge-controls.jpg",
+          "src": "images/comfort/fridge-controls.jpg",
           "alt": "Fridge control panel showing mode selection",
           "caption": "Fridge controls - select 12V, 230V, gas, or auto mode"
         },
         {
-          "src": "assets/images/comfort/fridge-vent-exterior.jpg",
+          "src": "images/comfort/fridge-vent-exterior.jpg",
           "alt": "External fridge vent on vehicle side",
           "caption": "External fridge vent - ensure it is not blocked"
         }
@@ -74,17 +74,17 @@
       "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "assets/images/power/solar-panel-roof.jpg",
+          "src": "images/power/solar-panel-roof.jpg",
           "alt": "Solar panel mounted on vehicle roof",
           "caption": "Roof-mounted solar panel"
         },
         {
-          "src": "assets/images/power/solar-controller.jpg",
+          "src": "images/power/solar-controller.jpg",
           "alt": "Solar charge controller display",
           "caption": "Solar controller showing charge status and output"
         },
         {
-          "src": "assets/images/power/battery-bank.jpg",
+          "src": "images/power/battery-bank.jpg",
           "alt": "Leisure battery location",
           "caption": "Leisure battery - solar charges this first"
         }
@@ -106,17 +106,17 @@
       "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "assets/images/cameras/360-display.jpg",
+          "src": "images/cameras/360-display.jpg",
           "alt": "Dashboard display showing 360 camera view",
           "caption": "360° view displayed on dashboard monitor"
         },
         {
-          "src": "assets/images/cameras/360-camera-front.jpg",
+          "src": "images/cameras/360-camera-front.jpg",
           "alt": "Front camera location on vehicle",
           "caption": "Front camera mounted on the grille area"
         },
         {
-          "src": "assets/images/cameras/360-camera-side.jpg",
+          "src": "images/cameras/360-camera-side.jpg",
           "alt": "Side camera location under mirror",
           "caption": "Side cameras under wing mirrors"
         }
@@ -138,12 +138,12 @@
       "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "assets/images/cameras/reversing-display.jpg",
+          "src": "images/cameras/reversing-display.jpg",
           "alt": "Dashboard display showing reversing camera view",
           "caption": "Reversing camera view with parking guidelines"
         },
         {
-          "src": "assets/images/cameras/reversing-camera-rear.jpg",
+          "src": "images/cameras/reversing-camera-rear.jpg",
           "alt": "Rear camera mounted above number plate",
           "caption": "Rear camera location above the number plate"
         }
@@ -165,12 +165,12 @@
       "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "assets/images/media/tv-front-cab.jpg",
+          "src": "images/media/tv-front-cab.jpg",
           "alt": "Avtex TV mounted in front cab",
           "caption": "Front cab TV with swivel mount"
         },
         {
-          "src": "assets/images/media/tv-avtex-remote.jpg",
+          "src": "images/media/tv-avtex-remote.jpg",
           "alt": "Avtex TV remote control",
           "caption": "Avtex remote control"
         }
@@ -192,12 +192,12 @@
       "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "assets/images/media/tv-rear-lounge.jpg",
+          "src": "images/media/tv-rear-lounge.jpg",
           "alt": "Avtex TV mounted in rear lounge",
           "caption": "Rear lounge TV viewing position"
         },
         {
-          "src": "assets/images/media/tv-rear-mount.jpg",
+          "src": "images/media/tv-rear-mount.jpg",
           "alt": "TV mounting bracket in rear",
           "caption": "Rear TV bracket and connections"
         }
@@ -218,17 +218,17 @@
       "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "assets/images/beds/dropdown-rear-raised.jpg",
+          "src": "images/beds/dropdown-rear-raised.jpg",
           "alt": "Rear drop-down bed in raised position",
           "caption": "Drop-down bed stored in raised position"
         },
         {
-          "src": "assets/images/beds/dropdown-rear-lowered.jpg",
+          "src": "images/beds/dropdown-rear-lowered.jpg",
           "alt": "Rear drop-down bed lowered for sleeping",
           "caption": "Bed lowered - ready for sleeping"
         },
         {
-          "src": "assets/images/beds/dropdown-controls.jpg",
+          "src": "images/beds/dropdown-controls.jpg",
           "alt": "Electric bed control switch",
           "caption": "Hold button to lower or raise the bed"
         }
@@ -250,17 +250,17 @@
       "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "assets/images/beds/pulldown-dinette-stowed.jpg",
+          "src": "images/beds/pulldown-dinette-stowed.jpg",
           "alt": "Pull-down bed in stowed position above dinette",
           "caption": "Bed stowed flush against ceiling"
         },
         {
-          "src": "assets/images/beds/pulldown-dinette-deployed.jpg",
+          "src": "images/beds/pulldown-dinette-deployed.jpg",
           "alt": "Pull-down bed deployed for sleeping",
           "caption": "Bed pulled down and ready for use"
         },
         {
-          "src": "assets/images/beds/pulldown-latch.jpg",
+          "src": "images/beds/pulldown-latch.jpg",
           "alt": "Bed latch mechanism",
           "caption": "Latch releases the bed for deployment"
         }
@@ -282,17 +282,17 @@
       "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "assets/images/comfort/blind-cassette.jpg",
+          "src": "images/comfort/blind-cassette.jpg",
           "alt": "Cassette blind in window",
           "caption": "Cassette blind for privacy and blackout"
         },
         {
-          "src": "assets/images/comfort/flyscreen-window.jpg",
+          "src": "images/comfort/flyscreen-window.jpg",
           "alt": "Flyscreen deployed in window",
           "caption": "Flyscreen allows ventilation without insects"
         },
         {
-          "src": "assets/images/comfort/skylight-blind.jpg",
+          "src": "images/comfort/skylight-blind.jpg",
           "alt": "Roof skylight with integrated blind",
           "caption": "Skylight with blind and flyscreen"
         }
@@ -313,12 +313,12 @@
       "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "assets/images/exterior/heat-shield-fitted.jpg",
+          "src": "images/exterior/heat-shield-fitted.jpg",
           "alt": "Heat shield fitted to front of motorhome",
           "caption": "Silver heat shield installed on cab"
         },
         {
-          "src": "assets/images/exterior/heat-shield-storage.jpg",
+          "src": "images/exterior/heat-shield-storage.jpg",
           "alt": "Heat shield folded for storage",
           "caption": "Fold and store when not in use"
         }
@@ -339,17 +339,17 @@
       "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "assets/images/exterior/awning-extended.jpg",
+          "src": "images/exterior/awning-extended.jpg",
           "alt": "Awning fully extended from vehicle side",
           "caption": "Awning extended providing outdoor shade"
         },
         {
-          "src": "assets/images/exterior/awning-handle.jpg",
+          "src": "images/exterior/awning-handle.jpg",
           "alt": "Awning winding handle",
           "caption": "Use winding handle to extend/retract awning"
         },
         {
-          "src": "assets/images/exterior/awning-pegs.jpg",
+          "src": "images/exterior/awning-pegs.jpg",
           "alt": "Awning secured with pegs",
           "caption": "Secure legs with pegs in windy conditions"
         }
@@ -371,12 +371,12 @@
       "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "assets/images/water/outdoor-shower-point.jpg",
+          "src": "images/water/outdoor-shower-point.jpg",
           "alt": "Exterior shower connection point",
           "caption": "Outdoor shower connection behind panel"
         },
         {
-          "src": "assets/images/water/outdoor-shower-use.jpg",
+          "src": "images/water/outdoor-shower-use.jpg",
           "alt": "Outdoor shower in use",
           "caption": "Connect shower head for outdoor use"
         }
@@ -397,12 +397,12 @@
       "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "assets/images/exterior/bbq-point-closed.jpg",
+          "src": "images/exterior/bbq-point-closed.jpg",
           "alt": "External BBQ gas point with cover closed",
           "caption": "BBQ point behind exterior panel"
         },
         {
-          "src": "assets/images/exterior/bbq-point-connected.jpg",
+          "src": "images/exterior/bbq-point-connected.jpg",
           "alt": "BBQ connected to external gas point",
           "caption": "Portable BBQ connected to gas point"
         }
@@ -424,12 +424,12 @@
       "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "assets/images/media/outdoor-tv-point.jpg",
+          "src": "images/media/outdoor-tv-point.jpg",
           "alt": "External TV connection point",
           "caption": "Outdoor TV socket with 12V and aerial connections"
         },
         {
-          "src": "assets/images/media/outdoor-tv-setup.jpg",
+          "src": "images/media/outdoor-tv-setup.jpg",
           "alt": "TV set up outside under awning",
           "caption": "Outdoor TV setup for evening viewing"
         }
@@ -450,17 +450,17 @@
       "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "assets/images/power/gas-locker-open.jpg",
+          "src": "images/power/gas-locker-open.jpg",
           "alt": "Gas locker with two 13kg cylinders",
           "caption": "Gas locker with dual 13kg bottle capacity"
         },
         {
-          "src": "assets/images/power/gas-regulator.jpg",
+          "src": "images/power/gas-regulator.jpg",
           "alt": "Gas regulator and changeover valve",
           "caption": "Regulator allows switching between bottles"
         },
         {
-          "src": "assets/images/power/gas-bottle-connection.jpg",
+          "src": "images/power/gas-bottle-connection.jpg",
           "alt": "Gas bottle pigtail connection",
           "caption": "Pigtail hose connects bottle to regulator"
         }
@@ -483,17 +483,17 @@
       "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "assets/images/toilet/cassette-toilet-interior.jpg",
+          "src": "images/toilet/cassette-toilet-interior.jpg",
           "alt": "Cassette toilet in bathroom",
           "caption": "Cassette toilet with electric flush"
         },
         {
-          "src": "assets/images/toilet/cassette-external-door.jpg",
+          "src": "images/toilet/cassette-external-door.jpg",
           "alt": "External cassette access door",
           "caption": "External door for cassette removal"
         },
         {
-          "src": "assets/images/toilet/cassette-removal.jpg",
+          "src": "images/toilet/cassette-removal.jpg",
           "alt": "Removing cassette from vehicle",
           "caption": "Slide cassette out for emptying"
         }
@@ -516,12 +516,12 @@
       "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "assets/images/water/fresh-filler-cap.jpg",
+          "src": "images/water/fresh-filler-cap.jpg",
           "alt": "External fresh water filler cap",
           "caption": "Fresh water filler on exterior panel"
         },
         {
-          "src": "assets/images/water/fresh-tank-level.jpg",
+          "src": "images/water/fresh-tank-level.jpg",
           "alt": "Control panel showing water tank level",
           "caption": "Monitor tank level on control panel"
         }
@@ -543,17 +543,17 @@
       "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "assets/images/safety/alarm-panel.jpg",
+          "src": "images/safety/alarm-panel.jpg",
           "alt": "Alarm control panel",
           "caption": "Alarm status panel inside vehicle"
         },
         {
-          "src": "assets/images/safety/alarm-fob.jpg",
+          "src": "images/safety/alarm-fob.jpg",
           "alt": "Alarm key fob",
           "caption": "Key fob for arming/disarming alarm"
         },
         {
-          "src": "assets/images/safety/alarm-sensor.jpg",
+          "src": "images/safety/alarm-sensor.jpg",
           "alt": "Door sensor for alarm",
           "caption": "Sensors on doors and windows"
         }
@@ -575,12 +575,12 @@
       "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "assets/images/safety/tracker-app.jpg",
+          "src": "images/safety/tracker-app.jpg",
           "alt": "Tracker smartphone app showing vehicle location",
           "caption": "View vehicle location on phone app"
         },
         {
-          "src": "assets/images/safety/tracker-unit.jpg",
+          "src": "images/safety/tracker-unit.jpg",
           "alt": "Hidden tracker unit",
           "caption": "Tracker unit is discretely installed"
         }
@@ -602,12 +602,12 @@
       "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "assets/images/media/5g-router.jpg",
+          "src": "images/media/5g-router.jpg",
           "alt": "5G router installed in vehicle",
           "caption": "5G router with WiFi hotspot"
         },
         {
-          "src": "assets/images/media/5g-antenna.jpg",
+          "src": "images/media/5g-antenna.jpg",
           "alt": "5G antenna on vehicle roof",
           "caption": "External antenna for better signal"
         }
@@ -629,7 +629,7 @@
       "verification_status": "manual-verified",
       "images": [
         {
-          "src": "assets/images/power/control-panel-main.jpg",
+          "src": "images/power/control-panel-main.jpg",
           "alt": "Main control panel display",
           "caption": "Control panel showing system status"
         }
@@ -650,12 +650,12 @@
       "verification_status": "manual-verified",
       "images": [
         {
-          "src": "assets/images/power/mains-charger.jpg",
+          "src": "images/power/mains-charger.jpg",
           "alt": "Battery charger unit",
           "caption": "Charger activates on mains connection"
         },
         {
-          "src": "assets/images/power/mains-inlet.jpg",
+          "src": "images/power/mains-inlet.jpg",
           "alt": "External mains hook-up inlet",
           "caption": "Connect mains cable here"
         }
