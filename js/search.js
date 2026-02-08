@@ -2,6 +2,7 @@
  * Bürstner Ixeo I 744 Interactive Manual - Search Module
  * 
  * Implements offline keyword search across tasks and systems.
+ * Supports synonyms for better discoverability.
  * Works without any external dependencies or API calls.
  */
 
@@ -85,6 +86,7 @@ const Search = {
                     id: system.id,
                     title: system.name,
                     description: system.description,
+                    category: system.category,
                     score: score
                 });
             }
@@ -140,8 +142,36 @@ const Search = {
                 score += 5;
             }
 
-            // Check warnings
-            if (item.warnings) {
+            // Check category
+            if (item.category && item.category.toLowerCase().includes(searchTerm)) {
+                score += 6;
+            }
+
+            // Check synonyms (high weight for synonym matches)
+            if (item.synonyms && Array.isArray(item.synonyms)) {
+                item.synonyms.forEach(synonym => {
+                    if (synonym.toLowerCase().includes(searchTerm)) {
+                        score += 8;
+                    }
+                    searchWords.forEach(word => {
+                        if (synonym.toLowerCase().includes(word)) {
+                            score += 4;
+                        }
+                    });
+                });
+            }
+
+            // Check safety_notes
+            if (item.safety_notes && Array.isArray(item.safety_notes)) {
+                item.safety_notes.forEach(note => {
+                    if (note.toLowerCase().includes(searchTerm)) {
+                        score += 2;
+                    }
+                });
+            }
+
+            // Check warnings (legacy)
+            if (item.warnings && Array.isArray(item.warnings)) {
                 item.warnings.forEach(warning => {
                     if (warning.toLowerCase().includes(searchTerm)) {
                         score += 2;
@@ -163,7 +193,7 @@ const Search = {
             });
 
             // Check keywords (high weight)
-            if (item.keywords) {
+            if (item.keywords && Array.isArray(item.keywords)) {
                 item.keywords.forEach(keyword => {
                     if (keyword.toLowerCase().includes(searchTerm)) {
                         score += 8;
@@ -177,7 +207,7 @@ const Search = {
             }
 
             // Check steps
-            if (item.steps) {
+            if (item.steps && Array.isArray(item.steps)) {
                 item.steps.forEach(step => {
                     if (step.toLowerCase().includes(searchTerm)) {
                         score += 2;
@@ -185,10 +215,19 @@ const Search = {
                 });
             }
 
-            // Check safety notes
-            if (item.safety_notes) {
+            // Check safety_notes (legacy field name)
+            if (item.safety_notes && Array.isArray(item.safety_notes)) {
                 item.safety_notes.forEach(note => {
                     if (note.toLowerCase().includes(searchTerm)) {
+                        score += 2;
+                    }
+                });
+            }
+
+            // Check safety_warnings (new field name)
+            if (item.safety_warnings && Array.isArray(item.safety_warnings)) {
+                item.safety_warnings.forEach(warning => {
+                    if (warning.toLowerCase().includes(searchTerm)) {
                         score += 2;
                     }
                 });
@@ -216,6 +255,7 @@ const Search = {
 
         const html = results.map(result => {
             const typeLabel = result.type === 'system' ? 'System' : 'Task';
+            const categoryInfo = result.category ? ` • ${result.category}` : '';
             const systemInfo = result.system ? ` • ${this.getSystemName(result.system)}` : '';
             
             return `
@@ -226,7 +266,7 @@ const Search = {
                      role="button"
                      aria-label="${this.escapeHtml(result.title)}">
                     <span class="result-title">${this.escapeHtml(result.title)}</span>
-                    <span class="result-type">${typeLabel}${systemInfo}</span>
+                    <span class="result-type">${typeLabel}${categoryInfo}${systemInfo}</span>
                 </div>
             `;
         }).join('');

@@ -52,8 +52,10 @@ const Tasks = {
      */
     createTaskCard(task) {
         const stepsHtml = this.createStepsList(task.steps);
-        const safetyHtml = this.createSafetyNotes(task.safety_notes);
+        // Support both safety_notes (legacy) and safety_warnings (new)
+        const safetyHtml = this.createSafetyNotes(task.safety_warnings || task.safety_notes);
         const imagesHtml = this.createImagesGallery(task.images);
+        const linkedSystemsHtml = this.createLinkedSystemsList(task.linked_system_ids);
 
         return `
             <div class="task-card" data-task-id="${this.escapeAttr(task.id)}">
@@ -65,7 +67,37 @@ const Tasks = {
                     ${imagesHtml}
                     ${stepsHtml}
                     ${safetyHtml}
+                    ${linkedSystemsHtml}
                 </div>
+            </div>
+        `;
+    },
+
+    /**
+     * Create HTML for linked systems list
+     * @param {Array} linkedIds - Array of linked system IDs
+     * @returns {string} HTML string for linked systems
+     */
+    createLinkedSystemsList(linkedIds) {
+        if (!linkedIds || linkedIds.length === 0) {
+            return '';
+        }
+
+        // Get system names from App if available
+        let systemNames = linkedIds;
+        if (typeof App !== 'undefined' && App.systems) {
+            systemNames = linkedIds.map(id => {
+                const system = App.systems.find(s => s.id === id);
+                return system ? system.name : id;
+            });
+        }
+
+        return `
+            <div class="linked-systems">
+                <h5>🔗 Related Systems</h5>
+                <ul>
+                    ${systemNames.map(name => `<li>${this.escapeHtml(name)}</li>`).join('')}
+                </ul>
             </div>
         `;
     },
