@@ -1,0 +1,382 @@
+{
+  "tasks": [
+    {
+      "id": "set-heating-arrival",
+      "title": "Set heating on arrival",
+      "system": "heating-power",
+      "keywords": ["heating", "warm", "cold", "temperature", "truma", "combi", "arrival"],
+      "images": [
+        {
+          "src": "images/heating/gas-locker-valve.jpg",
+          "alt": "Gas bottle valve in open position",
+          "caption": "Step 2: Open the gas bottle valve - turn anti-clockwise"
+        },
+        {
+          "src": "images/heating/truma-panel-modes.jpg",
+          "alt": "Truma control panel showing heating mode selection",
+          "caption": "Step 3: Select heating mode on the Truma panel"
+        },
+        {
+          "src": "images/heating/truma-temperature.jpg",
+          "alt": "Truma panel temperature controls",
+          "caption": "Step 4: Use +/- buttons to set desired temperature"
+        }
+      ],
+      "steps": [
+        "Connect to mains hook-up if available, or ensure leisure battery is charged",
+        "Open the gas bottle valve (located in the gas locker)",
+        "On the Truma control panel, select your heating mode (gas, electric, or mixed)",
+        "Set your desired temperature using the +/- controls",
+        "Wait for the system to ignite (you should hear the fan start)",
+        "Adjust temperature as needed once the vehicle begins to warm"
+      ],
+      "safety_notes": [
+        "Ensure roof vents are not blocked by snow or debris",
+        "Never run gas heating during refuelling",
+        "Allow 15-20 minutes for the vehicle to reach temperature"
+      ]
+    },
+    {
+      "id": "lower-dropdown-bed",
+      "title": "Lower the drop-down bed",
+      "system": "beds-interior",
+      "keywords": ["bed", "dropdown", "drop-down", "sleep", "overhead", "electric", "lower"],
+      "images": [
+        {
+          "src": "images/interior/dropdown-bed-raised.jpg",
+          "alt": "Drop-down bed in raised position above the cab",
+          "caption": "Starting position: bed raised and secured above cab"
+        },
+        {
+          "src": "images/interior/bed-control-switch.jpg",
+          "alt": "Bed control switch mounted on wall",
+          "caption": "Step 4: Press and hold the down button on the control switch"
+        },
+        {
+          "src": "images/interior/dropdown-bed-lowered.jpg",
+          "alt": "Drop-down bed fully lowered ready for sleeping",
+          "caption": "Bed lowered to sleeping position"
+        }
+      ],
+      "steps": [
+        "Clear the area below the bed of any obstructions",
+        "Ensure no one is standing in the cab area",
+        "Locate the bed control switch (typically near the bed or on the wall)",
+        "Press and hold the 'down' button",
+        "Guide the bed down gently if needed",
+        "Release the button when the bed reaches the desired height",
+        "Check the bed is stable before use"
+      ],
+      "safety_notes": [
+        "Never lower the bed while driving",
+        "Keep fingers clear of the mechanism during operation",
+        "Do not exceed the bed's weight limit"
+      ]
+    },
+    {
+      "id": "winterise-water-system",
+      "title": "Winterise the water system",
+      "system": "water",
+      "keywords": ["winter", "winterise", "winterize", "frost", "freeze", "drain", "water"],
+      "images": [
+        {
+          "src": "images/water/water-pump-switch.jpg",
+          "alt": "Water pump switch on control panel",
+          "caption": "Step 1: Turn off the water pump at the control panel"
+        },
+        {
+          "src": "images/water/fresh-tank-drain.jpg",
+          "alt": "Fresh water tank drain valve underneath vehicle",
+          "caption": "Step 4: Fresh water tank drain valve location"
+        },
+        {
+          "src": "images/water/waste-valve.jpg",
+          "alt": "Waste water drain valve",
+          "caption": "Step 8: Drain the waste water tank completely"
+        }
+      ],
+      "steps": [
+        "Turn off the water pump at the control panel",
+        "Open all taps (hot and cold) including shower",
+        "Open the drain valve on the fresh water tank (usually underneath the vehicle)",
+        "Open the drain valve on the water heater (refer to Truma manual for location)",
+        "Flush the toilet and hold flush until water stops",
+        "Leave all taps in the open position",
+        "Consider using approved water system antifreeze for added protection",
+        "Drain the waste water tank completely"
+      ],
+      "safety_notes": [
+        "Water left in the system can freeze and cause serious damage",
+        "Check all drain points are fully open",
+        "If using antifreeze, ensure it is safe for drinking water systems"
+      ]
+    },
+    {
+      "id": "connect-mains-hookup",
+      "title": "Connect to mains hook-up",
+      "system": "heating-power",
+      "keywords": ["mains", "electric", "hookup", "hook-up", "230v", "power", "campsite", "ehu"],
+      "images": [
+        {
+          "src": "images/heating/mains-cable.jpg",
+          "alt": "Uncoiled mains hook-up cable",
+          "caption": "Step 2: Fully uncoil the mains cable before use"
+        },
+        {
+          "src": "images/heating/mains-inlet.jpg",
+          "alt": "Vehicle external mains inlet socket",
+          "caption": "Step 3: Connect to the vehicle's external inlet FIRST"
+        },
+        {
+          "src": "images/heating/campsite-bollard.jpg",
+          "alt": "Campsite electrical bollard",
+          "caption": "Step 4: Then connect to the campsite bollard"
+        }
+      ],
+      "steps": [
+        "Ensure the vehicle's main switch is off",
+        "Uncoil the mains cable completely to prevent overheating",
+        "Connect the cable to the vehicle's external inlet first",
+        "Then connect the other end to the campsite bollard",
+        "Switch on at the bollard",
+        "Check the control panel confirms mains connection",
+        "The battery charger will begin charging automatically"
+      ],
+      "safety_notes": [
+        "Always connect to vehicle first, then to mains supply",
+        "When disconnecting, reverse the order (mains first, then vehicle)",
+        "Never use damaged or wet cables",
+        "Use only approved camping cables rated for outdoor use"
+      ]
+    },
+    {
+      "id": "fill-fresh-water",
+      "title": "Fill the fresh water tank",
+      "system": "water",
+      "keywords": ["water", "fill", "fresh", "tank", "drinking", "refill"],
+      "images": [
+        {
+          "src": "images/water/fresh-water-filler.jpg",
+          "alt": "Fresh water filler cap on exterior of vehicle",
+          "caption": "Step 1: Locate the fresh water filler cap on the exterior"
+        },
+        {
+          "src": "images/water/drinking-water-hose.jpg",
+          "alt": "Blue drinking water approved hose",
+          "caption": "Step 3: Use only approved drinking water hoses"
+        },
+        {
+          "src": "images/water/control-panel-levels.jpg",
+          "alt": "Control panel showing tank level indicator",
+          "caption": "Step 5: Watch the tank level on the control panel"
+        }
+      ],
+      "steps": [
+        "Locate the fresh water filler cap (usually on the vehicle exterior)",
+        "Remove the cap and check the seal is clean",
+        "Connect your drinking water hose",
+        "Turn on the water supply slowly",
+        "Watch the tank level indicator on the control panel",
+        "Stop filling when the indicator shows full (do not overfill)",
+        "Replace and secure the filler cap",
+        "Run the tap briefly to prime the system if needed"
+      ],
+      "safety_notes": [
+        "Use only hoses approved for drinking water",
+        "Do not use water from unknown sources",
+        "If the vehicle has been unused, flush the system before drinking"
+      ]
+    },
+    {
+      "id": "prepare-for-driving",
+      "title": "Prepare the vehicle for driving",
+      "system": "driving-safety",
+      "keywords": ["drive", "driving", "travel", "moving", "depart", "leaving", "checklist"],
+      "images": [
+        {
+          "src": "images/interior/dropdown-bed-raised.jpg",
+          "alt": "Drop-down bed fully raised and secured",
+          "caption": "Step 1: Ensure drop-down bed is FULLY raised"
+        },
+        {
+          "src": "images/interior/cupboard-latches.jpg",
+          "alt": "Cupboard doors with secure latches",
+          "caption": "Step 2: Check all cupboard doors are latched"
+        },
+        {
+          "src": "images/driving/roof-vents-closed.jpg",
+          "alt": "Roof vent in closed position",
+          "caption": "Step 4: All roof vents and windows must be closed"
+        },
+        {
+          "src": "images/driving/exterior-locker.jpg",
+          "alt": "External storage locker locked",
+          "caption": "Step 8: Verify all exterior lockers are locked"
+        }
+      ],
+      "steps": [
+        "Raise and secure the drop-down bed fully",
+        "Secure all loose items and close all cupboards",
+        "Check the fridge is set to 12V or switched off",
+        "Close and lock all roof vents and windows",
+        "Retract the step if manual (automatic steps retract when door closes)",
+        "Disconnect and stow the mains cable",
+        "Turn off the gas at the bottle",
+        "Check exterior lockers are locked",
+        "Ensure TV aerial is lowered if applicable",
+        "Check tyre pressures and lights",
+        "Adjust mirrors and check reversing camera"
+      ],
+      "safety_notes": [
+        "Never drive with the drop-down bed lowered",
+        "Ensure all passengers are seated with seatbelts fastened",
+        "Check your route for height and weight restrictions"
+      ]
+    },
+    {
+      "id": "troubleshoot-no-water",
+      "title": "Troubleshoot: No water from taps",
+      "system": "problems",
+      "keywords": ["no water", "problem", "troubleshoot", "pump", "tap", "not working"],
+      "images": [
+        {
+          "src": "images/water/control-panel-levels.jpg",
+          "alt": "Control panel showing water tank level",
+          "caption": "Step 1: Check the water tank level indicator"
+        },
+        {
+          "src": "images/problems/fuse-box.jpg",
+          "alt": "12V fuse box with pump fuse location",
+          "caption": "Step 3: Check the pump fuse in the electrical panel"
+        },
+        {
+          "src": "images/water/water-filter.jpg",
+          "alt": "Inline water filter location",
+          "caption": "Step 6: Check the water filter if fitted"
+        }
+      ],
+      "steps": [
+        "Check the water tank level indicator - refill if empty",
+        "Verify the water pump is switched on at the control panel",
+        "Check the pump fuse in the electrical panel",
+        "Listen for the pump running when you open a tap",
+        "If pump runs but no water, check for airlocks (open taps in sequence)",
+        "Inspect the water filter if fitted - it may be blocked",
+        "Check for frozen pipes in cold weather",
+        "If problem persists, the pump may need professional attention"
+      ],
+      "safety_notes": [
+        "Do not run the pump for extended periods when dry",
+        "If you smell burning or see sparks, turn off immediately"
+      ]
+    },
+    {
+      "id": "troubleshoot-heating-not-working",
+      "title": "Troubleshoot: Heating not working",
+      "system": "problems",
+      "keywords": ["heating", "not working", "cold", "truma", "problem", "troubleshoot", "fault"],
+      "images": [
+        {
+          "src": "images/heating/gas-locker-valve.jpg",
+          "alt": "Gas bottle valve in gas locker",
+          "caption": "Step 1: Check gas bottle is not empty and valve is open"
+        },
+        {
+          "src": "images/heating/truma-error-codes.jpg",
+          "alt": "Truma control panel showing error codes",
+          "caption": "Step 2: Check for error codes on the Truma panel"
+        },
+        {
+          "src": "images/heating/exhaust-vent-exterior.jpg",
+          "alt": "Heating exhaust vent on exterior of vehicle",
+          "caption": "Step 7: Check the exhaust vent is not blocked"
+        }
+      ],
+      "steps": [
+        "Check the gas bottle is not empty and valve is open",
+        "Verify the control panel is set correctly and showing no error codes",
+        "Ensure mains power is connected if using electric heating",
+        "Check the relevant fuses in the electrical panel",
+        "For gas operation, the system may need bleeding after gas bottle change",
+        "Attempt to reset by turning the heating off and on again",
+        "Check the exhaust vent outside is not blocked",
+        "Consult Truma error codes if displayed on the panel"
+      ],
+      "safety_notes": [
+        "If you smell gas, turn off immediately and ventilate",
+        "Do not attempt to repair gas components yourself",
+        "Contact a qualified technician for persistent issues"
+      ]
+    },
+    {
+      "id": "empty-waste-water",
+      "title": "Empty the waste water tank",
+      "system": "water",
+      "keywords": ["waste", "grey", "drain", "empty", "disposal", "tank"],
+      "images": [
+        {
+          "src": "images/water/waste-drain-location.jpg",
+          "alt": "Waste water drain valve location underneath vehicle",
+          "caption": "Step 2: Waste tank drain valve - usually underneath, near middle"
+        },
+        {
+          "src": "images/water/waste-valve-open.jpg",
+          "alt": "Waste valve in open position",
+          "caption": "Step 4: Open the waste tank valve fully"
+        }
+      ],
+      "steps": [
+        "Position the vehicle over a designated waste water drain point",
+        "Locate the waste tank drain valve (usually underneath, near the middle)",
+        "Place a container underneath if needed, or ensure alignment with drain",
+        "Open the waste tank valve fully",
+        "Wait for the tank to drain completely",
+        "Close the valve securely",
+        "Rinse the drain area if facilities permit"
+      ],
+      "safety_notes": [
+        "Only empty at designated disposal points",
+        "Never empty onto the ground or into storm drains",
+        "Wash hands thoroughly after handling waste water"
+      ]
+    },
+    {
+      "id": "troubleshoot-electrical-fault",
+      "title": "Troubleshoot: 12V electrical fault",
+      "system": "problems",
+      "keywords": ["electrical", "12v", "battery", "fuse", "power", "not working", "fault"],
+      "images": [
+        {
+          "src": "images/problems/main-battery-switch.jpg",
+          "alt": "Main battery disconnect switch",
+          "caption": "Step 1: Check the main battery disconnect switch is ON"
+        },
+        {
+          "src": "images/problems/fuse-box.jpg",
+          "alt": "12V fuse box location and layout",
+          "caption": "Step 3: Fuse box location - check for blown fuses"
+        },
+        {
+          "src": "images/problems/battery-terminals.jpg",
+          "alt": "Leisure battery terminal connections",
+          "caption": "Step 7: Check battery terminals are clean and tight"
+        }
+      ],
+      "steps": [
+        "Check the main battery disconnect switch is on",
+        "Verify leisure battery charge level on the control panel",
+        "Locate the fuse box (usually near the control panel or under a seat)",
+        "Check and replace any blown fuses with correct rating",
+        "If connected to mains, check the charger is working",
+        "Test individual circuits to isolate the problem",
+        "Check battery terminal connections are clean and tight",
+        "If battery repeatedly goes flat, it may need replacement"
+      ],
+      "safety_notes": [
+        "Always replace fuses with the correct amp rating",
+        "Do not attempt to repair or modify the electrical system",
+        "Disconnect battery before working on electrical components"
+      ]
+    }
+  ]
+}
