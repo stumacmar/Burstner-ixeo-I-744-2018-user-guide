@@ -2,78 +2,77 @@
 
 An interactive digital owner's manual for the 2018 Bürstner Ixeo I 744 A-class motorhome.
 
+## Design Philosophy
+
+**Icon-only guide** — This manual uses emoji icons to represent each vehicle system, making it lightweight, fast-loading, and mobile-friendly. Photos are optional and may be added in future versions.
+
 ## Features
 
 - 📱 **Mobile-first design** - Optimized for iPhone Safari and all mobile browsers
-- 🔍 **Offline search** - Find tasks and systems instantly without internet
-- 📸 **Photo references** - Add your own photos to illustrate each task
-- 🏕️ **Practical tasks** - Real-world owner tasks like heating, water, and troubleshooting
+- 🎯 **Icon-based navigation** - Quick visual identification of all systems
+- 🔍 **Offline search** - Find systems instantly without internet
+- 📋 **Step-by-step guides** - Clear instructions for each system
+- ⚠️ **Safety notes** - Important warnings for safe operation
 - ⚡ **No build required** - Pure HTML, CSS, and JavaScript
+- 🌙 **Dark mode support** - Follows system preference
 
 ## Quick Start
 
 1. Open `index.html` in any web browser
 2. Or visit the GitHub Pages URL if deployed
+3. Tap any system icon to view details
 
-## Adding Your Photos
+## Systems Covered
 
-The manual supports reference photos for each system and task. To add your own photos:
+### Heating & Power
+- 🔥 Alde Wet Heating System
+- ☀️ Solar Charging System
+- 🔥 Gas Storage (2×13kg)
+- 🎛️ Main Control Panel
 
-1. Take photos of your motorhome's components (control panels, valves, beds, etc.)
-2. Save them in the appropriate `/images/` subdirectory:
-   - `/images/heating/` - Truma panel, gas locker, mains inlet
-   - `/images/water/` - Water fillers, drain valves, pump
-   - `/images/driving/` - Exterior views, cab, lockers
-   - `/images/interior/` - Beds, dinette, cupboards
-   - `/images/problems/` - Fuse box, battery, control panel
-3. Name them according to the list in `/images/README.md`
-4. Refresh the manual to see your photos
+### Water
+- 💧 Fresh Water Tank Access
+- 🚽 Cassette Toilet
+- 🚿 Outdoor Shower
 
-See `/images/README.md` for the complete list of recommended photos.
+### Safety & Security
+- 📹 360° Surround Camera
+- 🎥 Reversing Camera
+- 🚨 Alarm System
+- 📍 Vehicle Tracker
+
+### Beds
+- 🛏️ Electric Drop-Down Bed (Rear)
+- 🛏️ Pull-Down Bed (Half Dinette)
+
+### Media & Comfort
+- 📺 TVs (Two in Cab + Rear Lounge)
+- 📺 Outdoor TV Point
+- 📶 5G Internet Setup
+- ❄️ 3-Way Fridge
+- 🪟 Blinds & Fly Screens
+
+### Exterior
+- ⛱️ Awning
+- 🌡️ Silver External Heat Shield
+- 🍖 Outdoor Gas BBQ Point
 
 ## File Structure
 
 ```
 /
-├── index.html          # Main application
+├── index.html              # Main application
 ├── css/
-│   └── style.css       # Mobile-first styles
+│   └── style.css           # Mobile-first styles (no image dependencies)
 ├── js/
-│   ├── app.js          # Main application logic
-│   ├── search.js       # Offline search functionality
-│   └── tasks.js        # Dynamic task rendering
-├── data/
-│   ├── systems.json    # Vehicle systems data
-│   └── tasks.json      # Owner tasks data
-├── images/
-│   ├── heating/        # Heating & power photos
-│   ├── water/          # Water system photos
-│   ├── driving/        # Driving & safety photos
-│   ├── interior/       # Beds & interior photos
-│   └── problems/       # Troubleshooting photos
+│   ├── systems-data.js     # System definitions with icons, steps, safety notes
+│   └── app.js              # Main application logic
+├── data/                   # Legacy JSON data files
+│   ├── systems.json
+│   └── tasks.json
+├── images/                 # Optional - for future photo additions
 └── README.md
 ```
-
-## Systems Covered
-
-- **Heating & Power** - Truma Combi heating, 230V hook-up, 12V battery system
-- **Water** - Fresh water, waste water, pump, winterisation
-- **Driving & Safety** - Pre-departure checks, weight limits, safety features
-- **Beds & Interior** - Drop-down bed, fixed bed, dinette conversion
-- **Problems** - Troubleshooting electrical, water, and heating faults
-
-## Tasks Included
-
-1. Set heating on arrival
-2. Lower the drop-down bed
-3. Winterise the water system
-4. Connect to mains hook-up
-5. Fill the fresh water tank
-6. Prepare the vehicle for driving
-7. Empty the waste water tank
-8. Troubleshoot: No water from taps
-9. Troubleshoot: Heating not working
-10. Troubleshoot: 12V electrical fault
 
 ## Technical Notes
 
@@ -82,14 +81,19 @@ See `/images/README.md` for the complete list of recommended photos.
 - GitHub Pages compatible
 - Dark mode support (follows system preference)
 - Accessible keyboard navigation
+- Icon-only design — no images required
+
+## Future Enhancements
+
+Photos may be added in future versions. The current icon-only design ensures:
+- Fast loading on mobile networks
+- No blank screens or missing content
+- Consistent appearance across all devices
 
 ## Disclaimer
 
 This is a supplementary quick-reference guide. Always refer to the official Bürstner documentation for complete specifications, safety information, and warranty requirements.
 
-// UNVERIFIED – Some technical details may require manual confirmation against your specific vehicle's documentation.
-
 ## License
 
 For personal use with your Bürstner Ixeo I 744 motorhome.
-
