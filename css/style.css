@@ -447,31 +447,6 @@ main {
     background-color: var(--card-background);
 }
 
-/* Image placeholder when image not found */
-.image-placeholder {
-    width: 100%;
-    height: 120px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--background-color);
-    color: var(--text-light);
-    font-size: 0.75rem;
-    text-align: center;
-    padding: 0.5rem;
-}
-
-.image-placeholder .placeholder-icon {
-    font-size: 2rem;
-    margin-bottom: 0.25rem;
-    opacity: 0.5;
-}
-
-.image-placeholder .placeholder-text {
-    opacity: 0.7;
-}
-
 /* System Images */
 .system-images {
     margin: 1rem 0;
@@ -673,14 +648,6 @@ footer .disclaimer {
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
     font-size: 0.8rem;
-}
-
-/* Image note for placeholders */
-.image-note {
-    font-size: 0.75rem;
-    color: var(--text-light);
-    font-style: italic;
-    margin-bottom: 0.5rem;
 }
 
 /* Tablet and Desktop Styles */
@@ -1059,59 +1026,6 @@ a:focus-visible,
     background-color: var(--primary-color);
     color: white;
     border-color: var(--primary-color);
-}
-
-/* ===========================================
-   Image Blocking Placeholder - Required Images
-   =========================================== */
-
-.image-blocking-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 1rem;
-    background-color: rgba(197, 48, 48, 0.1);
-    border: 2px dashed var(--warning-color);
-    border-radius: 0.5rem;
-    text-align: center;
-    min-height: 150px;
-}
-
-.blocking-icon {
-    font-size: 2.5rem;
-    margin-bottom: 0.75rem;
-}
-
-.blocking-title {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--warning-color);
-    margin-bottom: 0.5rem;
-}
-
-.blocking-message {
-    font-size: 0.875rem;
-    color: var(--text-color);
-    margin-bottom: 0.75rem;
-    font-weight: 500;
-}
-
-.blocking-path {
-    font-size: 0.75rem;
-    font-family: monospace;
-    color: var(--text-light);
-    background-color: var(--background-color);
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-    margin-bottom: 0.5rem;
-    word-break: break-all;
-}
-
-.blocking-description {
-    font-size: 0.75rem;
-    color: var(--text-light);
-    font-style: italic;
 }
 
 /* Verification Badge - Blocked State */
