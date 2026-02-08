@@ -1,0 +1,155 @@
+{
+  "systems": [
+    {
+      "id": "heating-power",
+      "name": "Heating & Power",
+      "description": "The Ixeo I 744 features a Truma Combi heating system and dual power supply (230V mains hook-up and 12V leisure battery). The control panel allows temperature adjustment and power source selection.",
+      "images": [
+        {
+          "src": "images/heating/truma-control-panel.jpg",
+          "alt": "Truma Combi control panel located on the interior wall",
+          "caption": "Truma control panel - adjust temperature and select heating mode here"
+        },
+        {
+          "src": "images/heating/gas-locker.jpg",
+          "alt": "External gas bottle locker on the Ixeo I 744",
+          "caption": "Gas locker location - check bottle levels and connections here"
+        },
+        {
+          "src": "images/heating/mains-inlet.jpg",
+          "alt": "External 230V mains hook-up inlet",
+          "caption": "Mains hook-up inlet on the exterior of the vehicle"
+        }
+      ],
+      "warnings": [
+        "Never run gas heating while refuelling",
+        "Ensure adequate ventilation when heating is in use",
+        "Check gas bottle connections regularly for leaks",
+        "Do not block air intake or exhaust vents"
+      ]
+    },
+    {
+      "id": "water",
+      "name": "Water System",
+      "description": "Fresh water tank and waste water tank system with electric pump. The system includes a water heater integrated with the Truma Combi unit. Tank level indicators are displayed on the control panel.",
+      "images": [
+        {
+          "src": "images/water/fresh-water-filler.jpg",
+          "alt": "Fresh water filler cap on exterior of Ixeo I 744",
+          "caption": "Fresh water filler - located on the exterior side panel"
+        },
+        {
+          "src": "images/water/control-panel-levels.jpg",
+          "alt": "Control panel showing water tank level indicators",
+          "caption": "Tank level indicators on the main control panel"
+        },
+        {
+          "src": "images/water/waste-valve.jpg",
+          "alt": "Waste water drain valve underneath the vehicle",
+          "caption": "Waste water drain valve - located underneath the vehicle"
+        }
+      ],
+      "warnings": [
+        "Drain water system completely before freezing conditions",
+        "Use only drinking water approved hoses for filling",
+        "Do not drink water that has been standing for extended periods",
+        "Empty waste tank at designated disposal points only"
+      ]
+    },
+    {
+      "id": "driving-safety",
+      "name": "Driving & Safety",
+      "description": "Based on Fiat Ducato chassis with safety features including ABS, driver/passenger airbags, and ESP. Maximum permitted weight and payload limits must be observed.",
+      "images": [
+        {
+          "src": "images/driving/exterior-front.jpg",
+          "alt": "Front view of the Bürstner Ixeo I 744",
+          "caption": "Bürstner Ixeo I 744 - front exterior view"
+        },
+        {
+          "src": "images/driving/cab-dashboard.jpg",
+          "alt": "Fiat Ducato cab and dashboard",
+          "caption": "Cab area showing Fiat Ducato dashboard and controls"
+        },
+        {
+          "src": "images/driving/exterior-rear.jpg",
+          "alt": "Rear view showing bike rack and reversing camera",
+          "caption": "Rear view - check camera and clearance before reversing"
+        }
+      ],
+      "warnings": [
+        "Check all items are secured before driving",
+        "Never exceed the maximum permitted weight",
+        "Ensure roof vents and windows are closed before moving",
+        "Check mirrors and cameras are properly adjusted",
+        "Passengers must use seatbelts while driving"
+      ]
+    },
+    {
+      "id": "beds-interior",
+      "name": "Beds & Interior",
+      "description": "The Ixeo I 744 includes a rear fixed bed and an electric drop-down bed above the cab area. The dinette can also convert to additional sleeping space. Interior lighting is LED throughout.",
+      "images": [
+        {
+          "src": "images/interior/dropdown-bed-raised.jpg",
+          "alt": "Electric drop-down bed in raised position above cab",
+          "caption": "Drop-down bed in raised/stored position"
+        },
+        {
+          "src": "images/interior/dropdown-bed-lowered.jpg",
+          "alt": "Electric drop-down bed lowered for sleeping",
+          "caption": "Drop-down bed lowered - ready for use"
+        },
+        {
+          "src": "images/interior/rear-fixed-bed.jpg",
+          "alt": "Rear fixed bed in the Ixeo I 744",
+          "caption": "Rear fixed bed with storage underneath"
+        },
+        {
+          "src": "images/interior/lounge-dinette.jpg",
+          "alt": "Lounge and dinette area",
+          "caption": "Lounge area - can convert to additional sleeping space"
+        },
+        {
+          "src": "images/interior/bed-control-switch.jpg",
+          "alt": "Electric bed control switch on wall",
+          "caption": "Bed control switch - hold to raise or lower"
+        }
+      ],
+      "warnings": [
+        "Ensure drop-down bed is fully raised and secured before driving",
+        "Check bed area is clear before lowering drop-down bed",
+        "Do not exceed bed weight limits",
+        "Keep bedding away from heating vents"
+      ]
+    },
+    {
+      "id": "problems",
+      "name": "Common Problems & Troubleshooting",
+      "description": "Quick reference for common issues including electrical faults, water system problems, heating failures, and general maintenance concerns.",
+      "images": [
+        {
+          "src": "images/problems/fuse-box.jpg",
+          "alt": "12V fuse box location inside the Ixeo I 744",
+          "caption": "Fuse box location - check here for electrical faults"
+        },
+        {
+          "src": "images/problems/main-control-panel.jpg",
+          "alt": "Main control panel showing system status",
+          "caption": "Main control panel - check for error indicators"
+        },
+        {
+          "src": "images/problems/water-pump.jpg",
+          "alt": "Water pump location",
+          "caption": "Water pump - listen for operation when troubleshooting"
+        }
+      ],
+      "warnings": [
+        "For gas-related issues, contact a qualified technician",
+        "Do not attempt repairs beyond your skill level",
+        "Keep emergency contact numbers readily available",
+        "If in doubt about safety, seek professional help"
+      ]
+    }
+  ]
+}
