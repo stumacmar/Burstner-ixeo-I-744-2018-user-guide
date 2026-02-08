@@ -587,8 +587,16 @@ footer .disclaimer {
 .verified-badge {
     display: inline-block;
     font-size: 0.7rem;
-    color: var(--success-color);
     margin-left: 0.25rem;
+}
+
+.verified-badge.owner {
+    color: var(--success-color);
+}
+
+.verified-badge.manual {
+    color: var(--accent-color);
+    font-size: 0.6rem;
 }
 
 .system-header {

@@ -141,9 +141,12 @@ const App = {
      */
     createSystemButton(system) {
         const icon = this.getSystemIcon(system);
-        const verificationBadge = system.verification_status === 'owner-confirmed' 
-            ? '<span class="verified-badge" title="Owner confirmed">✓</span>' 
-            : '';
+        let verificationBadge = '';
+        if (system.verification_status === 'owner-confirmed') {
+            verificationBadge = '<span class="verified-badge owner" title="Owner confirmed">✓</span>';
+        } else if (system.verification_status === 'manual-verified') {
+            verificationBadge = '<span class="verified-badge manual" title="Manual verified">📖</span>';
+        }
         
         return `
             <button class="system-btn" data-system="${this.escapeAttr(system.id)}">
