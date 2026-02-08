@@ -14,12 +14,12 @@ This document lists all required images for each feature in the interactive manu
 | Heating | 1 | 3 |
 | Power | 4 | 12 |
 | Water | 3 | 7 |
-| Safety | 4 | 10 |
+| Safety | 6 | 14 |
 | Beds | 2 | 6 |
 | Media | 4 | 8 |
 | Comfort | 2 | 6 |
-| Exterior | 4 | 9 |
-| **Total** | **24** | **61** |
+| Exterior | 3 | 7 |
+| **Total** | **25** | **63** |
 
 ---
 
@@ -723,9 +723,9 @@ This document lists all required images for each feature in the interactive manu
 
 ## Summary Statistics
 
-- **Total Features:** 24
-- **Total Required Images:** 61
-- **Owner Photos Required:** 55
+- **Total Features:** 25
+- **Total Required Images:** 63
+- **Owner Photos Required:** 57
 - **Manufacturer Sources Available:** 15
 - **Online Sources Documented:** 12
 
@@ -733,7 +733,7 @@ This document lists all required images for each feature in the interactive manu
 
 Before releasing, verify:
 
-- [ ] All 61 image paths are defined in code
+- [ ] All 63 image paths are defined in code
 - [ ] All blocking placeholders render correctly
 - [ ] Verification status blocked when images missing
 - [ ] All online source URLs are accessible
