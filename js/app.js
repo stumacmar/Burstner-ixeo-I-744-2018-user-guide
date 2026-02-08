@@ -1,179 +1,45 @@
 /**
  * Bürstner Ixeo I 744 Interactive Manual - Main Application
  * 
- * Route-based, image-required, mobile-first knowledge app.
+ * Icon-only, mobile-first interactive user guide.
+ * NO images required - uses emoji icons for all system representations.
  * 
  * Features:
- * - Hash-based routing for dedicated feature views
- * - Image enforcement with blocking placeholders
- * - Full-screen detail views with hero images
- * - Mobile-first responsive design
+ * - Responsive icon grid layout
+ * - Tap-to-expand detail view
+ * - Back button navigation
+ * - Keyboard accessible
  */
 
-// UNVERIFIED – requires manual confirmation for specific technical specifications
-
 const App = {
-    systems: [],
-    tasks: [],
     currentSystem: null,
-
-    // Category icons and display order
-    categoryConfig: {
-        'Heating': { icon: '🔥', order: 1 },
-        'Power': { icon: '⚡', order: 2 },
-        'Water': { icon: '💧', order: 3 },
-        'Safety': { icon: '🛡️', order: 4 },
-        'Beds': { icon: '🛏️', order: 5 },
-        'Media': { icon: '📺', order: 6 },
-        'Comfort': { icon: '🏠', order: 7 },
-        'Exterior': { icon: '🏕️', order: 8 }
-    },
 
     /**
      * Initialize the application
      */
-    async init() {
-        try {
-            // Load data files
-            await this.loadData();
-            
-            // Setup router
-            this.setupRouter();
-            
-            // Render systems grouped by category (for home view)
-            this.renderSystemsByCategory();
-            
-            // Set up event listeners
-            this.setupEventListeners();
-            
-            // Initialize router (handles initial route)
-            Router.init();
-            
-            console.log('Bürstner Ixeo I 744 Manual loaded successfully');
-        } catch (error) {
-            console.error('Failed to initialize application:', error);
-            this.showError('Failed to load manual data. Please refresh the page.');
-        }
-    },
-
-    /**
-     * Setup route handlers
-     */
-    setupRouter() {
-        // Home route - show system tiles
-        Router.register('home', () => {
-            this.showHomeView();
-        });
-
-        // Feature route - show feature detail
-        Router.register('feature', async (category, id) => {
-            await this.showFeatureDetail(category, id);
-        });
-
-        // Task route - show task detail
-        Router.register('task', async (systemId, taskId) => {
-            await this.showTaskDetail(systemId, taskId);
-        });
-    },
-
-    /**
-     * Show home view with system tiles
-     */
-    showHomeView() {
-        FeatureDetail.hide();
-        const homeView = document.getElementById('home-view');
-        if (homeView) {
-            homeView.classList.remove('hidden');
-        }
-    },
-
-    /**
-     * Show feature detail view
-     */
-    async showFeatureDetail(category, id) {
-        const system = this.systems.find(s => s.id === id);
+    init() {
+        // Render icon grid
+        this.renderSystemGrid();
         
-        if (!system) {
-            console.error('System not found:', id);
-            Router.navigate('/');
-            return;
-        }
-
-        this.currentSystem = system;
-
-        // Get related tasks
-        const relatedTasks = this.tasks.filter(task => 
-            task.system === id || 
-            (task.linked_system_ids && task.linked_system_ids.includes(id))
-        );
-
-        // Render detail view
-        await FeatureDetail.render(system, relatedTasks);
+        // Set up event listeners
+        this.setupEventListeners();
+        
+        // Handle initial URL hash if present
+        this.handleHashRoute();
+        
+        console.log('Bürstner Ixeo I 744 Manual loaded successfully');
     },
 
     /**
-     * Show task detail view
+     * Render the system icon grid
      */
-    async showTaskDetail(systemId, taskId) {
-        const system = this.systems.find(s => s.id === systemId);
-        const task = this.tasks.find(t => t.id === taskId);
-
-        if (!system || !task) {
-            console.error('System or task not found:', systemId, taskId);
-            Router.navigate('/');
-            return;
-        }
-
-        await TaskDetail.render(task, system);
-    },
-
-    /**
-     * Load systems and tasks data from JSON files
-     */
-    async loadData() {
-        try {
-            // Load both data files in parallel
-            const [systemsResponse, tasksResponse] = await Promise.all([
-                fetch('data/systems.json'),
-                fetch('data/tasks.json')
-            ]);
-
-            if (!systemsResponse.ok || !tasksResponse.ok) {
-                throw new Error('Failed to fetch data files');
-            }
-
-            const systemsData = await systemsResponse.json();
-            const tasksData = await tasksResponse.json();
-
-            this.systems = systemsData.systems;
-            this.tasks = tasksData.tasks;
-
-            // Initialize search with loaded data
-            if (typeof Search !== 'undefined') {
-                Search.init(this.systems, this.tasks);
-            }
-
-            // Initialize tasks module
-            if (typeof Tasks !== 'undefined') {
-                Tasks.init(this.tasks);
-            }
-
-        } catch (error) {
-            console.error('Error loading data:', error);
-            throw error;
-        }
-    },
-
-    /**
-     * Render systems grouped by category
-     */
-    renderSystemsByCategory() {
-        const container = document.getElementById('systems-by-category');
-        if (!container) return;
+    renderSystemGrid() {
+        const grid = document.getElementById('system-grid');
+        if (!grid) return;
 
         // Group systems by category
         const categories = {};
-        this.systems.forEach(system => {
+        SYSTEMS.forEach(system => {
             const category = system.category || 'Other';
             if (!categories[category]) {
                 categories[category] = [];
@@ -183,221 +49,372 @@ const App = {
 
         // Sort categories by configured order
         const sortedCategories = Object.keys(categories).sort((a, b) => {
-            const orderA = this.categoryConfig[a]?.order || 999;
-            const orderB = this.categoryConfig[b]?.order || 999;
+            const orderA = CATEGORIES[a]?.order || 999;
+            const orderB = CATEGORIES[b]?.order || 999;
             return orderA - orderB;
         });
 
-        // Render each category
+        // Build HTML for each category group
         let html = '';
         sortedCategories.forEach(category => {
-            const config = this.categoryConfig[category] || { icon: '📋', order: 999 };
+            const categoryConfig = CATEGORIES[category] || { icon: '📋', order: 999 };
             const systems = categories[category];
             
             html += `
                 <div class="category-group">
                     <h3 class="category-title">
-                        <span class="category-icon">${config.icon}</span>
+                        <span class="category-icon">${categoryConfig.icon}</span>
                         ${this.escapeHtml(category)}
                     </h3>
                     <div class="system-buttons">
-                        ${systems.map(system => this.createSystemButton(system)).join('')}
+                        ${systems.map(system => this.createSystemCard(system)).join('')}
                     </div>
                 </div>
             `;
         });
 
-        container.innerHTML = html;
+        grid.innerHTML = html;
     },
 
     /**
-     * Create a system button HTML - now renders as route link
-     * @param {Object} system - System object
-     * @returns {string} HTML string for the button
+     * Create a system card button
+     * @param {Object} system - System object from SYSTEMS array
+     * @returns {string} HTML string for the card
      */
-    createSystemButton(system) {
-        const icon = this.getSystemIcon(system);
-        const route = Router.featureRoute(system.category, system.id);
-        let verificationBadge = '';
-        if (system.verification_status === 'owner-confirmed') {
-            verificationBadge = '<span class="verified-badge owner" title="Owner confirmed">✓</span>';
-        } else if (system.verification_status === 'manual-verified') {
-            verificationBadge = '<span class="verified-badge manual" title="Manual verified">📖</span>';
-        }
-        
+    createSystemCard(system) {
         return `
-            <a href="${route}" class="system-btn" data-system="${this.escapeAttr(system.id)}">
-                <span class="icon">${icon}</span>
-                <span class="label">${this.escapeHtml(system.name)}${verificationBadge}</span>
-            </a>
+            <button class="system-card" 
+                    data-system="${this.escapeAttr(system.id)}"
+                    aria-label="${this.escapeAttr(system.title)}">
+                <span class="card-icon" aria-hidden="true">${system.icon}</span>
+                <span class="card-label">${this.escapeHtml(system.title)}</span>
+            </button>
         `;
     },
 
     /**
-     * Get icon for a system based on its category or name
-     * @param {Object} system - System object
-     * @returns {string} Emoji icon
-     */
-    getSystemIcon(system) {
-        // Specific system icons
-        const systemIcons = {
-            'alde-heating': '🔥',
-            'fridge-3way': '❄️',
-            'solar-system': '☀️',
-            'camera-360': '📹',
-            'camera-reversing': '🎥',
-            'tv-front': '📺',
-            'tv-rear': '📺',
-            'bed-dropdown-rear': '🛏️',
-            'bed-pulldown-dinette': '🛏️',
-            'blinds-flyscreens': '🪟',
-            'heat-shield-front': '🌡️',
-            'awning': '⛱️',
-            'outdoor-shower': '🚿',
-            'bbq-point': '🍖',
-            'outdoor-tv-point': '📺',
-            'gas-storage': '🔥',
-            'cassette-toilet': '🚽',
-            'fresh-water-external': '💧',
-            'alarm-system': '🚨',
-            'vehicle-tracker': '📍',
-            'internet-5g': '📶',
-            'control-panel': '🎛️',
-            'mains-charger': '🔌',
-            'driving-safety': '🚗',
-            'problems': '⚠️'
-        };
-
-        return systemIcons[system.id] || this.categoryConfig[system.category]?.icon || '📋';
-    },
-
-    /**
-     * Set up event listeners for system buttons
+     * Set up event listeners
      */
     setupEventListeners() {
-        // Close search results when clicking outside
+        // Delegate click events for system cards
+        const grid = document.getElementById('system-grid');
+        if (grid) {
+            grid.addEventListener('click', (e) => {
+                const card = e.target.closest('.system-card');
+                if (card) {
+                    const systemId = card.dataset.system;
+                    this.showSystemDetail(systemId);
+                }
+            });
+        }
+
+        // Handle hash changes for back/forward navigation
+        window.addEventListener('hashchange', () => {
+            this.handleHashRoute();
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                this.handleSearch(e.target.value);
+            });
+            
+            // Close search on escape
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    searchInput.value = '';
+                    this.hideSearchResults();
+                    searchInput.blur();
+                }
+            });
+        }
+
+        // Close search when clicking outside
         document.addEventListener('click', (e) => {
             const searchSection = document.querySelector('.search-section');
             if (searchSection && !searchSection.contains(e.target)) {
-                Search.hideResults();
+                this.hideSearchResults();
             }
         });
 
         // Handle escape key for back navigation
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
-                const currentRoute = Router.getCurrentRoute();
-                if (currentRoute.type !== 'home') {
-                    Router.navigate('/');
-                }
+                this.showHomeView();
             }
         });
     },
 
     /**
-     * Select and display a system - now navigates to route
-     * @param {string} systemId - The ID of the system to display
+     * Handle URL hash routing
      */
-    selectSystem(systemId) {
-        const system = this.systems.find(s => s.id === systemId);
+    handleHashRoute() {
+        const hash = window.location.hash.slice(1);
         
+        if (hash) {
+            // Try to find matching system
+            const system = SYSTEMS.find(s => s.id === hash);
+            if (system) {
+                this.showSystemDetail(hash, false); // false = don't update hash again
+            } else {
+                this.showHomeView();
+            }
+        } else {
+            this.showHomeView();
+        }
+    },
+
+    /**
+     * Show system detail view
+     * @param {string} systemId - System ID to display
+     * @param {boolean} updateHash - Whether to update URL hash
+     */
+    showSystemDetail(systemId, updateHash = true) {
+        const system = SYSTEMS.find(s => s.id === systemId);
         if (!system) {
             console.error('System not found:', systemId);
             return;
         }
 
-        // Navigate to the feature route
-        Router.navigate(Router.featureRoute(system.category, system.id).slice(1));
+        this.currentSystem = system;
+
+        // Update URL hash
+        if (updateHash) {
+            window.location.hash = systemId;
+        }
+
+        // Hide home view
+        const homeView = document.getElementById('home-view');
+        if (homeView) {
+            homeView.classList.add('hidden');
+        }
+
+        // Show and populate detail view
+        const detailView = document.getElementById('system-detail');
+        if (detailView) {
+            detailView.innerHTML = this.buildDetailHTML(system);
+            detailView.classList.remove('hidden');
+            
+            // Setup back button
+            const backBtn = detailView.querySelector('.back-button');
+            if (backBtn) {
+                backBtn.addEventListener('click', () => {
+                    this.showHomeView();
+                });
+            }
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
     },
 
     /**
-     * Display system information (kept for search integration)
-     * @param {Object} system - The system object to display
+     * Build HTML for system detail view
+     * @param {Object} system - System object
+     * @returns {string} HTML string
      */
-    displaySystemInfo(system) {
-        // This is now handled by FeatureDetail.render()
-        // Kept for backwards compatibility with search
-        this.selectSystem(system.id);
-    },
+    buildDetailHTML(system) {
+        const bulletsHtml = system.bullets && system.bullets.length > 0
+            ? `<section class="detail-section info-section">
+                <h3 class="section-title"><span class="section-icon">ℹ️</span> Key Information</h3>
+                <ul class="bullet-list">
+                    ${system.bullets.map(b => `<li>${this.escapeHtml(b)}</li>`).join('')}
+                </ul>
+               </section>`
+            : '';
 
-    /**
-     * Create an image gallery HTML
-     * @param {Array} images - Array of image objects
-     * @param {string} className - Additional CSS class
-     * @returns {string} HTML string for the gallery
-     */
-    createImageGallery(images, className = '') {
-        const galleryItems = images.map((img, index) => `
-            <div class="gallery-item" data-gallery-index="${index}">
-                <img src="${this.escapeAttr(img.src)}" 
-                     alt="${this.escapeAttr(img.alt)}"
-                     data-caption="${this.escapeAttr(img.caption || img.alt)}"
-                     data-fallback-alt="${this.escapeAttr(img.alt)}"
-                     loading="lazy">
-                <div class="caption">${this.escapeHtml(img.caption || '')}</div>
-            </div>
-        `).join('');
+        const stepsHtml = system.steps && system.steps.length > 0
+            ? `<section class="detail-section steps-section">
+                <h3 class="section-title"><span class="section-icon">📝</span> How To Use</h3>
+                <ol class="steps-list">
+                    ${system.steps.map((step, i) => `
+                        <li class="step-item">
+                            <span class="step-number">${i + 1}</span>
+                            <span class="step-text">${this.escapeHtml(step)}</span>
+                        </li>
+                    `).join('')}
+                </ol>
+               </section>`
+            : '';
+
+        const safetyHtml = system.safety && system.safety.length > 0
+            ? `<section class="detail-section safety-section">
+                <h3 class="section-title"><span class="section-icon">⚠️</span> Safety Notes</h3>
+                <ul class="safety-list">
+                    ${system.safety.map(s => `<li>${this.escapeHtml(s)}</li>`).join('')}
+                </ul>
+               </section>`
+            : '';
 
         return `
-            <div class="image-gallery ${className}">
-                <h5>📸 Reference Photos</h5>
-                <div class="gallery-grid">
-                    ${galleryItems}
+            <header class="detail-header">
+                <button class="back-button" aria-label="Back to systems">
+                    <span class="back-icon">←</span>
+                    <span class="back-text">Back</span>
+                </button>
+                <span class="detail-category">${this.escapeHtml(system.category || 'General')}</span>
+            </header>
+
+            <div class="detail-content">
+                <div class="detail-hero">
+                    <span class="hero-icon">${system.icon}</span>
+                    <h2 class="detail-title">${this.escapeHtml(system.title)}</h2>
                 </div>
+
+                ${bulletsHtml}
+                ${stepsHtml}
+                ${safetyHtml}
             </div>
         `;
     },
 
     /**
-     * Set up lightbox functionality for images
+     * Show home view (system grid)
      */
-    setupLightbox() {
-        // Create lightbox if it doesn't exist
-        let lightbox = document.getElementById('lightbox');
-        if (!lightbox) {
-            lightbox = document.createElement('div');
-            lightbox.id = 'lightbox';
-            lightbox.className = 'lightbox';
-            lightbox.innerHTML = `
-                <button class="lightbox-close" aria-label="Close">×</button>
-                <img class="lightbox-content" src="" alt="">
-                <div class="lightbox-caption"></div>
+    showHomeView() {
+        // Update URL hash
+        history.pushState(null, '', window.location.pathname);
+
+        // Hide detail view
+        const detailView = document.getElementById('system-detail');
+        if (detailView) {
+            detailView.classList.add('hidden');
+        }
+
+        // Show home view
+        const homeView = document.getElementById('home-view');
+        if (homeView) {
+            homeView.classList.remove('hidden');
+        }
+
+        this.currentSystem = null;
+    },
+
+    /**
+     * Handle search input
+     * @param {string} query - Search query
+     */
+    handleSearch(query) {
+        const searchTerm = query.trim().toLowerCase();
+        
+        if (searchTerm.length < 2) {
+            this.hideSearchResults();
+            return;
+        }
+
+        const results = [];
+
+        SYSTEMS.forEach(system => {
+            let score = 0;
+
+            // Check title
+            if (system.title.toLowerCase().includes(searchTerm)) {
+                score += 10;
+            }
+
+            // Check category
+            if (system.category && system.category.toLowerCase().includes(searchTerm)) {
+                score += 5;
+            }
+
+            // Check bullets
+            if (system.bullets) {
+                system.bullets.forEach(bullet => {
+                    if (bullet.toLowerCase().includes(searchTerm)) {
+                        score += 3;
+                    }
+                });
+            }
+
+            // Check steps
+            if (system.steps) {
+                system.steps.forEach(step => {
+                    if (step.toLowerCase().includes(searchTerm)) {
+                        score += 2;
+                    }
+                });
+            }
+
+            if (score > 0) {
+                results.push({ system, score });
+            }
+        });
+
+        // Sort by score
+        results.sort((a, b) => b.score - a.score);
+
+        this.displaySearchResults(results.slice(0, 8));
+    },
+
+    /**
+     * Display search results
+     * @param {Array} results - Array of {system, score} objects
+     */
+    displaySearchResults(results) {
+        const container = document.getElementById('search-results');
+        if (!container) return;
+
+        if (results.length === 0) {
+            container.innerHTML = `
+                <div class="search-result-item no-results">
+                    <span class="result-title">No results found</span>
+                    <span class="result-type">Try different keywords</span>
+                </div>
             `;
-            document.body.appendChild(lightbox);
+        } else {
+            container.innerHTML = results.map(({ system }) => `
+                <div class="search-result-item" 
+                     data-system="${this.escapeAttr(system.id)}"
+                     tabindex="0"
+                     role="button">
+                    <span class="result-icon">${system.icon}</span>
+                    <span class="result-title">${this.escapeHtml(system.title)}</span>
+                    <span class="result-type">${this.escapeHtml(system.category)}</span>
+                </div>
+            `).join('');
 
-            // Close on click outside or close button
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
-                    lightbox.classList.remove('active');
-                }
-            });
-
-            // Close on escape key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-                    lightbox.classList.remove('active');
-                }
+            // Add click handlers
+            container.querySelectorAll('.search-result-item[data-system]').forEach(item => {
+                item.addEventListener('click', () => {
+                    this.showSystemDetail(item.dataset.system);
+                    document.getElementById('search-input').value = '';
+                    this.hideSearchResults();
+                });
+                item.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.showSystemDetail(item.dataset.system);
+                        document.getElementById('search-input').value = '';
+                        this.hideSearchResults();
+                    }
+                });
             });
         }
 
-        // Add click handlers to gallery images
-        document.querySelectorAll('.gallery-item img').forEach(img => {
-            // Prevent duplicate lightbox click handler attachment
-            if (!img.dataset.lightboxHandlerAttached) {
-                img.dataset.lightboxHandlerAttached = 'true';
+        container.classList.remove('hidden');
+    },
 
-                img.addEventListener('click', () => {
-                    const lightboxImg = lightbox.querySelector('.lightbox-content');
-                    const lightboxCaption = lightbox.querySelector('.lightbox-caption');
-                    
-                    lightboxImg.src = img.src;
-                    lightboxImg.alt = img.alt;
-                    lightboxCaption.textContent = img.dataset.caption || img.alt;
-                    
-                    lightbox.classList.add('active');
-                });
-            }
-        });
+    /**
+     * Hide search results
+     */
+    hideSearchResults() {
+        const container = document.getElementById('search-results');
+        if (container) {
+            container.classList.add('hidden');
+        }
+    },
+
+    /**
+     * Escape HTML to prevent XSS
+     * @param {string} text - Text to escape
+     * @returns {string} Escaped text
+     */
+    escapeHtml(text) {
+        if (text === null || text === undefined) return '';
+        const div = document.createElement('div');
+        div.textContent = String(text);
+        return div.innerHTML;
     },
 
     /**
@@ -414,64 +431,6 @@ const App = {
             '"': '&quot;',
             "'": '&#39;'
         })[char]);
-    },
-
-    /**
-     * Show empty state when no system is selected
-     */
-    showEmptyState() {
-        const tasksContainer = document.getElementById('tasks-container');
-        tasksContainer.innerHTML = `
-            <div class="empty-state">
-                <div class="icon">📖</div>
-                <p>Select a system above or search for a task</p>
-            </div>
-        `;
-    },
-
-    /**
-     * Show error message to user
-     * @param {string} message - Error message to display
-     */
-    showError(message) {
-        const tasksContainer = document.getElementById('tasks-container');
-        tasksContainer.innerHTML = `
-            <div class="empty-state">
-                <div class="icon">⚠️</div>
-                <p>${this.escapeHtml(message)}</p>
-            </div>
-        `;
-    },
-
-    /**
-     * Escape HTML to prevent XSS
-     * @param {string} text - Text to escape
-     * @returns {string} Escaped text
-     */
-    escapeHtml(text) {
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
-    },
-
-    /**
-     * Navigate to a specific task
-     * @param {string} taskId - The ID of the task to display
-     */
-    /**
-     * Navigate to a specific task - now uses routing
-     * @param {string} taskId - The ID of the task to display
-     */
-    showTask(taskId) {
-        const task = this.tasks.find(t => t.id === taskId);
-        
-        if (!task) {
-            console.error('Task not found:', taskId);
-            return;
-        }
-
-        // Navigate to the task route
-        Router.navigate(`task/${task.system}/${task.id}`);
     }
 };
 

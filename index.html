@@ -14,9 +14,13 @@
         <p class="subtitle">2018 A-Class Motorhome Owner's Guide</p>
     </header>
 
-    <main>
-        <!-- Home View - System Tiles -->
-        <div id="home-view">
+    <main id="guide">
+        <!-- Home View - Icon Grid -->
+        <section id="home-view">
+            <div class="intro-text">
+                <p>Tap any system below to view details, instructions, and safety notes.</p>
+            </div>
+
             <section class="search-section">
                 <input type="search" id="search-input" placeholder="Search tasks, systems, or keywords..." aria-label="Search manual">
                 <div id="search-results" class="search-results hidden"></div>
@@ -24,29 +28,28 @@
 
             <section class="systems-section">
                 <h2>Vehicle Systems</h2>
-                <div id="systems-by-category">
-                    <!-- Systems grouped by category will be rendered here by JavaScript -->
+                <div id="system-grid" class="system-grid" role="list" aria-label="Vehicle systems">
+                    <!-- Static fallback content - JavaScript will replace this -->
+                    <noscript>
+                        <p>This interactive guide requires JavaScript to function. Please enable JavaScript in your browser.</p>
+                    </noscript>
                 </div>
             </section>
-        </div>
+        </section>
 
-        <!-- Feature Detail View - Full Screen -->
-        <div id="feature-detail" class="feature-detail-container hidden">
-            <!-- Feature detail will be rendered here by JavaScript -->
-        </div>
+        <!-- System Detail View -->
+        <section id="system-detail" class="system-detail hidden" aria-live="polite">
+            <!-- Detail content will be rendered here by JavaScript -->
+        </section>
     </main>
 
     <footer>
-        <p>Interactive Owner's Manual</p>
+        <p>Interactive Owner's Manual — Icon-only guide; photos optional in future.</p>
         <p class="disclaimer">Always refer to official Bürstner documentation for critical safety information.</p>
     </footer>
 
     <!-- Scripts - order matters for dependencies -->
-    <script src="js/router.js"></script>
-    <script src="js/imageValidator.js"></script>
-    <script src="js/featureDetail.js"></script>
+    <script src="js/systems-data.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/search.js"></script>
-    <script src="js/tasks.js"></script>
 </body>
 </html>
