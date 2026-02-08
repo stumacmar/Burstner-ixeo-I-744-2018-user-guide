@@ -8,12 +8,12 @@
       "keywords": ["heating", "alde", "gas", "warm", "cold", "temperature", "boiler"],
       "images": [
         {
-          "src": "assets/images/heating/alde-control-panel.jpg",
+          "src": "images/heating/alde-control-panel.jpg",
           "alt": "Alde control panel showing gas mode",
           "caption": "Select gas-only mode on Alde panel"
         },
         {
-          "src": "assets/images/power/gas-locker-open.jpg",
+          "src": "images/power/gas-locker-open.jpg",
           "alt": "Gas bottle valve in open position",
           "caption": "Ensure gas bottle valve is open"
         }
@@ -41,7 +41,7 @@
       "keywords": ["heating", "alde", "electric", "mains", "warm", "240v", "230v"],
       "images": [
         {
-          "src": "assets/images/heating/alde-control-panel.jpg",
+          "src": "images/heating/alde-control-panel.jpg",
           "alt": "Alde control panel",
           "caption": "Select electric mode on Alde panel"
         }
@@ -66,7 +66,7 @@
       "keywords": ["fridge", "12v", "driving", "travel", "refrigerator"],
       "images": [
         {
-          "src": "assets/images/comfort/fridge-controls.jpg",
+          "src": "images/comfort/fridge-controls.jpg",
           "alt": "Fridge control panel",
           "caption": "Select 12V mode on fridge controls"
         }
@@ -92,7 +92,7 @@
       "keywords": ["fridge", "gas", "off-grid", "wild camping"],
       "images": [
         {
-          "src": "assets/images/comfort/fridge-controls.jpg",
+          "src": "images/comfort/fridge-controls.jpg",
           "alt": "Fridge control panel showing gas mode",
           "caption": "Select gas mode for off-grid operation"
         }
@@ -118,17 +118,17 @@
       "keywords": ["bed", "drop-down", "dropdown", "rear", "lounge", "sleep", "electric"],
       "images": [
         {
-          "src": "assets/images/beds/dropdown-rear-raised.jpg",
+          "src": "images/beds/dropdown-rear-raised.jpg",
           "alt": "Bed in raised position",
           "caption": "Start position: bed raised and secure"
         },
         {
-          "src": "assets/images/beds/dropdown-controls.jpg",
+          "src": "images/beds/dropdown-controls.jpg",
           "alt": "Bed control switch",
           "caption": "Press and hold down button"
         },
         {
-          "src": "assets/images/beds/dropdown-rear-lowered.jpg",
+          "src": "images/beds/dropdown-rear-lowered.jpg",
           "alt": "Bed lowered",
           "caption": "Bed lowered to sleeping position"
         }
@@ -157,17 +157,17 @@
       "keywords": ["bed", "pull-down", "pulldown", "dinette", "sleep", "cab"],
       "images": [
         {
-          "src": "assets/images/beds/pulldown-dinette-stowed.jpg",
+          "src": "images/beds/pulldown-dinette-stowed.jpg",
           "alt": "Bed stowed",
           "caption": "Bed stowed against ceiling"
         },
         {
-          "src": "assets/images/beds/pulldown-latch.jpg",
+          "src": "images/beds/pulldown-latch.jpg",
           "alt": "Release latch",
           "caption": "Release the safety latch"
         },
         {
-          "src": "assets/images/beds/pulldown-dinette-deployed.jpg",
+          "src": "images/beds/pulldown-dinette-deployed.jpg",
           "alt": "Bed deployed",
           "caption": "Bed deployed and ready"
         }
@@ -194,7 +194,7 @@
       "keywords": ["360", "camera", "parking", "manoeuvring", "surround"],
       "images": [
         {
-          "src": "assets/images/cameras/360-display.jpg",
+          "src": "images/cameras/360-display.jpg",
           "alt": "360 camera display",
           "caption": "Bird's eye view on dashboard display"
         }
@@ -222,7 +222,7 @@
       "keywords": ["reversing", "camera", "parking", "backup", "rear"],
       "images": [
         {
-          "src": "assets/images/cameras/reversing-display.jpg",
+          "src": "images/cameras/reversing-display.jpg",
           "alt": "Reversing camera display",
           "caption": "Rear view with parking guidelines"
         }
@@ -249,7 +249,7 @@
       "keywords": ["tv", "avtex", "front", "cab", "television", "watch"],
       "images": [
         {
-          "src": "assets/images/media/tv-front-cab.jpg",
+          "src": "images/media/tv-front-cab.jpg",
           "alt": "Front cab TV",
           "caption": "Swivel TV into viewing position"
         }
@@ -276,7 +276,7 @@
       "keywords": ["tv", "avtex", "rear", "lounge", "television", "bedroom"],
       "images": [
         {
-          "src": "assets/images/media/tv-rear-lounge.jpg",
+          "src": "images/media/tv-rear-lounge.jpg",
           "alt": "Rear lounge TV",
           "caption": "Rear TV in viewing position"
         }
@@ -302,12 +302,12 @@
       "keywords": ["bbq", "barbecue", "outdoor", "gas", "cooking", "grill"],
       "images": [
         {
-          "src": "assets/images/exterior/bbq-point-closed.jpg",
+          "src": "images/exterior/bbq-point-closed.jpg",
           "alt": "BBQ point location",
           "caption": "External BBQ gas point behind panel"
         },
         {
-          "src": "assets/images/exterior/bbq-point-connected.jpg",
+          "src": "images/exterior/bbq-point-connected.jpg",
           "alt": "BBQ connected",
           "caption": "BBQ connected to gas point"
         }
@@ -337,12 +337,12 @@
       "keywords": ["awning", "canopy", "shade", "sun", "outdoor"],
       "images": [
         {
-          "src": "assets/images/exterior/awning-extended.jpg",
+          "src": "images/exterior/awning-extended.jpg",
           "alt": "Awning extended",
           "caption": "Awning fully extended"
         },
         {
-          "src": "assets/images/exterior/awning-handle.jpg",
+          "src": "images/exterior/awning-handle.jpg",
           "alt": "Winding handle",
           "caption": "Use handle to extend awning"
         }
@@ -372,7 +372,7 @@
       "keywords": ["outdoor shower", "external shower", "rinse", "wash", "beach"],
       "images": [
         {
-          "src": "assets/images/water/outdoor-shower-point.jpg",
+          "src": "images/water/outdoor-shower-point.jpg",
           "alt": "Outdoor shower connection",
           "caption": "External shower connection point"
         }
@@ -401,12 +401,12 @@
       "keywords": ["outdoor tv", "outside tv", "external tv", "awning tv"],
       "images": [
         {
-          "src": "assets/images/media/outdoor-tv-point.jpg",
+          "src": "images/media/outdoor-tv-point.jpg",
           "alt": "Outdoor TV connection",
           "caption": "External TV socket"
         },
         {
-          "src": "assets/images/media/outdoor-tv-setup.jpg",
+          "src": "images/media/outdoor-tv-setup.jpg",
           "alt": "Outdoor TV setup",
           "caption": "TV set up under awning"
         }
@@ -433,12 +433,12 @@
       "keywords": ["gas", "bottle", "change", "replace", "propane", "butane"],
       "images": [
         {
-          "src": "assets/images/power/gas-locker-open.jpg",
+          "src": "images/power/gas-locker-open.jpg",
           "alt": "Gas locker",
           "caption": "Gas locker with bottles"
         },
         {
-          "src": "assets/images/power/gas-regulator.jpg",
+          "src": "images/power/gas-regulator.jpg",
           "alt": "Gas regulator",
           "caption": "Regulator and changeover valve"
         }
@@ -469,12 +469,12 @@
       "keywords": ["toilet", "cassette", "empty", "waste", "chemical"],
       "images": [
         {
-          "src": "assets/images/toilet/cassette-external-door.jpg",
+          "src": "images/toilet/cassette-external-door.jpg",
           "alt": "External cassette door",
           "caption": "Open external door for cassette access"
         },
         {
-          "src": "assets/images/toilet/cassette-removal.jpg",
+          "src": "images/toilet/cassette-removal.jpg",
           "alt": "Removing cassette",
           "caption": "Slide cassette out for emptying"
         }
@@ -505,7 +505,7 @@
       "keywords": ["water", "fresh", "fill", "tank", "drinking"],
       "images": [
         {
-          "src": "assets/images/water/fresh-filler-cap.jpg",
+          "src": "images/water/fresh-filler-cap.jpg",
           "alt": "Fresh water filler",
           "caption": "External filler cap"
         }
@@ -533,7 +533,7 @@
       "keywords": ["alarm", "arm", "security", "protect", "lock"],
       "images": [
         {
-          "src": "assets/images/safety/alarm-fob.jpg",
+          "src": "images/safety/alarm-fob.jpg",
           "alt": "Alarm fob",
           "caption": "Press lock button on fob"
         }
@@ -560,7 +560,7 @@
       "keywords": ["tracker", "gps", "location", "find", "theft"],
       "images": [
         {
-          "src": "assets/images/safety/tracker-app.jpg",
+          "src": "images/safety/tracker-app.jpg",
           "alt": "Tracker app",
           "caption": "View vehicle location on app"
         }
@@ -586,7 +586,7 @@
       "keywords": ["5g", "wifi", "internet", "connect", "hotspot"],
       "images": [
         {
-          "src": "assets/images/media/5g-router.jpg",
+          "src": "images/media/5g-router.jpg",
           "alt": "5G router",
           "caption": "5G router with WiFi"
         }
@@ -613,7 +613,7 @@
       "keywords": ["heat shield", "silver screen", "insulation", "sun"],
       "images": [
         {
-          "src": "assets/images/exterior/heat-shield-fitted.jpg",
+          "src": "images/exterior/heat-shield-fitted.jpg",
           "alt": "Heat shield fitted",
           "caption": "Silver heat shield in place"
         }
@@ -640,7 +640,7 @@
       "keywords": ["blind", "flyscreen", "window", "privacy", "ventilation"],
       "images": [
         {
-          "src": "assets/images/comfort/blind-cassette.jpg",
+          "src": "images/comfort/blind-cassette.jpg",
           "alt": "Cassette blind",
           "caption": "Pull down for privacy"
         }
@@ -667,7 +667,7 @@
       "keywords": ["solar", "charging", "battery", "panel", "power"],
       "images": [
         {
-          "src": "assets/images/power/solar-controller.jpg",
+          "src": "images/power/solar-controller.jpg",
           "alt": "Solar controller",
           "caption": "Check charging status on controller"
         }
@@ -693,7 +693,7 @@
       "keywords": ["mains", "hookup", "hook-up", "ehu", "electric", "campsite"],
       "images": [
         {
-          "src": "assets/images/power/mains-inlet.jpg",
+          "src": "images/power/mains-inlet.jpg",
           "alt": "Mains inlet",
           "caption": "External mains connection point"
         }
@@ -720,7 +720,7 @@
       "keywords": ["drive", "driving", "travel", "depart", "checklist"],
       "images": [
         {
-          "src": "assets/images/beds/dropdown-rear-raised.jpg",
+          "src": "images/beds/dropdown-rear-raised.jpg",
           "alt": "Bed raised",
           "caption": "Ensure all beds are raised and secured"
         }
@@ -755,7 +755,7 @@
       "keywords": ["no water", "problem", "troubleshoot", "pump", "tap"],
       "images": [
         {
-          "src": "assets/images/power/control-panel-main.jpg",
+          "src": "images/power/control-panel-main.jpg",
           "alt": "Control panel",
           "caption": "Check water level on control panel"
         }
@@ -782,7 +782,7 @@
       "keywords": ["heating", "not working", "cold", "alde", "problem"],
       "images": [
         {
-          "src": "assets/images/heating/alde-control-panel.jpg",
+          "src": "images/heating/alde-control-panel.jpg",
           "alt": "Alde panel",
           "caption": "Check for error codes"
         }
@@ -810,7 +810,7 @@
       "keywords": ["electrical", "12v", "battery", "fuse", "power"],
       "images": [
         {
-          "src": "assets/images/power/control-panel-main.jpg",
+          "src": "images/power/control-panel-main.jpg",
           "alt": "Control panel",
           "caption": "Check battery level"
         }
