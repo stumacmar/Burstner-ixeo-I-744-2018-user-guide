@@ -210,29 +210,14 @@ const ImageValidator = {
         return validation.valid;
     },
 
-    /**
-     * Create a blocking placeholder HTML for missing image
-     * @param {Object} imageInfo - Required image info object
-     * @returns {string} HTML string for blocking placeholder
-     */
-    createBlockingPlaceholder(imageInfo) {
-        return `
-            <div class="image-blocking-placeholder" data-image-path="${this.escapeAttr(imageInfo.path)}">
-                <div class="blocking-icon">🚫</div>
-                <div class="blocking-title">Image Required</div>
-                <div class="blocking-message">Feature cannot be verified without this image</div>
-                <div class="blocking-path">${this.escapeHtml(imageInfo.path)}</div>
-                <div class="blocking-description">${this.escapeHtml(imageInfo.description)}</div>
-            </div>
-        `;
-    },
+
 
     /**
-     * Create image or blocking placeholder based on existence
+     * Create image or empty string based on existence
      * @param {Object} imageInfo - Image info object
      * @param {boolean} exists - Whether image exists
      * @param {boolean} isHero - Whether this is the hero image
-     * @returns {string} HTML string
+     * @returns {string} HTML string or empty string
      */
     createImageOrPlaceholder(imageInfo, exists, isHero = false) {
         if (exists) {
@@ -246,7 +231,7 @@ const ImageValidator = {
                 </div>
             `;
         }
-        return this.createBlockingPlaceholder(imageInfo);
+        return '';
     },
 
     /**
@@ -257,10 +242,7 @@ const ImageValidator = {
     async renderHeroImage(featureId) {
         const required = this.getRequiredImages(featureId);
         if (required.length === 0) {
-            return this.createBlockingPlaceholder({ 
-                path: `assets/images/${featureId}/hero.jpg`, 
-                description: 'Hero image for this feature' 
-            });
+            return '';
         }
 
         const heroImage = required[0];

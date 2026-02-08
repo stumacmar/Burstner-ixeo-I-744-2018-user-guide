@@ -341,7 +341,6 @@ const App = {
         return `
             <div class="image-gallery ${className}">
                 <h5>📸 Reference Photos</h5>
-                <p class="image-note">Images are placeholders. Replace with your own photos in /assets/images/</p>
                 <div class="gallery-grid">
                     ${galleryItems}
                 </div>
@@ -381,25 +380,11 @@ const App = {
             });
         }
 
-        // Add click handlers and error handlers to gallery images
+        // Add click handlers to gallery images
         document.querySelectorAll('.gallery-item img').forEach(img => {
-            // Handle image load errors safely - only once
+            // Handle click for lightbox - only once
             if (!img.dataset.errorHandled) {
                 img.dataset.errorHandled = 'true';
-                img.addEventListener('error', function() {
-                    // Check if parent still exists and image hasn't been replaced
-                    if (this.parentElement && this.parentElement.contains(this)) {
-                        const fallbackAlt = this.dataset.fallbackAlt || 'Image not found';
-                        const placeholder = document.createElement('div');
-                        placeholder.className = 'image-placeholder';
-                        placeholder.innerHTML = '<span class="placeholder-icon">📷</span>';
-                        const textSpan = document.createElement('span');
-                        textSpan.className = 'placeholder-text';
-                        textSpan.textContent = fallbackAlt;
-                        placeholder.appendChild(textSpan);
-                        this.parentElement.replaceChild(placeholder, this);
-                    }
-                });
 
                 img.addEventListener('click', () => {
                     const lightboxImg = lightbox.querySelector('.lightbox-content');
