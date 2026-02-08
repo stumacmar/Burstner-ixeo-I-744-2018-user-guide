@@ -382,9 +382,9 @@ const App = {
 
         // Add click handlers to gallery images
         document.querySelectorAll('.gallery-item img').forEach(img => {
-            // Handle click for lightbox - only once
-            if (!img.dataset.clickHandlerAttached) {
-                img.dataset.clickHandlerAttached = 'true';
+            // Prevent duplicate lightbox click handler attachment
+            if (!img.dataset.lightboxHandlerAttached) {
+                img.dataset.lightboxHandlerAttached = 'true';
 
                 img.addEventListener('click', () => {
                     const lightboxImg = lightbox.querySelector('.lightbox-content');
