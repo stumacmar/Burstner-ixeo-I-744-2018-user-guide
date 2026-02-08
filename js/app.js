@@ -4,6 +4,7 @@
  * This is the main application controller that handles:
  * - Loading data from JSON files
  * - Managing system selection
+ * - Grouping systems by category
  * - Coordinating between search and tasks modules
  */
 
@@ -14,6 +15,18 @@ const App = {
     tasks: [],
     currentSystem: null,
 
+    // Category icons and display order
+    categoryConfig: {
+        'Heating': { icon: '🔥', order: 1 },
+        'Power': { icon: '⚡', order: 2 },
+        'Water': { icon: '💧', order: 3 },
+        'Safety': { icon: '🛡️', order: 4 },
+        'Beds': { icon: '🛏️', order: 5 },
+        'Media': { icon: '📺', order: 6 },
+        'Comfort': { icon: '🏠', order: 7 },
+        'Exterior': { icon: '🏕️', order: 8 }
+    },
+
     /**
      * Initialize the application
      */
@@ -21,6 +34,9 @@ const App = {
         try {
             // Load data files
             await this.loadData();
+            
+            // Render systems grouped by category
+            this.renderSystemsByCategory();
             
             // Set up event listeners
             this.setupEventListeners();
@@ -73,22 +89,128 @@ const App = {
     },
 
     /**
+     * Render systems grouped by category
+     */
+    renderSystemsByCategory() {
+        const container = document.getElementById('systems-by-category');
+        if (!container) return;
+
+        // Group systems by category
+        const categories = {};
+        this.systems.forEach(system => {
+            const category = system.category || 'Other';
+            if (!categories[category]) {
+                categories[category] = [];
+            }
+            categories[category].push(system);
+        });
+
+        // Sort categories by configured order
+        const sortedCategories = Object.keys(categories).sort((a, b) => {
+            const orderA = this.categoryConfig[a]?.order || 999;
+            const orderB = this.categoryConfig[b]?.order || 999;
+            return orderA - orderB;
+        });
+
+        // Render each category
+        let html = '';
+        sortedCategories.forEach(category => {
+            const config = this.categoryConfig[category] || { icon: '📋', order: 999 };
+            const systems = categories[category];
+            
+            html += `
+                <div class="category-group">
+                    <h3 class="category-title">
+                        <span class="category-icon">${config.icon}</span>
+                        ${this.escapeHtml(category)}
+                    </h3>
+                    <div class="system-buttons">
+                        ${systems.map(system => this.createSystemButton(system)).join('')}
+                    </div>
+                </div>
+            `;
+        });
+
+        container.innerHTML = html;
+    },
+
+    /**
+     * Create a system button HTML
+     * @param {Object} system - System object
+     * @returns {string} HTML string for the button
+     */
+    createSystemButton(system) {
+        const icon = this.getSystemIcon(system);
+        let verificationBadge = '';
+        if (system.verification_status === 'owner-confirmed') {
+            verificationBadge = '<span class="verified-badge owner" title="Owner confirmed">✓</span>';
+        } else if (system.verification_status === 'manual-verified') {
+            verificationBadge = '<span class="verified-badge manual" title="Manual verified">📖</span>';
+        }
+        
+        return `
+            <button class="system-btn" data-system="${this.escapeAttr(system.id)}">
+                <span class="icon">${icon}</span>
+                <span class="label">${this.escapeHtml(system.name)}${verificationBadge}</span>
+            </button>
+        `;
+    },
+
+    /**
+     * Get icon for a system based on its category or name
+     * @param {Object} system - System object
+     * @returns {string} Emoji icon
+     */
+    getSystemIcon(system) {
+        // Specific system icons
+        const systemIcons = {
+            'alde-heating': '🔥',
+            'fridge-3way': '❄️',
+            'solar-system': '☀️',
+            'camera-360': '📹',
+            'camera-reversing': '🎥',
+            'tv-front': '📺',
+            'tv-rear': '📺',
+            'bed-dropdown-rear': '🛏️',
+            'bed-pulldown-dinette': '🛏️',
+            'blinds-flyscreens': '🪟',
+            'heat-shield-front': '🌡️',
+            'awning': '⛱️',
+            'outdoor-shower': '🚿',
+            'bbq-point': '🍖',
+            'outdoor-tv-point': '📺',
+            'gas-storage': '🔥',
+            'cassette-toilet': '🚽',
+            'fresh-water-external': '💧',
+            'alarm-system': '🚨',
+            'vehicle-tracker': '📍',
+            'internet-5g': '📶',
+            'control-panel': '🎛️',
+            'mains-charger': '🔌',
+            'driving-safety': '🚗',
+            'problems': '⚠️'
+        };
+
+        return systemIcons[system.id] || this.categoryConfig[system.category]?.icon || '📋';
+    },
+
+    /**
      * Set up event listeners for system buttons
      */
     setupEventListeners() {
-        const systemButtons = document.querySelectorAll('.system-btn');
-        
-        systemButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
+        // Use event delegation for dynamically created buttons
+        document.getElementById('systems-by-category')?.addEventListener('click', (e) => {
+            const button = e.target.closest('.system-btn');
+            if (button) {
                 const systemId = button.dataset.system;
                 this.selectSystem(systemId);
-            });
+            }
         });
 
         // Close search results when clicking outside
         document.addEventListener('click', (e) => {
             const searchSection = document.querySelector('.search-section');
-            if (!searchSection.contains(e.target)) {
+            if (searchSection && !searchSection.contains(e.target)) {
                 Search.hideResults();
             }
         });
@@ -118,8 +240,11 @@ const App = {
         // Display system info
         this.displaySystemInfo(system);
 
-        // Filter and display tasks for this system
-        const systemTasks = this.tasks.filter(task => task.system === systemId);
+        // Filter and display tasks for this system (check both system and linked_system_ids)
+        const systemTasks = this.tasks.filter(task => 
+            task.system === systemId || 
+            (task.linked_system_ids && task.linked_system_ids.includes(systemId))
+        );
         Tasks.render(systemTasks);
 
         // Clear search input
@@ -134,8 +259,30 @@ const App = {
     displaySystemInfo(system) {
         const infoContainer = document.getElementById('system-info');
         
+        // Build verification status badge
+        let verificationHtml = '';
+        if (system.verification_status) {
+            const isOwnerConfirmed = system.verification_status === 'owner-confirmed';
+            const badgeClass = isOwnerConfirmed ? 'verified-owner' : 'verified-manual';
+            const badgeText = isOwnerConfirmed ? '✓ Owner Confirmed' : '📖 Manual Verified';
+            verificationHtml = `<span class="verification-badge ${badgeClass}">${badgeText}</span>`;
+        }
+
+        let safetyNotesHtml = '';
+        if (system.safety_notes && system.safety_notes.length > 0) {
+            safetyNotesHtml = `
+                <div class="system-warnings">
+                    <h4>⚠️ Safety Notes</h4>
+                    <ul>
+                        ${system.safety_notes.map(note => `<li>${this.escapeHtml(note)}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+        }
+        
+        // Legacy support for 'warnings' field
         let warningsHtml = '';
-        if (system.warnings && system.warnings.length > 0) {
+        if (system.warnings && system.warnings.length > 0 && !system.safety_notes) {
             warningsHtml = `
                 <div class="system-warnings">
                     <h4>⚠️ Warnings</h4>
@@ -152,9 +299,14 @@ const App = {
         }
 
         infoContainer.innerHTML = `
-            <h3>${this.escapeHtml(system.name)}</h3>
+            <div class="system-header">
+                <h3>${this.escapeHtml(system.name)}</h3>
+                ${verificationHtml}
+            </div>
+            <p class="system-category"><strong>Category:</strong> ${this.escapeHtml(system.category || 'General')}</p>
             <p>${this.escapeHtml(system.description)}</p>
             ${imagesHtml}
+            ${safetyNotesHtml}
             ${warningsHtml}
         `;
 
@@ -185,6 +337,7 @@ const App = {
         return `
             <div class="image-gallery ${className}">
                 <h5>📸 Reference Photos</h5>
+                <p class="image-note">Images are placeholders. Replace with your own photos in /assets/images/</p>
                 <div class="gallery-grid">
                     ${galleryItems}
                 </div>
@@ -226,29 +379,35 @@ const App = {
 
         // Add click handlers and error handlers to gallery images
         document.querySelectorAll('.gallery-item img').forEach(img => {
-            // Handle image load errors safely
-            img.addEventListener('error', function() {
-                const fallbackAlt = this.dataset.fallbackAlt || 'Image not found';
-                const placeholder = document.createElement('div');
-                placeholder.className = 'image-placeholder';
-                placeholder.innerHTML = '<span class="placeholder-icon">📷</span>';
-                const textSpan = document.createElement('span');
-                textSpan.className = 'placeholder-text';
-                textSpan.textContent = fallbackAlt;
-                placeholder.appendChild(textSpan);
-                this.parentElement.replaceChild(placeholder, this);
-            });
+            // Handle image load errors safely - only once
+            if (!img.dataset.errorHandled) {
+                img.dataset.errorHandled = 'true';
+                img.addEventListener('error', function() {
+                    // Check if parent still exists and image hasn't been replaced
+                    if (this.parentElement && this.parentElement.contains(this)) {
+                        const fallbackAlt = this.dataset.fallbackAlt || 'Image not found';
+                        const placeholder = document.createElement('div');
+                        placeholder.className = 'image-placeholder';
+                        placeholder.innerHTML = '<span class="placeholder-icon">📷</span>';
+                        const textSpan = document.createElement('span');
+                        textSpan.className = 'placeholder-text';
+                        textSpan.textContent = fallbackAlt;
+                        placeholder.appendChild(textSpan);
+                        this.parentElement.replaceChild(placeholder, this);
+                    }
+                });
 
-            img.addEventListener('click', () => {
-                const lightboxImg = lightbox.querySelector('.lightbox-content');
-                const lightboxCaption = lightbox.querySelector('.lightbox-caption');
-                
-                lightboxImg.src = img.src;
-                lightboxImg.alt = img.alt;
-                lightboxCaption.textContent = img.dataset.caption || img.alt;
-                
-                lightbox.classList.add('active');
-            });
+                img.addEventListener('click', () => {
+                    const lightboxImg = lightbox.querySelector('.lightbox-content');
+                    const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+                    
+                    lightboxImg.src = img.src;
+                    lightboxImg.alt = img.alt;
+                    lightboxCaption.textContent = img.dataset.caption || img.alt;
+                    
+                    lightbox.classList.add('active');
+                });
+            }
         });
     },
 

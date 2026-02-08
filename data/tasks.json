@@ -1,381 +1,832 @@
 {
   "tasks": [
     {
-      "id": "set-heating-arrival",
-      "title": "Set heating on arrival",
-      "system": "heating-power",
-      "keywords": ["heating", "warm", "cold", "temperature", "truma", "combi", "arrival"],
+      "id": "use-alde-heating-gas-only",
+      "title": "Use Alde heating on gas only",
+      "system": "alde-heating",
+      "linked_system_ids": ["alde-heating", "gas-storage"],
+      "keywords": ["heating", "alde", "gas", "warm", "cold", "temperature", "boiler"],
       "images": [
         {
-          "src": "images/heating/gas-locker-valve.jpg",
+          "src": "assets/images/heating/alde-control-panel.jpg",
+          "alt": "Alde control panel showing gas mode",
+          "caption": "Select gas-only mode on Alde panel"
+        },
+        {
+          "src": "assets/images/power/gas-locker-open.jpg",
           "alt": "Gas bottle valve in open position",
-          "caption": "Step 2: Open the gas bottle valve - turn anti-clockwise"
-        },
-        {
-          "src": "images/heating/truma-panel-modes.jpg",
-          "alt": "Truma control panel showing heating mode selection",
-          "caption": "Step 3: Select heating mode on the Truma panel"
-        },
-        {
-          "src": "images/heating/truma-temperature.jpg",
-          "alt": "Truma panel temperature controls",
-          "caption": "Step 4: Use +/- buttons to set desired temperature"
+          "caption": "Ensure gas bottle valve is open"
         }
       ],
       "steps": [
-        "Connect to mains hook-up if available, or ensure leisure battery is charged",
-        "Open the gas bottle valve (located in the gas locker)",
-        "On the Truma control panel, select your heating mode (gas, electric, or mixed)",
-        "Set your desired temperature using the +/- controls",
-        "Wait for the system to ignite (you should hear the fan start)",
-        "Adjust temperature as needed once the vehicle begins to warm"
+        "Check gas bottle is not empty and valve is open in gas locker",
+        "On the Alde control panel, select 'Gas Only' mode",
+        "Set your desired temperature using the controls",
+        "Wait for the burner to ignite - listen for the click and fan",
+        "Allow 15-30 minutes for vehicle to warm up",
+        "Adjust temperature as needed once warm"
       ],
-      "safety_notes": [
-        "Ensure roof vents are not blocked by snow or debris",
-        "Never run gas heating during refuelling",
-        "Allow 15-20 minutes for the vehicle to reach temperature"
+      "safety_warnings": [
+        "Never run gas heating while refuelling at petrol stations",
+        "Ensure adequate ventilation",
+        "If you smell gas, turn off immediately and ventilate",
+        "Do not block radiator convectors"
       ]
     },
     {
-      "id": "lower-dropdown-bed",
-      "title": "Lower the drop-down bed",
-      "system": "beds-interior",
-      "keywords": ["bed", "dropdown", "drop-down", "sleep", "overhead", "electric", "lower"],
+      "id": "use-alde-heating-electric",
+      "title": "Use Alde heating on electric (mains)",
+      "system": "alde-heating",
+      "linked_system_ids": ["alde-heating", "mains-charger"],
+      "keywords": ["heating", "alde", "electric", "mains", "warm", "240v", "230v"],
       "images": [
         {
-          "src": "images/interior/dropdown-bed-raised.jpg",
-          "alt": "Drop-down bed in raised position above the cab",
-          "caption": "Starting position: bed raised and secured above cab"
+          "src": "assets/images/heating/alde-control-panel.jpg",
+          "alt": "Alde control panel",
+          "caption": "Select electric mode on Alde panel"
+        }
+      ],
+      "steps": [
+        "Connect to mains hook-up (vehicle inlet first, then bollard)",
+        "On Alde panel, select 'Electric Only' or 'Electric + Gas' mode",
+        "Set temperature using controls",
+        "System will heat using immersion elements",
+        "Electric heating is quieter but may take longer to heat up"
+      ],
+      "safety_warnings": [
+        "Ensure mains connection is secure and dry",
+        "Use only on campsites with adequate electrical supply"
+      ]
+    },
+    {
+      "id": "switch-fridge-12v-driving",
+      "title": "Switch fridge to 12V while driving",
+      "system": "fridge-3way",
+      "linked_system_ids": ["fridge-3way"],
+      "keywords": ["fridge", "12v", "driving", "travel", "refrigerator"],
+      "images": [
+        {
+          "src": "assets/images/comfort/fridge-controls.jpg",
+          "alt": "Fridge control panel",
+          "caption": "Select 12V mode on fridge controls"
+        }
+      ],
+      "steps": [
+        "Before starting your journey, locate the fridge control panel",
+        "Switch from 'Gas' or '230V' to '12V' mode",
+        "If fridge has 'Auto' mode, this may handle switching automatically",
+        "Verify the 12V indicator light is on",
+        "The fridge will run from the vehicle alternator while driving"
+      ],
+      "safety_warnings": [
+        "Never leave gas running while driving",
+        "Turn off gas supply before entering petrol stations",
+        "12V mode only works when engine is running"
+      ]
+    },
+    {
+      "id": "switch-fridge-gas-offgrid",
+      "title": "Run fridge on gas off-grid",
+      "system": "fridge-3way",
+      "linked_system_ids": ["fridge-3way", "gas-storage"],
+      "keywords": ["fridge", "gas", "off-grid", "wild camping"],
+      "images": [
+        {
+          "src": "assets/images/comfort/fridge-controls.jpg",
+          "alt": "Fridge control panel showing gas mode",
+          "caption": "Select gas mode for off-grid operation"
+        }
+      ],
+      "steps": [
+        "Ensure gas bottle valve is open in gas locker",
+        "Switch fridge to 'Gas' mode on the control panel",
+        "Check the gas flame indicator shows ignition",
+        "Level the vehicle as much as possible for efficient operation",
+        "Set temperature as needed"
+      ],
+      "safety_warnings": [
+        "Ensure external vents are not blocked",
+        "Switch to 12V before driving",
+        "Level vehicle within 3 degrees for efficiency"
+      ]
+    },
+    {
+      "id": "deploy-rear-dropdown-bed",
+      "title": "Deploy rear electric drop-down bed",
+      "system": "bed-dropdown-rear",
+      "linked_system_ids": ["bed-dropdown-rear"],
+      "keywords": ["bed", "drop-down", "dropdown", "rear", "lounge", "sleep", "electric"],
+      "images": [
+        {
+          "src": "assets/images/beds/dropdown-rear-raised.jpg",
+          "alt": "Bed in raised position",
+          "caption": "Start position: bed raised and secure"
         },
         {
-          "src": "images/interior/bed-control-switch.jpg",
-          "alt": "Bed control switch mounted on wall",
-          "caption": "Step 4: Press and hold the down button on the control switch"
+          "src": "assets/images/beds/dropdown-controls.jpg",
+          "alt": "Bed control switch",
+          "caption": "Press and hold down button"
         },
         {
-          "src": "images/interior/dropdown-bed-lowered.jpg",
-          "alt": "Drop-down bed fully lowered ready for sleeping",
+          "src": "assets/images/beds/dropdown-rear-lowered.jpg",
+          "alt": "Bed lowered",
           "caption": "Bed lowered to sleeping position"
         }
       ],
       "steps": [
-        "Clear the area below the bed of any obstructions",
-        "Ensure no one is standing in the cab area",
-        "Locate the bed control switch (typically near the bed or on the wall)",
-        "Press and hold the 'down' button",
-        "Guide the bed down gently if needed",
-        "Release the button when the bed reaches the desired height",
-        "Check the bed is stable before use"
+        "Clear the rear lounge area of any obstructions",
+        "Ensure no one is standing or sitting beneath the bed",
+        "Locate the bed control switch on the wall",
+        "Press and hold the 'DOWN' button",
+        "Guide the bed down smoothly if needed",
+        "Release when bed reaches desired height",
+        "Check bed is stable and level before use"
       ],
-      "safety_notes": [
-        "Never lower the bed while driving",
-        "Keep fingers clear of the mechanism during operation",
-        "Do not exceed the bed's weight limit"
+      "safety_warnings": [
+        "NEVER lower bed while driving",
+        "Keep fingers clear of mechanism during operation",
+        "Do not exceed bed weight limit",
+        "Ensure bed is fully raised before driving"
       ]
     },
     {
-      "id": "winterise-water-system",
-      "title": "Winterise the water system",
-      "system": "water",
-      "keywords": ["winter", "winterise", "winterize", "frost", "freeze", "drain", "water"],
+      "id": "deploy-dinette-pulldown-bed",
+      "title": "Deploy pull-down bed over half dinette",
+      "system": "bed-pulldown-dinette",
+      "linked_system_ids": ["bed-pulldown-dinette"],
+      "keywords": ["bed", "pull-down", "pulldown", "dinette", "sleep", "cab"],
       "images": [
         {
-          "src": "images/water/water-pump-switch.jpg",
-          "alt": "Water pump switch on control panel",
-          "caption": "Step 1: Turn off the water pump at the control panel"
+          "src": "assets/images/beds/pulldown-dinette-stowed.jpg",
+          "alt": "Bed stowed",
+          "caption": "Bed stowed against ceiling"
         },
         {
-          "src": "images/water/fresh-tank-drain.jpg",
-          "alt": "Fresh water tank drain valve underneath vehicle",
-          "caption": "Step 4: Fresh water tank drain valve location"
+          "src": "assets/images/beds/pulldown-latch.jpg",
+          "alt": "Release latch",
+          "caption": "Release the safety latch"
         },
         {
-          "src": "images/water/waste-valve.jpg",
-          "alt": "Waste water drain valve",
-          "caption": "Step 8: Drain the waste water tank completely"
+          "src": "assets/images/beds/pulldown-dinette-deployed.jpg",
+          "alt": "Bed deployed",
+          "caption": "Bed deployed and ready"
         }
       ],
       "steps": [
-        "Turn off the water pump at the control panel",
-        "Open all taps (hot and cold) including shower",
-        "Open the drain valve on the fresh water tank (usually underneath the vehicle)",
-        "Open the drain valve on the water heater (refer to Truma manual for location)",
-        "Flush the toilet and hold flush until water stops",
-        "Leave all taps in the open position",
-        "Consider using approved water system antifreeze for added protection",
-        "Drain the waste water tank completely"
+        "Clear the dinette area below",
+        "Locate the release latch on the bed frame",
+        "Release the latch carefully",
+        "Lower the bed gently using the support straps",
+        "Ensure support legs or straps are engaged",
+        "Check bed is stable before use"
       ],
-      "safety_notes": [
-        "Water left in the system can freeze and cause serious damage",
-        "Check all drain points are fully open",
-        "If using antifreeze, ensure it is safe for drinking water systems"
+      "safety_warnings": [
+        "Ensure bed is securely latched before driving",
+        "Check support straps are in good condition",
+        "Do not exceed weight limit"
+      ]
+    },
+    {
+      "id": "use-360-camera-manoeuvring",
+      "title": "Use 360° camera for manoeuvring",
+      "system": "camera-360",
+      "linked_system_ids": ["camera-360", "camera-reversing"],
+      "keywords": ["360", "camera", "parking", "manoeuvring", "surround"],
+      "images": [
+        {
+          "src": "assets/images/cameras/360-display.jpg",
+          "alt": "360 camera display",
+          "caption": "Bird's eye view on dashboard display"
+        }
+      ],
+      "steps": [
+        "Switch on ignition",
+        "Press the 360° camera button (or it may activate automatically at low speed)",
+        "View the bird's eye display on the dashboard monitor",
+        "Use to check clearances on all sides",
+        "Switch between views if available (front, sides, rear)",
+        "Always perform visual checks as well as using the camera"
+      ],
+      "safety_warnings": [
+        "Do not rely solely on cameras",
+        "Always check mirrors and perform visual observation",
+        "Camera may have limited visibility in poor light",
+        "Keep camera lenses clean"
+      ]
+    },
+    {
+      "id": "use-reversing-camera",
+      "title": "Use reversing camera when parking",
+      "system": "camera-reversing",
+      "linked_system_ids": ["camera-reversing"],
+      "keywords": ["reversing", "camera", "parking", "backup", "rear"],
+      "images": [
+        {
+          "src": "assets/images/cameras/reversing-display.jpg",
+          "alt": "Reversing camera display",
+          "caption": "Rear view with parking guidelines"
+        }
+      ],
+      "steps": [
+        "Before reversing, check mirrors and perform visual check around vehicle",
+        "Select reverse gear",
+        "Camera activates automatically and displays on dashboard",
+        "Use the parking guidelines to judge distance",
+        "Proceed slowly while watching screen AND checking mirrors",
+        "Be aware of any blind spots"
+      ],
+      "safety_warnings": [
+        "Check for children, pets, and low obstacles before reversing",
+        "Use mirrors and direct checks in addition to camera",
+        "Keep rear camera lens clean"
+      ]
+    },
+    {
+      "id": "setup-front-tv",
+      "title": "Set up front cab TV for viewing",
+      "system": "tv-front",
+      "linked_system_ids": ["tv-front"],
+      "keywords": ["tv", "avtex", "front", "cab", "television", "watch"],
+      "images": [
+        {
+          "src": "assets/images/media/tv-front-cab.jpg",
+          "alt": "Front cab TV",
+          "caption": "Swivel TV into viewing position"
+        }
+      ],
+      "steps": [
+        "Ensure vehicle is parked and handbrake is on",
+        "Swivel the TV bracket to face the cab seats",
+        "Extend the TV aerial for best reception",
+        "Switch on TV using remote or button",
+        "Select input source (Freeview, DVD, etc.)",
+        "Tune channels if first time use"
+      ],
+      "safety_warnings": [
+        "Never watch TV while driving",
+        "Secure TV in stowed position before driving",
+        "Monitor battery if using on 12V"
+      ]
+    },
+    {
+      "id": "setup-rear-tv",
+      "title": "Set up rear lounge TV",
+      "system": "tv-rear",
+      "linked_system_ids": ["tv-rear"],
+      "keywords": ["tv", "avtex", "rear", "lounge", "television", "bedroom"],
+      "images": [
+        {
+          "src": "assets/images/media/tv-rear-lounge.jpg",
+          "alt": "Rear lounge TV",
+          "caption": "Rear TV in viewing position"
+        }
+      ],
+      "steps": [
+        "Position yourself comfortably in the rear lounge or bed",
+        "Adjust TV bracket angle if needed",
+        "Extend the TV aerial",
+        "Switch on TV using remote",
+        "Select desired input or channel"
+      ],
+      "safety_warnings": [
+        "Secure TV before driving",
+        "Do not block ventilation around TV",
+        "Monitor battery when using on 12V without mains"
+      ]
+    },
+    {
+      "id": "connect-outdoor-bbq",
+      "title": "Connect outdoor BBQ safely",
+      "system": "bbq-point",
+      "linked_system_ids": ["bbq-point", "gas-storage"],
+      "keywords": ["bbq", "barbecue", "outdoor", "gas", "cooking", "grill"],
+      "images": [
+        {
+          "src": "assets/images/exterior/bbq-point-closed.jpg",
+          "alt": "BBQ point location",
+          "caption": "External BBQ gas point behind panel"
+        },
+        {
+          "src": "assets/images/exterior/bbq-point-connected.jpg",
+          "alt": "BBQ connected",
+          "caption": "BBQ connected to gas point"
+        }
+      ],
+      "steps": [
+        "Open the external BBQ point cover",
+        "Check the gas point valve is closed",
+        "Connect your BBQ hose to the quick-release fitting",
+        "Check connection is secure",
+        "Open the main gas bottle valve in the gas locker",
+        "Open the BBQ point valve",
+        "Light your BBQ following its instructions",
+        "When finished, close BBQ point valve first, then main gas"
+      ],
+      "safety_warnings": [
+        "Close BBQ point valve when not in use",
+        "Check connections for leaks using soapy water",
+        "Use only in well-ventilated outdoor areas",
+        "Never use BBQ indoors or in enclosed spaces"
+      ]
+    },
+    {
+      "id": "extend-awning",
+      "title": "Extend the awning",
+      "system": "awning",
+      "linked_system_ids": ["awning"],
+      "keywords": ["awning", "canopy", "shade", "sun", "outdoor"],
+      "images": [
+        {
+          "src": "assets/images/exterior/awning-extended.jpg",
+          "alt": "Awning extended",
+          "caption": "Awning fully extended"
+        },
+        {
+          "src": "assets/images/exterior/awning-handle.jpg",
+          "alt": "Winding handle",
+          "caption": "Use handle to extend awning"
+        }
+      ],
+      "steps": [
+        "Ensure vehicle is parked on level ground",
+        "Release the awning lock mechanism",
+        "Insert the winding handle into the mechanism",
+        "Turn handle to extend awning fabric",
+        "Pull down support legs when extended",
+        "Adjust leg height for desired angle",
+        "Secure legs with pegs in windy conditions",
+        "Adjust guy ropes if fitted"
+      ],
+      "safety_warnings": [
+        "Never drive with awning extended",
+        "Retract awning in strong winds (over 20mph)",
+        "Do not allow water to pool on fabric",
+        "Secure legs with pegs or weights"
+      ]
+    },
+    {
+      "id": "use-outdoor-shower",
+      "title": "Use the outdoor shower",
+      "system": "outdoor-shower",
+      "linked_system_ids": ["outdoor-shower", "fresh-water-external"],
+      "keywords": ["outdoor shower", "external shower", "rinse", "wash", "beach"],
+      "images": [
+        {
+          "src": "assets/images/water/outdoor-shower-point.jpg",
+          "alt": "Outdoor shower connection",
+          "caption": "External shower connection point"
+        }
+      ],
+      "steps": [
+        "Open the external shower compartment",
+        "Connect the shower head to the fitting if not attached",
+        "Turn on the water pump inside the vehicle",
+        "Test water temperature before use - hot water may be very hot",
+        "Use shower as needed",
+        "When finished, turn off water at the shower",
+        "Turn off water pump if not needed",
+        "Allow hose to drain and store securely"
+      ],
+      "safety_warnings": [
+        "Check water temperature before use",
+        "Grey water drains to ground - use in appropriate locations",
+        "Monitor water tank level during extended use"
+      ]
+    },
+    {
+      "id": "setup-outdoor-tv",
+      "title": "Set up outdoor TV point",
+      "system": "outdoor-tv-point",
+      "linked_system_ids": ["outdoor-tv-point"],
+      "keywords": ["outdoor tv", "outside tv", "external tv", "awning tv"],
+      "images": [
+        {
+          "src": "assets/images/media/outdoor-tv-point.jpg",
+          "alt": "Outdoor TV connection",
+          "caption": "External TV socket"
+        },
+        {
+          "src": "assets/images/media/outdoor-tv-setup.jpg",
+          "alt": "Outdoor TV setup",
+          "caption": "TV set up under awning"
+        }
+      ],
+      "steps": [
+        "Set up a stable table or TV stand under the awning",
+        "Open the external TV point cover",
+        "Connect TV power lead to 12V socket",
+        "Connect aerial cable if available",
+        "Position TV securely on stand",
+        "Power on and tune as needed"
+      ],
+      "safety_warnings": [
+        "Protect TV from rain and moisture",
+        "Do not leave TV outside unattended",
+        "Secure cables to prevent trip hazards"
+      ]
+    },
+    {
+      "id": "change-gas-bottle",
+      "title": "Change a gas bottle",
+      "system": "gas-storage",
+      "linked_system_ids": ["gas-storage"],
+      "keywords": ["gas", "bottle", "change", "replace", "propane", "butane"],
+      "images": [
+        {
+          "src": "assets/images/power/gas-locker-open.jpg",
+          "alt": "Gas locker",
+          "caption": "Gas locker with bottles"
+        },
+        {
+          "src": "assets/images/power/gas-regulator.jpg",
+          "alt": "Gas regulator",
+          "caption": "Regulator and changeover valve"
+        }
+      ],
+      "steps": [
+        "Turn off all gas appliances (heating, hob, fridge)",
+        "Close the valve on the empty bottle",
+        "Disconnect the pigtail hose from the empty bottle",
+        "Remove the empty bottle from the locker",
+        "Place the new full bottle in position securely",
+        "Connect the pigtail hose to the new bottle",
+        "Slowly open the new bottle valve",
+        "Check connections for leaks using soapy water",
+        "If using changeover valve, switch to new bottle"
+      ],
+      "safety_warnings": [
+        "No smoking or flames near gas locker",
+        "Check connections for leaks using soapy water",
+        "Ensure locker drain hole is clear",
+        "Store empty bottles upright"
+      ]
+    },
+    {
+      "id": "empty-toilet-cassette",
+      "title": "Empty the toilet cassette",
+      "system": "cassette-toilet",
+      "linked_system_ids": ["cassette-toilet"],
+      "keywords": ["toilet", "cassette", "empty", "waste", "chemical"],
+      "images": [
+        {
+          "src": "assets/images/toilet/cassette-external-door.jpg",
+          "alt": "External cassette door",
+          "caption": "Open external door for cassette access"
+        },
+        {
+          "src": "assets/images/toilet/cassette-removal.jpg",
+          "alt": "Removing cassette",
+          "caption": "Slide cassette out for emptying"
+        }
+      ],
+      "steps": [
+        "Locate a chemical toilet disposal point (Elsan point)",
+        "Open the external cassette access door",
+        "Release the cassette locking mechanism",
+        "Carefully slide the cassette out",
+        "Keep cassette upright and carry to disposal point",
+        "Open the pour spout and empty into drain",
+        "Rinse cassette with clean water",
+        "Return cassette to vehicle and lock in place",
+        "Add fresh toilet chemical as per product instructions"
+      ],
+      "safety_warnings": [
+        "Only empty at designated disposal points",
+        "Wear gloves when handling cassette",
+        "Keep cassette blade closed when transporting",
+        "Rinse cassette after emptying"
+      ]
+    },
+    {
+      "id": "fill-fresh-water-external",
+      "title": "Fill the fresh water tank",
+      "system": "fresh-water-external",
+      "linked_system_ids": ["fresh-water-external"],
+      "keywords": ["water", "fresh", "fill", "tank", "drinking"],
+      "images": [
+        {
+          "src": "assets/images/water/fresh-filler-cap.jpg",
+          "alt": "Fresh water filler",
+          "caption": "External filler cap"
+        }
+      ],
+      "steps": [
+        "Locate the fresh water filler cap on the exterior",
+        "Remove the cap",
+        "Connect your drinking water hose",
+        "Turn on water supply slowly",
+        "Monitor tank level on control panel inside",
+        "Stop when tank shows full",
+        "Replace and secure filler cap"
+      ],
+      "safety_warnings": [
+        "Use only drinking water approved hoses",
+        "Do not overfill",
+        "Flush system if water has been standing"
+      ]
+    },
+    {
+      "id": "arm-alarm-system",
+      "title": "Arm the alarm system",
+      "system": "alarm-system",
+      "linked_system_ids": ["alarm-system"],
+      "keywords": ["alarm", "arm", "security", "protect", "lock"],
+      "images": [
+        {
+          "src": "assets/images/safety/alarm-fob.jpg",
+          "alt": "Alarm fob",
+          "caption": "Press lock button on fob"
+        }
+      ],
+      "steps": [
+        "Close all doors and windows",
+        "Close all roof vents",
+        "Exit the vehicle and close habitation door",
+        "Press the lock/arm button on your key fob",
+        "Wait for confirmation beep or light flash",
+        "Verify alarm indicator shows armed status"
+      ],
+      "safety_warnings": [
+        "Ensure windows are closed to prevent false alarms",
+        "Know how to disarm quickly to silence false alarms",
+        "Keep spare fob battery available"
+      ]
+    },
+    {
+      "id": "check-tracker-location",
+      "title": "Check vehicle location via tracker",
+      "system": "vehicle-tracker",
+      "linked_system_ids": ["vehicle-tracker"],
+      "keywords": ["tracker", "gps", "location", "find", "theft"],
+      "images": [
+        {
+          "src": "assets/images/safety/tracker-app.jpg",
+          "alt": "Tracker app",
+          "caption": "View vehicle location on app"
+        }
+      ],
+      "steps": [
+        "Open the tracker app on your smartphone",
+        "Log in with your credentials",
+        "View the current location of your vehicle",
+        "Check last update time to ensure data is recent",
+        "Use map view to see surroundings"
+      ],
+      "safety_warnings": [
+        "Keep tracker subscription active",
+        "Report theft to police AND tracker company immediately",
+        "Test tracker periodically to ensure it's working"
+      ]
+    },
+    {
+      "id": "connect-5g-wifi",
+      "title": "Connect to 5G WiFi hotspot",
+      "system": "internet-5g",
+      "linked_system_ids": ["internet-5g"],
+      "keywords": ["5g", "wifi", "internet", "connect", "hotspot"],
+      "images": [
+        {
+          "src": "assets/images/media/5g-router.jpg",
+          "alt": "5G router",
+          "caption": "5G router with WiFi"
+        }
+      ],
+      "steps": [
+        "Ensure the 5G router is powered on",
+        "On your device, open WiFi settings",
+        "Find the motorhome WiFi network name",
+        "Enter the WiFi password",
+        "Wait for connection",
+        "Check signal strength - may need to relocate to improve signal"
+      ],
+      "safety_warnings": [
+        "Check data allowance to avoid excess charges",
+        "Router draws power from leisure battery",
+        "Secure network with strong password"
+      ]
+    },
+    {
+      "id": "install-heat-shield",
+      "title": "Install front heat shield",
+      "system": "heat-shield-front",
+      "linked_system_ids": ["heat-shield-front"],
+      "keywords": ["heat shield", "silver screen", "insulation", "sun"],
+      "images": [
+        {
+          "src": "assets/images/exterior/heat-shield-fitted.jpg",
+          "alt": "Heat shield fitted",
+          "caption": "Silver heat shield in place"
+        }
+      ],
+      "steps": [
+        "Unfold the heat shield",
+        "Position silver reflective side facing outward",
+        "Attach to windscreen using suction cups or magnets",
+        "Wrap side panels around wing mirrors",
+        "Secure straps or ties underneath vehicle or to door handles",
+        "Check all edges are secured"
+      ],
+      "safety_warnings": [
+        "Remove COMPLETELY before driving",
+        "Store securely when not in use",
+        "Check straps and fixings regularly"
+      ]
+    },
+    {
+      "id": "adjust-blinds-flyscreens",
+      "title": "Use blinds and flyscreens",
+      "system": "blinds-flyscreens",
+      "linked_system_ids": ["blinds-flyscreens"],
+      "keywords": ["blind", "flyscreen", "window", "privacy", "ventilation"],
+      "images": [
+        {
+          "src": "assets/images/comfort/blind-cassette.jpg",
+          "alt": "Cassette blind",
+          "caption": "Pull down for privacy"
+        }
+      ],
+      "steps": [
+        "To deploy blind: Pull down from cassette housing and click into place",
+        "To deploy flyscreen: Pull down/across separately from the blind",
+        "Use flyscreen alone for ventilation while keeping insects out",
+        "Use blind for privacy or blackout",
+        "To retract: Release clip and allow to roll up gently",
+        "For roof skylights: Use the integrated blind handle"
+      ],
+      "safety_warnings": [
+        "Close blinds and skylights before driving",
+        "Do not force mechanisms",
+        "Handle flyscreen mesh gently"
+      ]
+    },
+    {
+      "id": "check-solar-charging",
+      "title": "Check solar charging status",
+      "system": "solar-system",
+      "linked_system_ids": ["solar-system", "control-panel"],
+      "keywords": ["solar", "charging", "battery", "panel", "power"],
+      "images": [
+        {
+          "src": "assets/images/power/solar-controller.jpg",
+          "alt": "Solar controller",
+          "caption": "Check charging status on controller"
+        }
+      ],
+      "steps": [
+        "Locate the solar charge controller (often near main panel)",
+        "Check display for current charging status",
+        "Look for amperage output - higher = more charging",
+        "Check leisure battery level on main control panel",
+        "If not charging well, check panels are clean and in direct sunlight"
+      ],
+      "safety_warnings": [
+        "Do not walk on solar panels",
+        "Keep panels clean for best efficiency",
+        "Solar charges automatically - no action needed"
       ]
     },
     {
       "id": "connect-mains-hookup",
       "title": "Connect to mains hook-up",
-      "system": "heating-power",
-      "keywords": ["mains", "electric", "hookup", "hook-up", "230v", "power", "campsite", "ehu"],
+      "system": "mains-charger",
+      "linked_system_ids": ["mains-charger", "control-panel"],
+      "keywords": ["mains", "hookup", "hook-up", "ehu", "electric", "campsite"],
       "images": [
         {
-          "src": "images/heating/mains-cable.jpg",
-          "alt": "Uncoiled mains hook-up cable",
-          "caption": "Step 2: Fully uncoil the mains cable before use"
-        },
-        {
-          "src": "images/heating/mains-inlet.jpg",
-          "alt": "Vehicle external mains inlet socket",
-          "caption": "Step 3: Connect to the vehicle's external inlet FIRST"
-        },
-        {
-          "src": "images/heating/campsite-bollard.jpg",
-          "alt": "Campsite electrical bollard",
-          "caption": "Step 4: Then connect to the campsite bollard"
+          "src": "assets/images/power/mains-inlet.jpg",
+          "alt": "Mains inlet",
+          "caption": "External mains connection point"
         }
       ],
       "steps": [
-        "Ensure the vehicle's main switch is off",
-        "Uncoil the mains cable completely to prevent overheating",
-        "Connect the cable to the vehicle's external inlet first",
-        "Then connect the other end to the campsite bollard",
-        "Switch on at the bollard",
-        "Check the control panel confirms mains connection",
-        "The battery charger will begin charging automatically"
+        "Fully uncoil mains cable (never use coiled)",
+        "Connect cable to VEHICLE inlet first",
+        "Then connect to campsite bollard",
+        "Switch on at bollard",
+        "Check control panel shows mains connected",
+        "Battery charger will start automatically"
       ],
-      "safety_notes": [
-        "Always connect to vehicle first, then to mains supply",
-        "When disconnecting, reverse the order (mains first, then vehicle)",
-        "Never use damaged or wet cables",
-        "Use only approved camping cables rated for outdoor use"
-      ]
-    },
-    {
-      "id": "fill-fresh-water",
-      "title": "Fill the fresh water tank",
-      "system": "water",
-      "keywords": ["water", "fill", "fresh", "tank", "drinking", "refill"],
-      "images": [
-        {
-          "src": "images/water/fresh-water-filler.jpg",
-          "alt": "Fresh water filler cap on exterior of vehicle",
-          "caption": "Step 1: Locate the fresh water filler cap on the exterior"
-        },
-        {
-          "src": "images/water/drinking-water-hose.jpg",
-          "alt": "Blue drinking water approved hose",
-          "caption": "Step 3: Use only approved drinking water hoses"
-        },
-        {
-          "src": "images/water/control-panel-levels.jpg",
-          "alt": "Control panel showing tank level indicator",
-          "caption": "Step 5: Watch the tank level on the control panel"
-        }
-      ],
-      "steps": [
-        "Locate the fresh water filler cap (usually on the vehicle exterior)",
-        "Remove the cap and check the seal is clean",
-        "Connect your drinking water hose",
-        "Turn on the water supply slowly",
-        "Watch the tank level indicator on the control panel",
-        "Stop filling when the indicator shows full (do not overfill)",
-        "Replace and secure the filler cap",
-        "Run the tap briefly to prime the system if needed"
-      ],
-      "safety_notes": [
-        "Use only hoses approved for drinking water",
-        "Do not use water from unknown sources",
-        "If the vehicle has been unused, flush the system before drinking"
+      "safety_warnings": [
+        "Always connect to vehicle FIRST, then mains",
+        "When disconnecting, disconnect mains FIRST",
+        "Never use damaged or wet cables"
       ]
     },
     {
       "id": "prepare-for-driving",
       "title": "Prepare the vehicle for driving",
       "system": "driving-safety",
-      "keywords": ["drive", "driving", "travel", "moving", "depart", "leaving", "checklist"],
+      "linked_system_ids": ["driving-safety", "bed-dropdown-rear", "bed-pulldown-dinette", "awning"],
+      "keywords": ["drive", "driving", "travel", "depart", "checklist"],
       "images": [
         {
-          "src": "images/interior/dropdown-bed-raised.jpg",
-          "alt": "Drop-down bed fully raised and secured",
-          "caption": "Step 1: Ensure drop-down bed is FULLY raised"
-        },
-        {
-          "src": "images/interior/cupboard-latches.jpg",
-          "alt": "Cupboard doors with secure latches",
-          "caption": "Step 2: Check all cupboard doors are latched"
-        },
-        {
-          "src": "images/driving/roof-vents-closed.jpg",
-          "alt": "Roof vent in closed position",
-          "caption": "Step 4: All roof vents and windows must be closed"
-        },
-        {
-          "src": "images/driving/exterior-locker.jpg",
-          "alt": "External storage locker locked",
-          "caption": "Step 8: Verify all exterior lockers are locked"
+          "src": "assets/images/beds/dropdown-rear-raised.jpg",
+          "alt": "Bed raised",
+          "caption": "Ensure all beds are raised and secured"
         }
       ],
       "steps": [
-        "Raise and secure the drop-down bed fully",
+        "Raise and secure ALL drop-down and pull-down beds",
         "Secure all loose items and close all cupboards",
-        "Check the fridge is set to 12V or switched off",
+        "Switch fridge to 12V or off",
         "Close and lock all roof vents and windows",
-        "Retract the step if manual (automatic steps retract when door closes)",
-        "Disconnect and stow the mains cable",
-        "Turn off the gas at the bottle",
-        "Check exterior lockers are locked",
-        "Ensure TV aerial is lowered if applicable",
+        "Retract the step",
+        "Disconnect and stow mains cable",
+        "Turn off gas at bottle",
+        "Remove and stow heat shield completely",
+        "Retract awning if extended",
+        "Check all exterior lockers are locked",
+        "Lower TV aerial if raised",
         "Check tyre pressures and lights",
-        "Adjust mirrors and check reversing camera"
+        "Adjust mirrors and test cameras"
       ],
-      "safety_notes": [
-        "Never drive with the drop-down bed lowered",
-        "Ensure all passengers are seated with seatbelts fastened",
-        "Check your route for height and weight restrictions"
+      "safety_warnings": [
+        "NEVER drive with drop-down bed lowered",
+        "NEVER drive with awning extended",
+        "All passengers must use seatbelts",
+        "Check route for height restrictions"
       ]
     },
     {
       "id": "troubleshoot-no-water",
       "title": "Troubleshoot: No water from taps",
       "system": "problems",
-      "keywords": ["no water", "problem", "troubleshoot", "pump", "tap", "not working"],
+      "linked_system_ids": ["problems", "fresh-water-external", "control-panel"],
+      "keywords": ["no water", "problem", "troubleshoot", "pump", "tap"],
       "images": [
         {
-          "src": "images/water/control-panel-levels.jpg",
-          "alt": "Control panel showing water tank level",
-          "caption": "Step 1: Check the water tank level indicator"
-        },
-        {
-          "src": "images/problems/fuse-box.jpg",
-          "alt": "12V fuse box with pump fuse location",
-          "caption": "Step 3: Check the pump fuse in the electrical panel"
-        },
-        {
-          "src": "images/water/water-filter.jpg",
-          "alt": "Inline water filter location",
-          "caption": "Step 6: Check the water filter if fitted"
+          "src": "assets/images/power/control-panel-main.jpg",
+          "alt": "Control panel",
+          "caption": "Check water level on control panel"
         }
       ],
       "steps": [
-        "Check the water tank level indicator - refill if empty",
-        "Verify the water pump is switched on at the control panel",
-        "Check the pump fuse in the electrical panel",
-        "Listen for the pump running when you open a tap",
-        "If pump runs but no water, check for airlocks (open taps in sequence)",
-        "Inspect the water filter if fitted - it may be blocked",
-        "Check for frozen pipes in cold weather",
-        "If problem persists, the pump may need professional attention"
+        "Check water tank level on control panel - refill if empty",
+        "Verify water pump is switched on at control panel",
+        "Check pump fuse in fuse box",
+        "Listen for pump when opening a tap",
+        "If pump runs but no water, check for airlocks",
+        "Check water filter if fitted",
+        "In cold weather, check for frozen pipes"
       ],
-      "safety_notes": [
-        "Do not run the pump for extended periods when dry",
-        "If you smell burning or see sparks, turn off immediately"
+      "safety_warnings": [
+        "Do not run pump dry for extended periods",
+        "If you smell burning, turn off immediately"
       ]
     },
     {
-      "id": "troubleshoot-heating-not-working",
-      "title": "Troubleshoot: Heating not working",
+      "id": "troubleshoot-heating-alde",
+      "title": "Troubleshoot: Alde heating not working",
       "system": "problems",
-      "keywords": ["heating", "not working", "cold", "truma", "problem", "troubleshoot", "fault"],
+      "linked_system_ids": ["problems", "alde-heating", "gas-storage"],
+      "keywords": ["heating", "not working", "cold", "alde", "problem"],
       "images": [
         {
-          "src": "images/heating/gas-locker-valve.jpg",
-          "alt": "Gas bottle valve in gas locker",
-          "caption": "Step 1: Check gas bottle is not empty and valve is open"
-        },
-        {
-          "src": "images/heating/truma-error-codes.jpg",
-          "alt": "Truma control panel showing error codes",
-          "caption": "Step 2: Check for error codes on the Truma panel"
-        },
-        {
-          "src": "images/heating/exhaust-vent-exterior.jpg",
-          "alt": "Heating exhaust vent on exterior of vehicle",
-          "caption": "Step 7: Check the exhaust vent is not blocked"
+          "src": "assets/images/heating/alde-control-panel.jpg",
+          "alt": "Alde panel",
+          "caption": "Check for error codes"
         }
       ],
       "steps": [
-        "Check the gas bottle is not empty and valve is open",
-        "Verify the control panel is set correctly and showing no error codes",
-        "Ensure mains power is connected if using electric heating",
-        "Check the relevant fuses in the electrical panel",
-        "For gas operation, the system may need bleeding after gas bottle change",
-        "Attempt to reset by turning the heating off and on again",
-        "Check the exhaust vent outside is not blocked",
-        "Consult Truma error codes if displayed on the panel"
+        "Check gas bottle is not empty and valve is open",
+        "Check Alde panel for error codes",
+        "Ensure mains is connected if using electric mode",
+        "Check fuses related to Alde system",
+        "Try turning system off and on again",
+        "Check glycol fluid level when system is cold",
+        "If error codes persist, consult Alde manual or dealer"
       ],
-      "safety_notes": [
+      "safety_warnings": [
         "If you smell gas, turn off immediately and ventilate",
         "Do not attempt to repair gas components yourself",
-        "Contact a qualified technician for persistent issues"
+        "Contact qualified Alde technician for persistent issues"
       ]
     },
     {
-      "id": "empty-waste-water",
-      "title": "Empty the waste water tank",
-      "system": "water",
-      "keywords": ["waste", "grey", "drain", "empty", "disposal", "tank"],
-      "images": [
-        {
-          "src": "images/water/waste-drain-location.jpg",
-          "alt": "Waste water drain valve location underneath vehicle",
-          "caption": "Step 2: Waste tank drain valve - usually underneath, near middle"
-        },
-        {
-          "src": "images/water/waste-valve-open.jpg",
-          "alt": "Waste valve in open position",
-          "caption": "Step 4: Open the waste tank valve fully"
-        }
-      ],
-      "steps": [
-        "Position the vehicle over a designated waste water drain point",
-        "Locate the waste tank drain valve (usually underneath, near the middle)",
-        "Place a container underneath if needed, or ensure alignment with drain",
-        "Open the waste tank valve fully",
-        "Wait for the tank to drain completely",
-        "Close the valve securely",
-        "Rinse the drain area if facilities permit"
-      ],
-      "safety_notes": [
-        "Only empty at designated disposal points",
-        "Never empty onto the ground or into storm drains",
-        "Wash hands thoroughly after handling waste water"
-      ]
-    },
-    {
-      "id": "troubleshoot-electrical-fault",
+      "id": "troubleshoot-electrical",
       "title": "Troubleshoot: 12V electrical fault",
       "system": "problems",
-      "keywords": ["electrical", "12v", "battery", "fuse", "power", "not working", "fault"],
+      "linked_system_ids": ["problems", "control-panel", "solar-system", "mains-charger"],
+      "keywords": ["electrical", "12v", "battery", "fuse", "power"],
       "images": [
         {
-          "src": "images/problems/main-battery-switch.jpg",
-          "alt": "Main battery disconnect switch",
-          "caption": "Step 1: Check the main battery disconnect switch is ON"
-        },
-        {
-          "src": "images/problems/fuse-box.jpg",
-          "alt": "12V fuse box location and layout",
-          "caption": "Step 3: Fuse box location - check for blown fuses"
-        },
-        {
-          "src": "images/problems/battery-terminals.jpg",
-          "alt": "Leisure battery terminal connections",
-          "caption": "Step 7: Check battery terminals are clean and tight"
+          "src": "assets/images/power/control-panel-main.jpg",
+          "alt": "Control panel",
+          "caption": "Check battery level"
         }
       ],
       "steps": [
-        "Check the main battery disconnect switch is on",
-        "Verify leisure battery charge level on the control panel",
-        "Locate the fuse box (usually near the control panel or under a seat)",
-        "Check and replace any blown fuses with correct rating",
-        "If connected to mains, check the charger is working",
-        "Test individual circuits to isolate the problem",
-        "Check battery terminal connections are clean and tight",
-        "If battery repeatedly goes flat, it may need replacement"
+        "Check main battery disconnect switch is on",
+        "Verify battery level on control panel",
+        "Check fuse box for blown fuses",
+        "If on mains, check charger is working",
+        "Check battery terminals are clean and tight",
+        "Test individual circuits to isolate problem"
       ],
-      "safety_notes": [
-        "Always replace fuses with the correct amp rating",
-        "Do not attempt to repair or modify the electrical system",
-        "Disconnect battery before working on electrical components"
+      "safety_warnings": [
+        "Replace fuses with correct amp rating only",
+        "Disconnect battery before working on electrics",
+        "Do not attempt major electrical repairs"
       ]
     }
   ]

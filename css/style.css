@@ -151,6 +151,27 @@ main {
     letter-spacing: 0.05em;
 }
 
+/* Category Groups */
+.category-group {
+    margin-bottom: 1.5rem;
+}
+
+.category-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.category-icon {
+    font-size: 1.2rem;
+}
+
 .system-buttons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -562,6 +583,97 @@ footer .disclaimer {
     margin-top: 0.25rem;
 }
 
+/* Verification Badges */
+.verified-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    margin-left: 0.25rem;
+}
+
+.verified-badge.owner {
+    color: var(--success-color);
+}
+
+.verified-badge.manual {
+    color: var(--accent-color);
+    font-size: 0.6rem;
+}
+
+.system-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.system-header h3 {
+    margin: 0;
+    font-size: 1.125rem;
+    color: var(--primary-color);
+}
+
+.verification-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    font-weight: 500;
+}
+
+.verification-badge.verified-owner {
+    background-color: rgba(47, 133, 90, 0.15);
+    color: var(--success-color);
+}
+
+.verification-badge.verified-manual {
+    background-color: rgba(237, 137, 54, 0.15);
+    color: var(--accent-color);
+}
+
+.system-category {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+/* Linked Systems */
+.linked-systems {
+    background-color: rgba(26, 54, 93, 0.1);
+    border-left: 4px solid var(--primary-color);
+    padding: 0.75rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    margin-top: 1rem;
+}
+
+.linked-systems h5 {
+    font-size: 0.875rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.linked-systems ul {
+    list-style: none;
+    font-size: 0.875rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.linked-systems li {
+    background-color: var(--background-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.8rem;
+}
+
+/* Image note for placeholders */
+.image-note {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
 /* Tablet and Desktop Styles */
 @media (min-width: 600px) {
     header h1 {
@@ -591,7 +703,7 @@ footer .disclaimer {
     }
 
     .system-buttons {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 

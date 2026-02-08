@@ -1,65 +1,680 @@
 {
   "systems": [
     {
-      "id": "heating-power",
-      "name": "Heating & Power",
-      "description": "The Ixeo I 744 features a Truma Combi heating system and dual power supply (230V mains hook-up and 12V leisure battery). The control panel allows temperature adjustment and power source selection.",
+      "id": "alde-heating",
+      "name": "Alde Wet Heating System",
+      "category": "Heating",
+      "description": "The Ixeo I 744 features an Alde wet (hydronic) heating system that uses a glycol fluid circuit to distribute heat via radiators and underfloor heating. It can operate on gas, 230V mains electricity, or a combination of both. The system also provides domestic hot water.",
+      "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "images/heating/truma-control-panel.jpg",
-          "alt": "Truma Combi control panel located on the interior wall",
-          "caption": "Truma control panel - adjust temperature and select heating mode here"
+          "src": "assets/images/heating/alde-control-panel.jpg",
+          "alt": "Alde 3020 control panel",
+          "caption": "Alde control panel - select heating mode and set temperature"
         },
         {
-          "src": "images/heating/gas-locker.jpg",
-          "alt": "External gas bottle locker on the Ixeo I 744",
-          "caption": "Gas locker location - check bottle levels and connections here"
+          "src": "assets/images/heating/alde-boiler.jpg",
+          "alt": "Alde boiler unit location",
+          "caption": "Alde boiler location - usually under a seat or bed"
         },
         {
-          "src": "images/heating/mains-inlet.jpg",
-          "alt": "External 230V mains hook-up inlet",
-          "caption": "Mains hook-up inlet on the exterior of the vehicle"
+          "src": "assets/images/heating/alde-radiator.jpg",
+          "alt": "Alde convector radiator",
+          "caption": "Radiator convectors distribute heat throughout the vehicle"
         }
       ],
-      "warnings": [
-        "Never run gas heating while refuelling",
+      "safety_notes": [
+        "Never run gas heating while refuelling at petrol stations",
         "Ensure adequate ventilation when heating is in use",
-        "Check gas bottle connections regularly for leaks",
-        "Do not block air intake or exhaust vents"
-      ]
+        "Check glycol fluid levels annually - use only Alde-approved fluid",
+        "Do not block radiator convectors or underfloor heating vents",
+        "Allow system to cool before checking fluid level",
+        "If you smell gas, turn off immediately and ventilate"
+      ],
+      "synonyms": ["heating", "alde", "boiler", "radiator", "warm", "hot", "heat", "hydronic", "wet heating"]
     },
     {
-      "id": "water",
-      "name": "Water System",
-      "description": "Fresh water tank and waste water tank system with electric pump. The system includes a water heater integrated with the Truma Combi unit. Tank level indicators are displayed on the control panel.",
+      "id": "fridge-3way",
+      "name": "3-Way Fridge",
+      "category": "Comfort",
+      "description": "The 3-way absorption fridge can operate on 12V DC (while driving), 230V AC (on mains hook-up), or gas (for off-grid use). The fridge automatically selects the power source or can be manually set. Always level the vehicle for optimal cooling performance.",
+      "verification_status": "owner-confirmed",
       "images": [
         {
-          "src": "images/water/fresh-water-filler.jpg",
-          "alt": "Fresh water filler cap on exterior of Ixeo I 744",
-          "caption": "Fresh water filler - located on the exterior side panel"
+          "src": "assets/images/comfort/fridge-interior.jpg",
+          "alt": "Interior view of the 3-way fridge",
+          "caption": "3-way fridge interior with adjustable shelves"
         },
         {
-          "src": "images/water/control-panel-levels.jpg",
-          "alt": "Control panel showing water tank level indicators",
-          "caption": "Tank level indicators on the main control panel"
+          "src": "assets/images/comfort/fridge-controls.jpg",
+          "alt": "Fridge control panel showing mode selection",
+          "caption": "Fridge controls - select 12V, 230V, gas, or auto mode"
         },
         {
-          "src": "images/water/waste-valve.jpg",
-          "alt": "Waste water drain valve underneath the vehicle",
-          "caption": "Waste water drain valve - located underneath the vehicle"
+          "src": "assets/images/comfort/fridge-vent-exterior.jpg",
+          "alt": "External fridge vent on vehicle side",
+          "caption": "External fridge vent - ensure it is not blocked"
         }
       ],
-      "warnings": [
-        "Drain water system completely before freezing conditions",
-        "Use only drinking water approved hoses for filling",
-        "Do not drink water that has been standing for extended periods",
-        "Empty waste tank at designated disposal points only"
-      ]
+      "safety_notes": [
+        "Switch fridge to 12V mode before driving if not automatic",
+        "Turn off gas supply to fridge before refuelling",
+        "Ensure external vents are not blocked for proper cooling",
+        "Level the vehicle within 3 degrees for efficient operation",
+        "Do not leave fridge on gas while vehicle is in motion",
+        "Allow 24 hours for fridge to reach optimal temperature"
+      ],
+      "synonyms": ["fridge", "refrigerator", "cooler", "cooling", "12v", "230v", "gas", "food storage"]
+    },
+    {
+      "id": "solar-system",
+      "name": "Solar Charging System",
+      "category": "Power",
+      "description": "The roof-mounted solar panel system charges the leisure battery first, then the vehicle battery when the leisure battery is full. This provides silent, free charging when parked, extending off-grid capability.",
+      "verification_status": "owner-confirmed",
+      "images": [
+        {
+          "src": "assets/images/power/solar-panel-roof.jpg",
+          "alt": "Solar panel mounted on vehicle roof",
+          "caption": "Roof-mounted solar panel"
+        },
+        {
+          "src": "assets/images/power/solar-controller.jpg",
+          "alt": "Solar charge controller display",
+          "caption": "Solar controller showing charge status and output"
+        },
+        {
+          "src": "assets/images/power/battery-bank.jpg",
+          "alt": "Leisure battery location",
+          "caption": "Leisure battery - solar charges this first"
+        }
+      ],
+      "safety_notes": [
+        "Do not walk on solar panels",
+        "Keep panels clean for optimal charging efficiency",
+        "Check controller display for charging status",
+        "Solar charging is automatic - no action required",
+        "In prolonged shade, connect to mains to maintain battery charge"
+      ],
+      "synonyms": ["solar", "panel", "charging", "battery", "12v", "power", "photovoltaic", "pv"]
+    },
+    {
+      "id": "camera-360",
+      "name": "360° Surround Camera",
+      "category": "Safety",
+      "description": "The 360-degree surround camera system provides a bird's-eye view of the vehicle and surroundings, displayed on the dashboard monitor. Useful for manoeuvring in tight spaces, checking clearances, and parking.",
+      "verification_status": "owner-confirmed",
+      "images": [
+        {
+          "src": "assets/images/cameras/360-display.jpg",
+          "alt": "Dashboard display showing 360 camera view",
+          "caption": "360° view displayed on dashboard monitor"
+        },
+        {
+          "src": "assets/images/cameras/360-camera-front.jpg",
+          "alt": "Front camera location on vehicle",
+          "caption": "Front camera mounted on the grille area"
+        },
+        {
+          "src": "assets/images/cameras/360-camera-side.jpg",
+          "alt": "Side camera location under mirror",
+          "caption": "Side cameras under wing mirrors"
+        }
+      ],
+      "safety_notes": [
+        "Always perform visual checks in addition to using cameras",
+        "Keep camera lenses clean for clear images",
+        "Camera view may be limited in poor lighting conditions",
+        "Do not rely solely on cameras - use mirrors and direct observation",
+        "Check display before moving in any direction"
+      ],
+      "synonyms": ["360", "surround", "camera", "bird's eye", "manoeuvring", "parking", "view", "overhead"]
+    },
+    {
+      "id": "camera-reversing",
+      "name": "Reversing Camera",
+      "category": "Safety",
+      "description": "The rear-mounted reversing camera automatically activates when reverse gear is selected, displaying a live image on the dashboard monitor with guidance lines to assist with parking and manoeuvring.",
+      "verification_status": "owner-confirmed",
+      "images": [
+        {
+          "src": "assets/images/cameras/reversing-display.jpg",
+          "alt": "Dashboard display showing reversing camera view",
+          "caption": "Reversing camera view with parking guidelines"
+        },
+        {
+          "src": "assets/images/cameras/reversing-camera-rear.jpg",
+          "alt": "Rear camera mounted above number plate",
+          "caption": "Rear camera location above the number plate"
+        }
+      ],
+      "safety_notes": [
+        "Camera activates automatically when reverse is selected",
+        "Use mirrors and direct checks as well as the camera",
+        "Keep camera lens clean for clear visibility",
+        "Be aware of blind spots not covered by the camera",
+        "Check for children, pets, and low obstacles before reversing"
+      ],
+      "synonyms": ["reversing", "reverse", "camera", "backup", "rear", "parking"]
+    },
+    {
+      "id": "tv-front",
+      "name": "Front Cab Avtex TV",
+      "category": "Media",
+      "description": "The Avtex TV in the front cab area is designed for motorhome use with 12V and 240V operation. It includes built-in Freeview tuner and DVD player. The swivel mount allows viewing from cab seats when parked.",
+      "verification_status": "owner-confirmed",
+      "images": [
+        {
+          "src": "assets/images/media/tv-front-cab.jpg",
+          "alt": "Avtex TV mounted in front cab",
+          "caption": "Front cab TV with swivel mount"
+        },
+        {
+          "src": "assets/images/media/tv-avtex-remote.jpg",
+          "alt": "Avtex TV remote control",
+          "caption": "Avtex remote control"
+        }
+      ],
+      "safety_notes": [
+        "Do not watch TV while driving",
+        "Secure TV in stowed position before driving",
+        "Only use on 12V when parked to avoid battery drain",
+        "Extend aerial for best reception",
+        "Check TV is secure before travelling"
+      ],
+      "synonyms": ["tv", "television", "avtex", "front", "cab", "media", "dvd", "freeview", "entertainment"]
+    },
+    {
+      "id": "tv-rear",
+      "name": "Rear Lounge Avtex TV",
+      "category": "Media",
+      "description": "A second Avtex TV is mounted in the rear lounge area for entertainment while relaxing or in bed. Like the front TV, it operates on both 12V and 240V with built-in tuner and media capabilities.",
+      "verification_status": "owner-confirmed",
+      "images": [
+        {
+          "src": "assets/images/media/tv-rear-lounge.jpg",
+          "alt": "Avtex TV mounted in rear lounge",
+          "caption": "Rear lounge TV viewing position"
+        },
+        {
+          "src": "assets/images/media/tv-rear-mount.jpg",
+          "alt": "TV mounting bracket in rear",
+          "caption": "Rear TV bracket and connections"
+        }
+      ],
+      "safety_notes": [
+        "Secure TV before driving",
+        "Do not block ventilation around TV",
+        "Monitor battery level when using on 12V",
+        "Extend the aerial before use for best reception"
+      ],
+      "synonyms": ["tv", "television", "avtex", "rear", "lounge", "bedroom", "media", "entertainment"]
+    },
+    {
+      "id": "bed-dropdown-rear",
+      "name": "Electric Drop-Down Bed (Rear Lounge)",
+      "category": "Beds",
+      "description": "The electric drop-down bed above the rear lounge area can be lowered to provide a double sleeping space. Controlled by a wall-mounted switch, it lowers smoothly and can be stopped at any height.",
+      "verification_status": "owner-confirmed",
+      "images": [
+        {
+          "src": "assets/images/beds/dropdown-rear-raised.jpg",
+          "alt": "Rear drop-down bed in raised position",
+          "caption": "Drop-down bed stored in raised position"
+        },
+        {
+          "src": "assets/images/beds/dropdown-rear-lowered.jpg",
+          "alt": "Rear drop-down bed lowered for sleeping",
+          "caption": "Bed lowered - ready for sleeping"
+        },
+        {
+          "src": "assets/images/beds/dropdown-controls.jpg",
+          "alt": "Electric bed control switch",
+          "caption": "Hold button to lower or raise the bed"
+        }
+      ],
+      "safety_notes": [
+        "Ensure bed is FULLY raised and secured before driving",
+        "Clear the area below before lowering the bed",
+        "Do not exceed bed weight limit",
+        "Keep fingers clear of mechanism during operation",
+        "Do not use bed controls while driving"
+      ],
+      "synonyms": ["bed", "drop-down", "dropdown", "electric", "rear", "lounge", "sleeping", "overhead"]
+    },
+    {
+      "id": "bed-pulldown-dinette",
+      "name": "Pull-Down Bed (Half Dinette)",
+      "category": "Beds",
+      "description": "A pull-down bed above the half dinette provides additional sleeping accommodation. This bed folds down manually from the ceiling area and is secured with straps or latches when not in use.",
+      "verification_status": "owner-confirmed",
+      "images": [
+        {
+          "src": "assets/images/beds/pulldown-dinette-stowed.jpg",
+          "alt": "Pull-down bed in stowed position above dinette",
+          "caption": "Bed stowed flush against ceiling"
+        },
+        {
+          "src": "assets/images/beds/pulldown-dinette-deployed.jpg",
+          "alt": "Pull-down bed deployed for sleeping",
+          "caption": "Bed pulled down and ready for use"
+        },
+        {
+          "src": "assets/images/beds/pulldown-latch.jpg",
+          "alt": "Bed latch mechanism",
+          "caption": "Latch releases the bed for deployment"
+        }
+      ],
+      "safety_notes": [
+        "Ensure bed is securely latched before driving",
+        "Check support straps are in good condition",
+        "Clear the dinette area before deploying bed",
+        "Do not exceed weight limit",
+        "Verify latches are fully engaged when stowed"
+      ],
+      "synonyms": ["bed", "pull-down", "pulldown", "dinette", "half dinette", "sleeping", "overhead", "cab"]
+    },
+    {
+      "id": "blinds-flyscreens",
+      "name": "Blinds and Flyscreens",
+      "category": "Comfort",
+      "description": "All windows and skylights are fitted with integrated blinds and flyscreens. The cassette blinds provide privacy and blackout capability, while the flyscreens allow ventilation while keeping insects out.",
+      "verification_status": "owner-confirmed",
+      "images": [
+        {
+          "src": "assets/images/comfort/blind-cassette.jpg",
+          "alt": "Cassette blind in window",
+          "caption": "Cassette blind for privacy and blackout"
+        },
+        {
+          "src": "assets/images/comfort/flyscreen-window.jpg",
+          "alt": "Flyscreen deployed in window",
+          "caption": "Flyscreen allows ventilation without insects"
+        },
+        {
+          "src": "assets/images/comfort/skylight-blind.jpg",
+          "alt": "Roof skylight with integrated blind",
+          "caption": "Skylight with blind and flyscreen"
+        }
+      ],
+      "safety_notes": [
+        "Close blinds and secure roof skylights before driving",
+        "Do not force blind mechanisms",
+        "Clean flyscreens gently to avoid damage",
+        "Report any stuck or damaged blinds for repair"
+      ],
+      "synonyms": ["blind", "blinds", "flyscreen", "flyscreens", "window", "privacy", "blackout", "ventilation", "screen", "curtain"]
+    },
+    {
+      "id": "heat-shield-front",
+      "name": "External Silver Front Heat Shield",
+      "category": "Exterior",
+      "description": "The external silver heat shield covers the front windscreen and cab windows to reflect sunlight and insulate against temperature extremes. It helps keep the cab cool in summer and warm in winter.",
+      "verification_status": "owner-confirmed",
+      "images": [
+        {
+          "src": "assets/images/exterior/heat-shield-fitted.jpg",
+          "alt": "Heat shield fitted to front of motorhome",
+          "caption": "Silver heat shield installed on cab"
+        },
+        {
+          "src": "assets/images/exterior/heat-shield-storage.jpg",
+          "alt": "Heat shield folded for storage",
+          "caption": "Fold and store when not in use"
+        }
+      ],
+      "safety_notes": [
+        "Remove heat shield completely before driving",
+        "Store securely to prevent it blowing away",
+        "Check straps and suction cups regularly",
+        "Clean occasionally to maintain reflectivity"
+      ],
+      "synonyms": ["heat shield", "silver screen", "cab cover", "windscreen cover", "thermal", "insulation", "sun shade"]
+    },
+    {
+      "id": "awning",
+      "name": "Awning",
+      "category": "Exterior",
+      "description": "The vehicle-mounted awning extends from the side to provide shade and weather protection. It is manually operated with a winding handle and can be secured with ground pegs or weights in windy conditions.",
+      "verification_status": "owner-confirmed",
+      "images": [
+        {
+          "src": "assets/images/exterior/awning-extended.jpg",
+          "alt": "Awning fully extended from vehicle side",
+          "caption": "Awning extended providing outdoor shade"
+        },
+        {
+          "src": "assets/images/exterior/awning-handle.jpg",
+          "alt": "Awning winding handle",
+          "caption": "Use winding handle to extend/retract awning"
+        },
+        {
+          "src": "assets/images/exterior/awning-pegs.jpg",
+          "alt": "Awning secured with pegs",
+          "caption": "Secure legs with pegs in windy conditions"
+        }
+      ],
+      "safety_notes": [
+        "Never drive with awning extended",
+        "Retract awning in strong winds",
+        "Secure legs with pegs or weights",
+        "Do not allow water to pool on awning fabric",
+        "Dry awning before storage to prevent mould"
+      ],
+      "synonyms": ["awning", "canopy", "shade", "sun shade", "roll out", "outdoor cover"]
+    },
+    {
+      "id": "outdoor-shower",
+      "name": "Outdoor Shower",
+      "category": "Water",
+      "description": "An external shower point provides hot and cold water access outside the vehicle, useful for rinsing off after beach visits, cleaning equipment, or showering outdoors in warm weather.",
+      "verification_status": "owner-confirmed",
+      "images": [
+        {
+          "src": "assets/images/water/outdoor-shower-point.jpg",
+          "alt": "Exterior shower connection point",
+          "caption": "Outdoor shower connection behind panel"
+        },
+        {
+          "src": "assets/images/water/outdoor-shower-use.jpg",
+          "alt": "Outdoor shower in use",
+          "caption": "Connect shower head for outdoor use"
+        }
+      ],
+      "safety_notes": [
+        "Check water temperature before use - can be very hot",
+        "Ensure adequate water in tank before extended use",
+        "Grey water will drain to ground - use in appropriate locations",
+        "Drain and close securely after use to prevent freezing"
+      ],
+      "synonyms": ["outdoor shower", "external shower", "outside shower", "rinse", "wash", "beach"]
+    },
+    {
+      "id": "bbq-point",
+      "name": "Outdoor Gas BBQ Point",
+      "category": "Exterior",
+      "description": "An external gas point allows connection of a portable BBQ or outdoor cooking equipment. The gas supply is connected to the onboard gas system and includes a shut-off valve.",
+      "verification_status": "owner-confirmed",
+      "images": [
+        {
+          "src": "assets/images/exterior/bbq-point-closed.jpg",
+          "alt": "External BBQ gas point with cover closed",
+          "caption": "BBQ point behind exterior panel"
+        },
+        {
+          "src": "assets/images/exterior/bbq-point-connected.jpg",
+          "alt": "BBQ connected to external gas point",
+          "caption": "Portable BBQ connected to gas point"
+        }
+      ],
+      "safety_notes": [
+        "Close BBQ point valve when not in use",
+        "Check for gas leaks using soapy water",
+        "Use only in well-ventilated outdoor areas",
+        "Never use BBQ indoors or in enclosed spaces",
+        "Turn off gas at bottle when leaving vehicle unattended"
+      ],
+      "synonyms": ["bbq", "barbecue", "gas point", "outdoor cooking", "grill", "external gas"]
+    },
+    {
+      "id": "outdoor-tv-point",
+      "name": "Outdoor TV Point",
+      "category": "Media",
+      "description": "An external 12V power and aerial socket allows a TV to be set up outside under the awning. Perfect for watching sport or evening entertainment outdoors in good weather.",
+      "verification_status": "owner-confirmed",
+      "images": [
+        {
+          "src": "assets/images/media/outdoor-tv-point.jpg",
+          "alt": "External TV connection point",
+          "caption": "Outdoor TV socket with 12V and aerial connections"
+        },
+        {
+          "src": "assets/images/media/outdoor-tv-setup.jpg",
+          "alt": "TV set up outside under awning",
+          "caption": "Outdoor TV setup for evening viewing"
+        }
+      ],
+      "safety_notes": [
+        "Protect TV from rain and moisture",
+        "Do not leave TV outside unattended",
+        "Monitor battery level when using on 12V",
+        "Secure cables to prevent trip hazards"
+      ],
+      "synonyms": ["outdoor tv", "external tv", "outside tv", "tv point", "al fresco", "awning tv"]
+    },
+    {
+      "id": "gas-storage",
+      "name": "Gas Storage (2×13kg Cylinders)",
+      "category": "Power",
+      "description": "The gas locker houses two 13kg propane or butane cylinders, providing fuel for heating, cooking, fridge, and the BBQ point. A changeover valve or regulator allows switching between bottles.",
+      "verification_status": "owner-confirmed",
+      "images": [
+        {
+          "src": "assets/images/power/gas-locker-open.jpg",
+          "alt": "Gas locker with two 13kg cylinders",
+          "caption": "Gas locker with dual 13kg bottle capacity"
+        },
+        {
+          "src": "assets/images/power/gas-regulator.jpg",
+          "alt": "Gas regulator and changeover valve",
+          "caption": "Regulator allows switching between bottles"
+        },
+        {
+          "src": "assets/images/power/gas-bottle-connection.jpg",
+          "alt": "Gas bottle pigtail connection",
+          "caption": "Pigtail hose connects bottle to regulator"
+        }
+      ],
+      "safety_notes": [
+        "Turn off all gas appliances before changing bottles",
+        "Check connections for leaks using soapy water",
+        "Ensure gas locker drain hole is clear",
+        "Store spare cylinders upright and secured",
+        "Turn off gas at bottle when vehicle is unattended",
+        "Never smoke or use naked flames near gas locker"
+      ],
+      "synonyms": ["gas", "propane", "butane", "bottle", "cylinder", "lpg", "13kg", "fuel", "gas locker"]
+    },
+    {
+      "id": "cassette-toilet",
+      "name": "Cassette Toilet",
+      "category": "Water",
+      "description": "The cassette toilet features a removable waste cassette accessed via an external door. The cassette is emptied at designated disposal points. Flush water comes from the fresh water tank.",
+      "verification_status": "owner-confirmed",
+      "images": [
+        {
+          "src": "assets/images/toilet/cassette-toilet-interior.jpg",
+          "alt": "Cassette toilet in bathroom",
+          "caption": "Cassette toilet with electric flush"
+        },
+        {
+          "src": "assets/images/toilet/cassette-external-door.jpg",
+          "alt": "External cassette access door",
+          "caption": "External door for cassette removal"
+        },
+        {
+          "src": "assets/images/toilet/cassette-removal.jpg",
+          "alt": "Removing cassette from vehicle",
+          "caption": "Slide cassette out for emptying"
+        }
+      ],
+      "safety_notes": [
+        "Use only approved toilet chemicals",
+        "Empty cassette at designated disposal points only",
+        "Do not overfill cassette - check indicator",
+        "Wear gloves when handling cassette",
+        "Rinse cassette after emptying",
+        "Keep cassette blade closed when transporting"
+      ],
+      "synonyms": ["toilet", "cassette", "wc", "bathroom", "loo", "waste", "chemical toilet", "thetford"]
+    },
+    {
+      "id": "fresh-water-external",
+      "name": "Fresh Water Tank External Access",
+      "category": "Water",
+      "description": "The fresh water tank is filled via an external filler cap, making it easy to connect a hose without entering the vehicle. Tank level is displayed on the control panel inside.",
+      "verification_status": "owner-confirmed",
+      "images": [
+        {
+          "src": "assets/images/water/fresh-filler-cap.jpg",
+          "alt": "External fresh water filler cap",
+          "caption": "Fresh water filler on exterior panel"
+        },
+        {
+          "src": "assets/images/water/fresh-tank-level.jpg",
+          "alt": "Control panel showing water tank level",
+          "caption": "Monitor tank level on control panel"
+        }
+      ],
+      "safety_notes": [
+        "Use only drinking water approved hoses",
+        "Do not overfill - stop when indicator shows full",
+        "Secure filler cap after filling",
+        "Drain tank before freezing conditions",
+        "Flush system if water has been standing"
+      ],
+      "synonyms": ["water", "fresh water", "tank", "filler", "drinking water", "refill"]
+    },
+    {
+      "id": "alarm-system",
+      "name": "Alarm System",
+      "category": "Safety",
+      "description": "The motorhome alarm system monitors doors and windows for intrusion. When armed, it will sound an alert if entry points are opened. The system is controlled by a key fob or internal panel.",
+      "verification_status": "owner-confirmed",
+      "images": [
+        {
+          "src": "assets/images/safety/alarm-panel.jpg",
+          "alt": "Alarm control panel",
+          "caption": "Alarm status panel inside vehicle"
+        },
+        {
+          "src": "assets/images/safety/alarm-fob.jpg",
+          "alt": "Alarm key fob",
+          "caption": "Key fob for arming/disarming alarm"
+        },
+        {
+          "src": "assets/images/safety/alarm-sensor.jpg",
+          "alt": "Door sensor for alarm",
+          "caption": "Sensors on doors and windows"
+        }
+      ],
+      "safety_notes": [
+        "Arm alarm when leaving vehicle unattended",
+        "Keep spare key fob battery available",
+        "Test alarm periodically",
+        "Know how to silence false alarms",
+        "Register alarm with local police if possible"
+      ],
+      "synonyms": ["alarm", "security", "intruder", "theft", "protection", "siren"]
+    },
+    {
+      "id": "vehicle-tracker",
+      "name": "Vehicle Tracker",
+      "category": "Safety",
+      "description": "A GPS vehicle tracker is fitted for theft recovery and location monitoring. The tracker allows the vehicle location to be checked via a smartphone app or web portal. Some insurance policies require a tracker.",
+      "verification_status": "owner-confirmed",
+      "images": [
+        {
+          "src": "assets/images/safety/tracker-app.jpg",
+          "alt": "Tracker smartphone app showing vehicle location",
+          "caption": "View vehicle location on phone app"
+        },
+        {
+          "src": "assets/images/safety/tracker-unit.jpg",
+          "alt": "Hidden tracker unit",
+          "caption": "Tracker unit is discretely installed"
+        }
+      ],
+      "safety_notes": [
+        "Keep tracker subscription active",
+        "Know how to access tracker app/portal",
+        "Report theft to police and tracker company immediately",
+        "Keep tracker installation location confidential",
+        "Test tracker function periodically"
+      ],
+      "synonyms": ["tracker", "gps", "tracking", "theft recovery", "location", "find my vehicle"]
+    },
+    {
+      "id": "internet-5g",
+      "name": "5G Internet System",
+      "category": "Media",
+      "description": "The 5G mobile internet system provides high-speed connectivity for streaming, browsing, and remote working while on the road. The router creates a WiFi hotspot for all devices in the vehicle.",
+      "verification_status": "owner-confirmed",
+      "images": [
+        {
+          "src": "assets/images/media/5g-router.jpg",
+          "alt": "5G router installed in vehicle",
+          "caption": "5G router with WiFi hotspot"
+        },
+        {
+          "src": "assets/images/media/5g-antenna.jpg",
+          "alt": "5G antenna on vehicle roof",
+          "caption": "External antenna for better signal"
+        }
+      ],
+      "safety_notes": [
+        "Check data allowance to avoid excess charges",
+        "Signal strength varies by location",
+        "Router draws power from leisure battery",
+        "Secure WiFi network with strong password",
+        "4G fallback available in areas without 5G"
+      ],
+      "synonyms": ["5g", "internet", "wifi", "wireless", "mobile data", "hotspot", "streaming", "connectivity"]
+    },
+    {
+      "id": "control-panel",
+      "name": "Control Panel",
+      "category": "Power",
+      "description": "The main control panel displays battery status, water tank levels, and allows control of the water pump and other systems. Some vehicles have a CBE or Schaudt panel.",
+      "verification_status": "manual-verified",
+      "images": [
+        {
+          "src": "assets/images/power/control-panel-main.jpg",
+          "alt": "Main control panel display",
+          "caption": "Control panel showing system status"
+        }
+      ],
+      "safety_notes": [
+        "Monitor battery level to avoid running flat",
+        "Check tank levels before departing",
+        "Contact dealer if error codes appear",
+        "Refer to manual for specific functions"
+      ],
+      "synonyms": ["control panel", "panel", "display", "status", "battery", "cbe", "schaudt"]
+    },
+    {
+      "id": "mains-charger",
+      "name": "Mains Battery Charger",
+      "category": "Power",
+      "description": "When connected to mains hook-up, the built-in charger automatically charges the leisure battery. This ensures batteries are maintained and ready for off-grid use.",
+      "verification_status": "manual-verified",
+      "images": [
+        {
+          "src": "assets/images/power/mains-charger.jpg",
+          "alt": "Battery charger unit",
+          "caption": "Charger activates on mains connection"
+        },
+        {
+          "src": "assets/images/power/mains-inlet.jpg",
+          "alt": "External mains hook-up inlet",
+          "caption": "Connect mains cable here"
+        }
+      ],
+      "safety_notes": [
+        "Always connect to vehicle first, then mains supply",
+        "Disconnect mains first when leaving",
+        "Use only approved camping mains cables",
+        "Check cable condition regularly",
+        "Do not use damaged or wet cables"
+      ],
+      "synonyms": ["charger", "mains", "hook-up", "hookup", "ehu", "240v", "230v", "electric", "shore power"]
     },
     {
       "id": "driving-safety",
-      "name": "Driving & Safety",
-      "description": "Based on Fiat Ducato chassis with safety features including ABS, driver/passenger airbags, and ESP. Maximum permitted weight and payload limits must be observed.",
+      "name": "Driving & Vehicle",
+      "category": "Safety",
+      "description": "Based on Fiat Ducato chassis with safety features including ABS, driver/passenger airbags, and ESP. Maximum permitted weight and payload limits must be observed. Regular servicing is essential.",
+      "verification_status": "manual-verified",
       "images": [
         {
           "src": "images/driving/exterior-front.jpg",
@@ -77,56 +692,22 @@
           "caption": "Rear view - check camera and clearance before reversing"
         }
       ],
-      "warnings": [
+      "safety_notes": [
         "Check all items are secured before driving",
         "Never exceed the maximum permitted weight",
         "Ensure roof vents and windows are closed before moving",
         "Check mirrors and cameras are properly adjusted",
-        "Passengers must use seatbelts while driving"
-      ]
-    },
-    {
-      "id": "beds-interior",
-      "name": "Beds & Interior",
-      "description": "The Ixeo I 744 includes a rear fixed bed and an electric drop-down bed above the cab area. The dinette can also convert to additional sleeping space. Interior lighting is LED throughout.",
-      "images": [
-        {
-          "src": "images/interior/dropdown-bed-raised.jpg",
-          "alt": "Electric drop-down bed in raised position above cab",
-          "caption": "Drop-down bed in raised/stored position"
-        },
-        {
-          "src": "images/interior/dropdown-bed-lowered.jpg",
-          "alt": "Electric drop-down bed lowered for sleeping",
-          "caption": "Drop-down bed lowered - ready for use"
-        },
-        {
-          "src": "images/interior/rear-fixed-bed.jpg",
-          "alt": "Rear fixed bed in the Ixeo I 744",
-          "caption": "Rear fixed bed with storage underneath"
-        },
-        {
-          "src": "images/interior/lounge-dinette.jpg",
-          "alt": "Lounge and dinette area",
-          "caption": "Lounge area - can convert to additional sleeping space"
-        },
-        {
-          "src": "images/interior/bed-control-switch.jpg",
-          "alt": "Electric bed control switch on wall",
-          "caption": "Bed control switch - hold to raise or lower"
-        }
+        "Passengers must use seatbelts while driving",
+        "Know your vehicle height for bridges and barriers"
       ],
-      "warnings": [
-        "Ensure drop-down bed is fully raised and secured before driving",
-        "Check bed area is clear before lowering drop-down bed",
-        "Do not exceed bed weight limits",
-        "Keep bedding away from heating vents"
-      ]
+      "synonyms": ["driving", "fiat", "ducato", "cab", "vehicle", "chassis", "engine", "service"]
     },
     {
       "id": "problems",
       "name": "Common Problems & Troubleshooting",
+      "category": "Safety",
       "description": "Quick reference for common issues including electrical faults, water system problems, heating failures, and general maintenance concerns.",
+      "verification_status": "manual-verified",
       "images": [
         {
           "src": "images/problems/fuse-box.jpg",
@@ -144,12 +725,13 @@
           "caption": "Water pump - listen for operation when troubleshooting"
         }
       ],
-      "warnings": [
+      "safety_notes": [
         "For gas-related issues, contact a qualified technician",
         "Do not attempt repairs beyond your skill level",
         "Keep emergency contact numbers readily available",
         "If in doubt about safety, seek professional help"
-      ]
+      ],
+      "synonyms": ["problem", "fault", "error", "troubleshoot", "fix", "repair", "issue", "help"]
     }
   ]
 }
