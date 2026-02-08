@@ -1,11 +1,13 @@
 /**
  * Bürstner Ixeo I 744 Interactive Manual - Main Application
  * 
- * This is the main application controller that handles:
- * - Loading data from JSON files
- * - Managing system selection
- * - Grouping systems by category
- * - Coordinating between search and tasks modules
+ * Route-based, image-required, mobile-first knowledge app.
+ * 
+ * Features:
+ * - Hash-based routing for dedicated feature views
+ * - Image enforcement with blocking placeholders
+ * - Full-screen detail views with hero images
+ * - Mobile-first responsive design
  */
 
 // UNVERIFIED – requires manual confirmation for specific technical specifications
@@ -35,20 +37,94 @@ const App = {
             // Load data files
             await this.loadData();
             
-            // Render systems grouped by category
+            // Setup router
+            this.setupRouter();
+            
+            // Render systems grouped by category (for home view)
             this.renderSystemsByCategory();
             
             // Set up event listeners
             this.setupEventListeners();
             
-            // Show initial empty state
-            this.showEmptyState();
+            // Initialize router (handles initial route)
+            Router.init();
             
             console.log('Bürstner Ixeo I 744 Manual loaded successfully');
         } catch (error) {
             console.error('Failed to initialize application:', error);
             this.showError('Failed to load manual data. Please refresh the page.');
         }
+    },
+
+    /**
+     * Setup route handlers
+     */
+    setupRouter() {
+        // Home route - show system tiles
+        Router.register('home', () => {
+            this.showHomeView();
+        });
+
+        // Feature route - show feature detail
+        Router.register('feature', async (category, id) => {
+            await this.showFeatureDetail(category, id);
+        });
+
+        // Task route - show task detail
+        Router.register('task', async (systemId, taskId) => {
+            await this.showTaskDetail(systemId, taskId);
+        });
+    },
+
+    /**
+     * Show home view with system tiles
+     */
+    showHomeView() {
+        FeatureDetail.hide();
+        const homeView = document.getElementById('home-view');
+        if (homeView) {
+            homeView.classList.remove('hidden');
+        }
+    },
+
+    /**
+     * Show feature detail view
+     */
+    async showFeatureDetail(category, id) {
+        const system = this.systems.find(s => s.id === id);
+        
+        if (!system) {
+            console.error('System not found:', id);
+            Router.navigate('/');
+            return;
+        }
+
+        this.currentSystem = system;
+
+        // Get related tasks
+        const relatedTasks = this.tasks.filter(task => 
+            task.system === id || 
+            (task.linked_system_ids && task.linked_system_ids.includes(id))
+        );
+
+        // Render detail view
+        await FeatureDetail.render(system, relatedTasks);
+    },
+
+    /**
+     * Show task detail view
+     */
+    async showTaskDetail(systemId, taskId) {
+        const system = this.systems.find(s => s.id === systemId);
+        const task = this.tasks.find(t => t.id === taskId);
+
+        if (!system || !task) {
+            console.error('System or task not found:', systemId, taskId);
+            Router.navigate('/');
+            return;
+        }
+
+        await TaskDetail.render(task, system);
     },
 
     /**
@@ -135,12 +211,13 @@ const App = {
     },
 
     /**
-     * Create a system button HTML
+     * Create a system button HTML - now renders as route link
      * @param {Object} system - System object
      * @returns {string} HTML string for the button
      */
     createSystemButton(system) {
         const icon = this.getSystemIcon(system);
+        const route = Router.featureRoute(system.category, system.id);
         let verificationBadge = '';
         if (system.verification_status === 'owner-confirmed') {
             verificationBadge = '<span class="verified-badge owner" title="Owner confirmed">✓</span>';
@@ -149,10 +226,10 @@ const App = {
         }
         
         return `
-            <button class="system-btn" data-system="${this.escapeAttr(system.id)}">
+            <a href="${route}" class="system-btn" data-system="${this.escapeAttr(system.id)}">
                 <span class="icon">${icon}</span>
                 <span class="label">${this.escapeHtml(system.name)}${verificationBadge}</span>
-            </button>
+            </a>
         `;
     },
 
@@ -198,15 +275,6 @@ const App = {
      * Set up event listeners for system buttons
      */
     setupEventListeners() {
-        // Use event delegation for dynamically created buttons
-        document.getElementById('systems-by-category')?.addEventListener('click', (e) => {
-            const button = e.target.closest('.system-btn');
-            if (button) {
-                const systemId = button.dataset.system;
-                this.selectSystem(systemId);
-            }
-        });
-
         // Close search results when clicking outside
         document.addEventListener('click', (e) => {
             const searchSection = document.querySelector('.search-section');
@@ -214,20 +282,23 @@ const App = {
                 Search.hideResults();
             }
         });
+
+        // Handle escape key for back navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const currentRoute = Router.getCurrentRoute();
+                if (currentRoute.type !== 'home') {
+                    Router.navigate('/');
+                }
+            }
+        });
     },
 
     /**
-     * Select and display a system
+     * Select and display a system - now navigates to route
      * @param {string} systemId - The ID of the system to display
      */
     selectSystem(systemId) {
-        // Update active button state
-        const buttons = document.querySelectorAll('.system-btn');
-        buttons.forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.system === systemId);
-        });
-
-        // Find the system data
         const system = this.systems.find(s => s.id === systemId);
         
         if (!system) {
@@ -235,85 +306,18 @@ const App = {
             return;
         }
 
-        this.currentSystem = system;
-
-        // Display system info
-        this.displaySystemInfo(system);
-
-        // Filter and display tasks for this system (check both system and linked_system_ids)
-        const systemTasks = this.tasks.filter(task => 
-            task.system === systemId || 
-            (task.linked_system_ids && task.linked_system_ids.includes(systemId))
-        );
-        Tasks.render(systemTasks);
-
-        // Clear search input
-        document.getElementById('search-input').value = '';
-        Search.hideResults();
+        // Navigate to the feature route
+        Router.navigate(Router.featureRoute(system.category, system.id).slice(1));
     },
 
     /**
-     * Display system information
+     * Display system information (kept for search integration)
      * @param {Object} system - The system object to display
      */
     displaySystemInfo(system) {
-        const infoContainer = document.getElementById('system-info');
-        
-        // Build verification status badge
-        let verificationHtml = '';
-        if (system.verification_status) {
-            const isOwnerConfirmed = system.verification_status === 'owner-confirmed';
-            const badgeClass = isOwnerConfirmed ? 'verified-owner' : 'verified-manual';
-            const badgeText = isOwnerConfirmed ? '✓ Owner Confirmed' : '📖 Manual Verified';
-            verificationHtml = `<span class="verification-badge ${badgeClass}">${badgeText}</span>`;
-        }
-
-        let safetyNotesHtml = '';
-        if (system.safety_notes && system.safety_notes.length > 0) {
-            safetyNotesHtml = `
-                <div class="system-warnings">
-                    <h4>⚠️ Safety Notes</h4>
-                    <ul>
-                        ${system.safety_notes.map(note => `<li>${this.escapeHtml(note)}</li>`).join('')}
-                    </ul>
-                </div>
-            `;
-        }
-        
-        // Legacy support for 'warnings' field
-        let warningsHtml = '';
-        if (system.warnings && system.warnings.length > 0 && !system.safety_notes) {
-            warningsHtml = `
-                <div class="system-warnings">
-                    <h4>⚠️ Warnings</h4>
-                    <ul>
-                        ${system.warnings.map(warning => `<li>${this.escapeHtml(warning)}</li>`).join('')}
-                    </ul>
-                </div>
-            `;
-        }
-
-        let imagesHtml = '';
-        if (system.images && system.images.length > 0) {
-            imagesHtml = this.createImageGallery(system.images, 'system-images');
-        }
-
-        infoContainer.innerHTML = `
-            <div class="system-header">
-                <h3>${this.escapeHtml(system.name)}</h3>
-                ${verificationHtml}
-            </div>
-            <p class="system-category"><strong>Category:</strong> ${this.escapeHtml(system.category || 'General')}</p>
-            <p>${this.escapeHtml(system.description)}</p>
-            ${imagesHtml}
-            ${safetyNotesHtml}
-            ${warningsHtml}
-        `;
-
-        infoContainer.classList.remove('hidden');
-
-        // Set up lightbox for images
-        this.setupLightbox();
+        // This is now handled by FeatureDetail.render()
+        // Kept for backwards compatibility with search
+        this.selectSystem(system.id);
     },
 
     /**
@@ -469,6 +473,10 @@ const App = {
      * Navigate to a specific task
      * @param {string} taskId - The ID of the task to display
      */
+    /**
+     * Navigate to a specific task - now uses routing
+     * @param {string} taskId - The ID of the task to display
+     */
     showTask(taskId) {
         const task = this.tasks.find(t => t.id === taskId);
         
@@ -477,13 +485,8 @@ const App = {
             return;
         }
 
-        // Select the system this task belongs to
-        this.selectSystem(task.system);
-
-        // Expand the specific task after a short delay to allow render
-        setTimeout(() => {
-            Tasks.expandTask(taskId);
-        }, 100);
+        // Navigate to the task route
+        Router.navigate(`task/${task.system}/${task.id}`);
     }
 };
 
