@@ -14,117 +14,117 @@ const ImageValidator = {
      */
     requiredImages: {
         'alde-heating': [
-            { path: 'assets/images/heating/alde/hero.jpg', description: 'Alde control panel hero image' },
-            { path: 'assets/images/heating/alde/boiler.jpg', description: 'Alde boiler unit location' },
-            { path: 'assets/images/heating/alde/radiator.jpg', description: 'Radiator convector detail' }
+            { path: 'images/heating/alde/hero.jpg', description: 'Alde control panel hero image' },
+            { path: 'images/heating/alde/boiler.jpg', description: 'Alde boiler unit location' },
+            { path: 'images/heating/alde/radiator.jpg', description: 'Radiator convector detail' }
         ],
         'fridge-3way': [
-            { path: 'assets/images/comfort/fridge/hero.jpg', description: 'Fridge interior view' },
-            { path: 'assets/images/comfort/fridge/controls.jpg', description: 'Fridge control panel' },
-            { path: 'assets/images/comfort/fridge/vent.jpg', description: 'External fridge vent' }
+            { path: 'images/comfort/fridge/hero.jpg', description: 'Fridge interior view' },
+            { path: 'images/comfort/fridge/controls.jpg', description: 'Fridge control panel' },
+            { path: 'images/comfort/fridge/vent.jpg', description: 'External fridge vent' }
         ],
         'solar-system': [
-            { path: 'assets/images/power/solar/hero.jpg', description: 'Roof-mounted solar panel' },
-            { path: 'assets/images/power/solar/controller.jpg', description: 'Solar charge controller' },
-            { path: 'assets/images/power/solar/battery.jpg', description: 'Leisure battery bank' }
+            { path: 'images/power/solar/hero.jpg', description: 'Roof-mounted solar panel' },
+            { path: 'images/power/solar/controller.jpg', description: 'Solar charge controller' },
+            { path: 'images/power/solar/battery.jpg', description: 'Leisure battery bank' }
         ],
         'camera-360': [
-            { path: 'assets/images/safety/360-camera/hero.jpg', description: '360° view on dashboard display' },
-            { path: 'assets/images/safety/360-camera/front.jpg', description: 'Front camera location' },
-            { path: 'assets/images/safety/360-camera/side.jpg', description: 'Side camera under mirror' }
+            { path: 'images/safety/360-camera/hero.jpg', description: '360° view on dashboard display' },
+            { path: 'images/safety/360-camera/front.jpg', description: 'Front camera location' },
+            { path: 'images/safety/360-camera/side.jpg', description: 'Side camera under mirror' }
         ],
         'camera-reversing': [
-            { path: 'assets/images/safety/reversing-camera/hero.jpg', description: 'Reversing camera display view' },
-            { path: 'assets/images/safety/reversing-camera/rear.jpg', description: 'Rear camera location' }
+            { path: 'images/safety/reversing-camera/hero.jpg', description: 'Reversing camera display view' },
+            { path: 'images/safety/reversing-camera/rear.jpg', description: 'Rear camera location' }
         ],
         'tv-front': [
-            { path: 'assets/images/media/tv-front/hero.jpg', description: 'Front cab Avtex TV' },
-            { path: 'assets/images/media/tv-front/remote.jpg', description: 'TV remote control' }
+            { path: 'images/media/tv-front/hero.jpg', description: 'Front cab Avtex TV' },
+            { path: 'images/media/tv-front/remote.jpg', description: 'TV remote control' }
         ],
         'tv-rear': [
-            { path: 'assets/images/media/tv-rear/hero.jpg', description: 'Rear lounge TV' },
-            { path: 'assets/images/media/tv-rear/mount.jpg', description: 'TV mounting bracket' }
+            { path: 'images/media/tv-rear/hero.jpg', description: 'Rear lounge TV' },
+            { path: 'images/media/tv-rear/mount.jpg', description: 'TV mounting bracket' }
         ],
         'bed-dropdown-rear': [
-            { path: 'assets/images/beds/dropdown-rear/hero.jpg', description: 'Drop-down bed raised position' },
-            { path: 'assets/images/beds/dropdown-rear/lowered.jpg', description: 'Bed lowered for sleeping' },
-            { path: 'assets/images/beds/dropdown-rear/controls.jpg', description: 'Electric bed controls' }
+            { path: 'images/beds/dropdown-rear/hero.jpg', description: 'Drop-down bed raised position' },
+            { path: 'images/beds/dropdown-rear/lowered.jpg', description: 'Bed lowered for sleeping' },
+            { path: 'images/beds/dropdown-rear/controls.jpg', description: 'Electric bed controls' }
         ],
         'bed-pulldown-dinette': [
-            { path: 'assets/images/beds/pulldown-dinette/hero.jpg', description: 'Pull-down bed stowed' },
-            { path: 'assets/images/beds/pulldown-dinette/deployed.jpg', description: 'Bed deployed' },
-            { path: 'assets/images/beds/pulldown-dinette/latch.jpg', description: 'Release latch mechanism' }
+            { path: 'images/beds/pulldown-dinette/hero.jpg', description: 'Pull-down bed stowed' },
+            { path: 'images/beds/pulldown-dinette/deployed.jpg', description: 'Bed deployed' },
+            { path: 'images/beds/pulldown-dinette/latch.jpg', description: 'Release latch mechanism' }
         ],
         'blinds-flyscreens': [
-            { path: 'assets/images/comfort/blinds/hero.jpg', description: 'Cassette blind in window' },
-            { path: 'assets/images/comfort/blinds/flyscreen.jpg', description: 'Flyscreen deployed' },
-            { path: 'assets/images/comfort/blinds/skylight.jpg', description: 'Skylight with blind' }
+            { path: 'images/comfort/blinds/hero.jpg', description: 'Cassette blind in window' },
+            { path: 'images/comfort/blinds/flyscreen.jpg', description: 'Flyscreen deployed' },
+            { path: 'images/comfort/blinds/skylight.jpg', description: 'Skylight with blind' }
         ],
         'heat-shield-front': [
-            { path: 'assets/images/exterior/heat-shield/hero.jpg', description: 'Heat shield fitted to cab' },
-            { path: 'assets/images/exterior/heat-shield/storage.jpg', description: 'Folded for storage' }
+            { path: 'images/exterior/heat-shield/hero.jpg', description: 'Heat shield fitted to cab' },
+            { path: 'images/exterior/heat-shield/storage.jpg', description: 'Folded for storage' }
         ],
         'awning': [
-            { path: 'assets/images/exterior/awning/hero.jpg', description: 'Awning fully extended' },
-            { path: 'assets/images/exterior/awning/handle.jpg', description: 'Winding handle operation' },
-            { path: 'assets/images/exterior/awning/pegs.jpg', description: 'Secured with pegs' }
+            { path: 'images/exterior/awning/hero.jpg', description: 'Awning fully extended' },
+            { path: 'images/exterior/awning/handle.jpg', description: 'Winding handle operation' },
+            { path: 'images/exterior/awning/pegs.jpg', description: 'Secured with pegs' }
         ],
         'outdoor-shower': [
-            { path: 'assets/images/water/outdoor-shower/hero.jpg', description: 'Outdoor shower connection point' },
-            { path: 'assets/images/water/outdoor-shower/use.jpg', description: 'Shower in use' }
+            { path: 'images/water/outdoor-shower/hero.jpg', description: 'Outdoor shower connection point' },
+            { path: 'images/water/outdoor-shower/use.jpg', description: 'Shower in use' }
         ],
         'bbq-point': [
-            { path: 'assets/images/exterior/bbq/hero.jpg', description: 'BBQ gas point location' },
-            { path: 'assets/images/exterior/bbq/connected.jpg', description: 'BBQ connected to gas point' }
+            { path: 'images/exterior/bbq/hero.jpg', description: 'BBQ gas point location' },
+            { path: 'images/exterior/bbq/connected.jpg', description: 'BBQ connected to gas point' }
         ],
         'outdoor-tv-point': [
-            { path: 'assets/images/media/outdoor-tv/hero.jpg', description: 'External TV socket' },
-            { path: 'assets/images/media/outdoor-tv/setup.jpg', description: 'TV set up under awning' }
+            { path: 'images/media/outdoor-tv/hero.jpg', description: 'External TV socket' },
+            { path: 'images/media/outdoor-tv/setup.jpg', description: 'TV set up under awning' }
         ],
         'gas-storage': [
-            { path: 'assets/images/power/gas/hero.jpg', description: 'Gas locker with cylinders' },
-            { path: 'assets/images/power/gas/regulator.jpg', description: 'Regulator and changeover valve' },
-            { path: 'assets/images/power/gas/connection.jpg', description: 'Pigtail hose connection' }
+            { path: 'images/power/gas/hero.jpg', description: 'Gas locker with cylinders' },
+            { path: 'images/power/gas/regulator.jpg', description: 'Regulator and changeover valve' },
+            { path: 'images/power/gas/connection.jpg', description: 'Pigtail hose connection' }
         ],
         'cassette-toilet': [
-            { path: 'assets/images/water/toilet/hero.jpg', description: 'Cassette toilet interior' },
-            { path: 'assets/images/water/toilet/external-door.jpg', description: 'External cassette access' },
-            { path: 'assets/images/water/toilet/removal.jpg', description: 'Cassette removal' }
+            { path: 'images/water/toilet/hero.jpg', description: 'Cassette toilet interior' },
+            { path: 'images/water/toilet/external-door.jpg', description: 'External cassette access' },
+            { path: 'images/water/toilet/removal.jpg', description: 'Cassette removal' }
         ],
         'fresh-water-external': [
-            { path: 'assets/images/water/fresh/hero.jpg', description: 'External filler cap' },
-            { path: 'assets/images/water/fresh/tank-level.jpg', description: 'Tank level display' }
+            { path: 'images/water/fresh/hero.jpg', description: 'External filler cap' },
+            { path: 'images/water/fresh/tank-level.jpg', description: 'Tank level display' }
         ],
         'alarm-system': [
-            { path: 'assets/images/safety/alarm/hero.jpg', description: 'Alarm control panel' },
-            { path: 'assets/images/safety/alarm/fob.jpg', description: 'Key fob' },
-            { path: 'assets/images/safety/alarm/sensor.jpg', description: 'Door sensor' }
+            { path: 'images/safety/alarm/hero.jpg', description: 'Alarm control panel' },
+            { path: 'images/safety/alarm/fob.jpg', description: 'Key fob' },
+            { path: 'images/safety/alarm/sensor.jpg', description: 'Door sensor' }
         ],
         'vehicle-tracker': [
-            { path: 'assets/images/safety/tracker/hero.jpg', description: 'Tracker app on phone' },
-            { path: 'assets/images/safety/tracker/unit.jpg', description: 'Hidden tracker unit' }
+            { path: 'images/safety/tracker/hero.jpg', description: 'Tracker app on phone' },
+            { path: 'images/safety/tracker/unit.jpg', description: 'Hidden tracker unit' }
         ],
         'internet-5g': [
-            { path: 'assets/images/media/5g/hero.jpg', description: '5G router with WiFi' }
+            { path: 'images/media/5g/hero.jpg', description: '5G router with WiFi' }
         ],
         'control-panel': [
-            { path: 'assets/images/power/control-panel/hero.jpg', description: 'Main control panel' },
-            { path: 'assets/images/power/control-panel/battery.jpg', description: 'Battery status display' },
-            { path: 'assets/images/power/control-panel/tanks.jpg', description: 'Tank level indicators' }
+            { path: 'images/power/control-panel/hero.jpg', description: 'Main control panel' },
+            { path: 'images/power/control-panel/battery.jpg', description: 'Battery status display' },
+            { path: 'images/power/control-panel/tanks.jpg', description: 'Tank level indicators' }
         ],
         'mains-charger': [
-            { path: 'assets/images/power/mains/hero.jpg', description: 'Battery charger unit' },
-            { path: 'assets/images/power/mains/inlet.jpg', description: 'External mains inlet' }
+            { path: 'images/power/mains/hero.jpg', description: 'Battery charger unit' },
+            { path: 'images/power/mains/inlet.jpg', description: 'External mains inlet' }
         ],
         'driving-safety': [
-            { path: 'assets/images/driving/hero.jpg', description: 'Front exterior view' },
-            { path: 'assets/images/driving/dashboard.jpg', description: 'Fiat Ducato cab dashboard' },
-            { path: 'assets/images/driving/rear.jpg', description: 'Rear view with camera' }
+            { path: 'images/driving/hero.jpg', description: 'Front exterior view' },
+            { path: 'images/driving/dashboard.jpg', description: 'Fiat Ducato cab dashboard' },
+            { path: 'images/driving/rear.jpg', description: 'Rear view with camera' }
         ],
         'problems': [
-            { path: 'assets/images/troubleshooting/hero.jpg', description: 'Fuse box location' },
-            { path: 'assets/images/troubleshooting/control-panel.jpg', description: 'Main control panel' },
-            { path: 'assets/images/troubleshooting/water-pump.jpg', description: 'Water pump location' }
+            { path: 'images/troubleshooting/hero.jpg', description: 'Fuse box location' },
+            { path: 'images/troubleshooting/control-panel.jpg', description: 'Main control panel' },
+            { path: 'images/troubleshooting/water-pump.jpg', description: 'Water pump location' }
         ]
     },
 
