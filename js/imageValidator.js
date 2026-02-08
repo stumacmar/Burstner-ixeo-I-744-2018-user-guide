@@ -210,8 +210,6 @@ const ImageValidator = {
         return validation.valid;
     },
 
-
-
     /**
      * Create image or empty string based on existence
      * @param {Object} imageInfo - Image info object
