@@ -1,54 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Interactive owner's manual for the 2018 Bürstner Ixeo I 744 motorhome — system guides, checklists and emergency procedures.">
+    <meta name="theme-color" content="#16304e">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>Bürstner Ixeo I 744 – Interactive Manual</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🚐%3C/text%3E%3C/svg%3E">
+    <script>
+        // Apply saved/system theme before first paint to avoid a flash
+        (function () {
+            var theme = 'light';
+            try {
+                theme = localStorage.getItem('ixeo-theme') ||
+                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            } catch (e) { /* private mode etc. */ }
+            if (theme !== 'light' && theme !== 'dark') { theme = 'light'; }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <h1>Bürstner Ixeo I 744 – Interactive Manual</h1>
-        <p class="subtitle">2018 A-Class Motorhome Owner's Guide</p>
+    <a class="skip-link" href="#guide">Skip to content</a>
+
+    <header class="app-header">
+        <div class="header-row">
+            <a href="#" class="brand" aria-label="Bürstner Ixeo I 744 manual home">
+                <span class="brand-icon" aria-hidden="true">🚐</span>
+                <span class="brand-text">
+                    <span class="brand-title">Bürstner Ixeo I 744</span>
+                    <span class="brand-subtitle">Owner's Manual · 2018 A-Class</span>
+                </span>
+            </a>
+            <div class="header-actions">
+                <a class="emergency-link" href="#emergency">
+                    <span aria-hidden="true">⚠️</span><span class="emergency-text">Emergency</span>
+                </a>
+                <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode">
+                    <span class="theme-icon" aria-hidden="true">🌙</span>
+                </button>
+            </div>
+        </div>
+        <div class="header-row search-row" role="search">
+            <div class="search-box">
+                <span class="search-glyph" aria-hidden="true">🔍</span>
+                <input type="search" id="search-input" placeholder="Search the manual…"
+                       autocomplete="off" autocapitalize="off" spellcheck="false"
+                       aria-label="Search the manual"
+                       role="combobox" aria-expanded="false" aria-controls="search-results"
+                       aria-autocomplete="list" aria-haspopup="listbox">
+                <kbd class="search-kbd" aria-hidden="true">/</kbd>
+            </div>
+            <div id="search-results" class="search-results hidden" role="listbox" aria-label="Search results"></div>
+            <div id="search-status" class="visually-hidden" role="status" aria-live="polite"></div>
+        </div>
     </header>
 
-    <main id="guide">
-        <!-- Home View - Icon Grid -->
-        <section id="home-view">
-            <div class="intro-text">
-                <p>Tap any system below to view details, instructions, and safety notes.</p>
-            </div>
+    <main id="guide" tabindex="-1">
+        <!-- Home view -->
+        <section id="home-view" aria-label="Manual contents">
+            <p class="intro-text">Tap a system for instructions and safety notes, or work through a checklist.</p>
 
-            <section class="search-section">
-                <input type="search" id="search-input" placeholder="Search tasks, systems, or keywords..." aria-label="Search manual">
-                <div id="search-results" class="search-results hidden"></div>
+            <section class="quick-guides" aria-labelledby="quick-guides-title">
+                <h2 id="quick-guides-title" class="home-section-title">Quick Guides</h2>
+                <div id="quick-guides-grid" class="quick-guides-grid"></div>
             </section>
 
-            <section class="systems-section">
-                <h2>Vehicle Systems</h2>
-                <div id="system-grid" class="system-grid" role="list" aria-label="Vehicle systems">
-                    <!-- Static fallback content - JavaScript will replace this -->
+            <nav id="category-nav" class="category-nav" aria-label="Jump to category"></nav>
+
+            <section class="systems-section" aria-labelledby="systems-title">
+                <h2 id="systems-title" class="home-section-title">Vehicle Systems</h2>
+                <div id="system-grid" class="system-grid">
                     <noscript>
-                        <p>This interactive guide requires JavaScript to function. Please enable JavaScript in your browser.</p>
+                        <p>This interactive guide requires JavaScript. Please enable JavaScript in your browser,
+                        or refer to the printed Bürstner documentation.</p>
                     </noscript>
                 </div>
             </section>
         </section>
 
-        <!-- System Detail View -->
-        <section id="system-detail" class="system-detail hidden" aria-live="polite">
-            <!-- Detail content will be rendered here by JavaScript -->
-        </section>
+        <!-- Detail view (system / checklist / emergency) -->
+        <section id="system-detail" class="system-detail hidden" hidden></section>
     </main>
 
-    <footer>
-        <p>Interactive Owner's Manual — Icon-only guide; photos optional in future.</p>
-        <p class="disclaimer">Always refer to official Bürstner documentation for critical safety information.</p>
+    <footer class="app-footer">
+        <p>Interactive owner's manual — quick reference for everyday use.</p>
+        <p class="disclaimer">Always refer to official Bürstner, Alde and appliance documentation for critical safety information. In an emergency call 999 (UK) or 112 (Europe).</p>
     </footer>
 
-    <!-- Scripts - order matters for dependencies -->
+    <!-- Scripts — order matters: data first, then app -->
     <script src="js/systems-data.js"></script>
     <script src="js/app.js"></script>
 </body>

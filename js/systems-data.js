@@ -1,15 +1,22 @@
 /**
- * Bürstner Ixeo I 744 Interactive Manual - Systems Data
- * 
+ * Bürstner Ixeo I 744 Interactive Manual - Data
+ *
  * Icon-only data model for the interactive user guide.
- * All features from the user's vehicle are represented here with:
- * - id: unique identifier
+ *
+ * SYSTEMS — every vehicle system, with:
+ * - id: unique identifier (also used as URL hash)
  * - title: display name
  * - icon: emoji representation
- * - category: grouping for organization
+ * - category: grouping for organisation
+ * - summary: one-line description shown on cards and detail pages
+ * - keywords: extra search terms (synonyms, brand names)
  * - bullets: key facts about the system
  * - steps: how-to instructions
  * - safety: safety warnings and notes
+ *
+ * CHECKLISTS — interactive quick-guide checklists (state saved locally).
+ * EMERGENCY — what-to-do procedures for urgent situations.
+ * CATEGORIES — display order and icon for each category.
  */
 
 const SYSTEMS = [
@@ -18,6 +25,8 @@ const SYSTEMS = [
         title: "Alde Wet Heating",
         icon: "🔥",
         category: "Heating",
+        summary: "Hydronic central heating and hot water, on gas, mains or both.",
+        keywords: ["central heating", "hot water", "boiler", "radiator", "glycol", "warm"],
         bullets: [
             "Wet (hydronic) heating system using glycol fluid",
             "Distributes heat via radiators and underfloor heating",
@@ -46,6 +55,8 @@ const SYSTEMS = [
         title: "3-Way Fridge",
         icon: "❄️",
         category: "Comfort",
+        summary: "Runs on 12V while driving, 230V on hook-up, or gas off-grid.",
+        keywords: ["refrigerator", "freezer", "cooling", "food", "dometic", "thetford"],
         bullets: [
             "Operates on 12V DC (driving), 230V AC (hook-up), or gas (off-grid)",
             "Auto-select mode available on most models",
@@ -73,6 +84,8 @@ const SYSTEMS = [
         title: "Solar Charging System",
         icon: "☀️",
         category: "Power",
+        summary: "Roof panel keeps batteries topped up automatically off-grid.",
+        keywords: ["panel", "battery charging", "off grid", "leisure battery", "controller"],
         bullets: [
             "Roof-mounted solar panel charges batteries silently",
             "Charges leisure battery first, then vehicle battery",
@@ -98,6 +111,8 @@ const SYSTEMS = [
         title: "360° Surround Camera",
         icon: "📹",
         category: "Safety",
+        summary: "Bird's-eye view on the dash display for tight manoeuvres.",
+        keywords: ["birds eye", "parking", "manoeuvring", "surround view", "monitor"],
         bullets: [
             "Bird's-eye view of vehicle and surroundings",
             "Displayed on dashboard monitor",
@@ -122,6 +137,8 @@ const SYSTEMS = [
         title: "Reversing Camera",
         icon: "🎥",
         category: "Safety",
+        summary: "Activates in reverse gear with distance guidelines.",
+        keywords: ["rear camera", "backing up", "parking", "reverse"],
         bullets: [
             "Rear-mounted camera activates in reverse gear",
             "Shows live image with parking guidelines",
@@ -146,6 +163,8 @@ const SYSTEMS = [
         title: "TVs (Two in Cab)",
         icon: "📺",
         category: "Media",
+        summary: "Avtex 12V/240V TVs with Freeview and DVD, on swivel mounts.",
+        keywords: ["television", "avtex", "freeview", "dvd", "entertainment"],
         bullets: [
             "Avtex TVs designed for motorhome use",
             "Operate on both 12V and 240V power",
@@ -171,6 +190,8 @@ const SYSTEMS = [
         title: "TV (Rear Lounge)",
         icon: "📺",
         category: "Media",
+        summary: "Second Avtex TV for relaxing in the rear lounge or bed.",
+        keywords: ["television", "avtex", "bedroom", "lounge", "entertainment"],
         bullets: [
             "Second Avtex TV in rear lounge area",
             "Perfect for relaxing or viewing in bed",
@@ -194,6 +215,8 @@ const SYSTEMS = [
         title: "Electric Drop-Down Bed (Rear)",
         icon: "🛏️",
         category: "Beds",
+        summary: "Powered double bed above the rear lounge — must be up to drive.",
+        keywords: ["sleeping", "electric bed", "double bed", "lower", "raise"],
         bullets: [
             "Electric bed above rear lounge",
             "Lowers to provide double sleeping space",
@@ -221,6 +244,8 @@ const SYSTEMS = [
         title: "Pull-Down Bed (Half Dinette)",
         icon: "🛏️",
         category: "Beds",
+        summary: "Manual fold-down bed above the dinette for extra guests.",
+        keywords: ["sleeping", "guest bed", "dinette", "latch", "fold"],
         bullets: [
             "Manual pull-down bed above dinette",
             "Provides additional sleeping space",
@@ -246,6 +271,8 @@ const SYSTEMS = [
         title: "Blinds & Fly Screens",
         icon: "🪟",
         category: "Comfort",
+        summary: "Integrated blackout blinds and insect screens on every window.",
+        keywords: ["window", "blackout", "insect", "mosquito", "skylight", "shade"],
         bullets: [
             "All windows fitted with integrated blinds",
             "Flyscreens allow ventilation without insects",
@@ -270,6 +297,8 @@ const SYSTEMS = [
         title: "Silver External Heat Shield",
         icon: "🌡️",
         category: "Exterior",
+        summary: "Reflective windscreen cover — cab stays cool in summer, warm in winter.",
+        keywords: ["windscreen cover", "insulation", "screen", "thermal", "silver screen"],
         bullets: [
             "Covers front windscreen and cab windows",
             "Reflects sunlight and insulates against temperature",
@@ -295,6 +324,8 @@ const SYSTEMS = [
         title: "Awning",
         icon: "⛱️",
         category: "Exterior",
+        summary: "Wind-out canopy for shade — always retract before driving or in wind.",
+        keywords: ["canopy", "shade", "wind out", "shelter", "pegs"],
         bullets: [
             "Vehicle-mounted roll-out awning",
             "Provides shade and weather protection",
@@ -322,6 +353,8 @@ const SYSTEMS = [
         title: "Outdoor Shower",
         icon: "🚿",
         category: "Water",
+        summary: "External hot/cold water point — great after the beach or dog walks.",
+        keywords: ["external shower", "rinse", "beach", "hose", "wash"],
         bullets: [
             "External hot and cold water point",
             "Useful for rinsing after beach visits",
@@ -347,6 +380,8 @@ const SYSTEMS = [
         title: "Outdoor Gas BBQ Point",
         icon: "🍖",
         category: "Exterior",
+        summary: "Quick-release gas socket for a portable barbecue outside.",
+        keywords: ["barbecue", "grill", "cooking outside", "gas point", "quick release"],
         bullets: [
             "External gas connection for portable BBQ",
             "Connected to onboard gas system",
@@ -373,6 +408,8 @@ const SYSTEMS = [
         title: "Outdoor TV Point",
         icon: "📺",
         category: "Media",
+        summary: "Weatherproof 12V power and aerial socket for TV under the awning.",
+        keywords: ["external television", "12v socket", "aerial", "outside"],
         bullets: [
             "External 12V power and aerial socket",
             "Set up TV outside under awning",
@@ -398,6 +435,8 @@ const SYSTEMS = [
         title: "Gas Storage (2×13kg)",
         icon: "🔥",
         category: "Power",
+        summary: "Locker for two 13kg cylinders feeding heating, cooking and fridge.",
+        keywords: ["propane", "butane", "cylinder", "bottle", "lpg", "changeover", "regulator"],
         bullets: [
             "Houses two 13kg propane/butane cylinders",
             "Powers heating, cooking, fridge, and BBQ",
@@ -426,6 +465,8 @@ const SYSTEMS = [
         title: "Cassette Toilet",
         icon: "🚽",
         category: "Water",
+        summary: "Removable waste cassette, emptied via the external access door.",
+        keywords: ["bathroom", "waste", "thetford", "empty", "chemical", "loo"],
         bullets: [
             "Removable waste cassette system",
             "External access door for removal",
@@ -454,6 +495,8 @@ const SYSTEMS = [
         title: "Fresh Water Tank Access",
         icon: "💧",
         category: "Water",
+        summary: "External filler for the fresh tank — level shows on the control panel.",
+        keywords: ["filling", "drinking water", "tap", "hose", "tank level", "potable"],
         bullets: [
             "External filler cap for fresh water",
             "Tank level displayed on control panel",
@@ -479,6 +522,8 @@ const SYSTEMS = [
         title: "Alarm System",
         icon: "🚨",
         category: "Safety",
+        summary: "Motion and door sensors, armed and disarmed from the key fob.",
+        keywords: ["security", "siren", "arm", "disarm", "key fob", "intruder"],
         bullets: [
             "Protects against unauthorized entry",
             "Motion sensors and door contacts",
@@ -504,6 +549,8 @@ const SYSTEMS = [
         title: "Vehicle Tracker",
         icon: "📍",
         category: "Safety",
+        summary: "Hidden GPS tracker with smartphone app and geofence alerts.",
+        keywords: ["gps", "security", "theft", "location", "app", "geofence"],
         bullets: [
             "GPS tracking for security and recovery",
             "View vehicle location via smartphone app",
@@ -529,6 +576,8 @@ const SYSTEMS = [
         title: "5G Internet Setup",
         icon: "📶",
         category: "Media",
+        summary: "Onboard 5G/4G router provides WiFi throughout the vehicle.",
+        keywords: ["wifi", "router", "sim", "data", "connection", "mobile internet", "broadband"],
         bullets: [
             "5G/4G mobile internet router installed",
             "Provides WiFi throughout vehicle",
@@ -554,6 +603,8 @@ const SYSTEMS = [
         title: "Main Control Panel",
         icon: "🎛️",
         category: "Power",
+        summary: "Central display for batteries, tank levels, pump and lighting.",
+        keywords: ["battery level", "tank level", "pump", "lights", "display", "12v master"],
         bullets: [
             "Central display for vehicle systems",
             "Shows battery levels and tank status",
@@ -587,3 +638,171 @@ const CATEGORIES = {
     'Comfort': { icon: '🏠', order: 7 },
     'Exterior': { icon: '🏕️', order: 8 }
 };
+
+/**
+ * Interactive quick-guide checklists.
+ * Tick state is saved on the device so you can work through them
+ * step by step — use Reset to start again next trip.
+ */
+const CHECKLISTS = [
+    {
+        id: "before-driving",
+        title: "Before You Drive",
+        icon: "🚦",
+        summary: "Walk-around checks before every journey.",
+        keywords: ["departure", "travel", "set off", "drive away", "pre-drive"],
+        intro: "Run through this list before turning the key. Most damage to motorhomes happens in the first five minutes of a journey.",
+        items: [
+            "Drop-down bed fully raised and secured",
+            "Pull-down dinette bed latched in stowed position",
+            "Awning fully retracted and locked",
+            "External heat shield removed and stowed",
+            "TVs secured in travel position",
+            "All roof lights and windows closed and latched",
+            "Blinds open or secured for travel",
+            "Loose items stowed; cupboard and fridge doors latched",
+            "Fridge switched to 12V or Auto (not gas)",
+            "Gas bottles turned off (unless system is approved for travel)",
+            "Water pump switched off at control panel",
+            "Mains hook-up cable disconnected and stowed",
+            "Entry step retracted",
+            "External lockers, gas locker and cassette door locked",
+            "Lights, indicators and cameras working",
+            "Mirrors adjusted; tyre condition and pressures checked"
+        ]
+    },
+    {
+        id: "arriving-on-site",
+        title: "Arriving on Site",
+        icon: "🏕️",
+        summary: "Set up camp in the right order.",
+        keywords: ["setup", "pitch", "campsite", "hook up", "arrival"],
+        intro: "A consistent setup routine makes arriving relaxing instead of stressful.",
+        items: [
+            "Position vehicle on pitch and check for overhead obstructions",
+            "Level the vehicle (within 3° for the fridge) using ramps if needed",
+            "Apply handbrake and select gear / park",
+            "Connect mains hook-up cable (vehicle end first, then bollard)",
+            "Switch fridge to 230V or Auto",
+            "Turn on gas at the bottle if needed",
+            "Switch on water pump at control panel",
+            "Fill fresh water tank if required",
+            "Turn on heating or hot water if needed",
+            "Lower entry step and unlock habitation door",
+            "Extend awning if conditions are calm — peg it down",
+            "Check tank levels and battery state on control panel"
+        ]
+    },
+    {
+        id: "leaving-site",
+        title: "Leaving Site",
+        icon: "🧳",
+        summary: "Pack down and leave nothing behind.",
+        keywords: ["pack up", "departure", "check out", "empty waste"],
+        intro: "Reverse your arrival routine, then finish with the Before You Drive checks.",
+        items: [
+            "Empty toilet cassette at the disposal point",
+            "Drain or empty grey waste water tank",
+            "Top up fresh water if needed for the journey",
+            "Turn off heating and water pump",
+            "Turn off gas at the bottles",
+            "Disconnect hook-up (bollard end first), coil and stow cable",
+            "Retract awning fully and remove pegs",
+            "Remove external heat shield and stow",
+            "Stow outdoor furniture, BBQ and levelling ramps",
+            "Walk around the pitch — check for anything left behind",
+            "Complete the Before You Drive checklist"
+        ]
+    },
+    {
+        id: "winterising",
+        title: "Winter Lay-Up",
+        icon: "❄️",
+        summary: "Protect water systems and batteries in storage.",
+        keywords: ["winter", "frost", "drain down", "storage", "lay up", "antifreeze"],
+        intro: "Frost damage is the most common (and most avoidable) winter repair. Drain everything that holds water.",
+        items: [
+            "Drain fresh water tank completely",
+            "Open all taps (hot and cold) and leave mid-position",
+            "Open the drain/safety valve on the water heater",
+            "Drain the outdoor shower line",
+            "Empty, rinse and store the toilet cassette with valve open",
+            "Empty grey waste tank and leave drain open",
+            "Leave fridge door ajar to prevent mould",
+            "Turn off gas at bottles; consider removing cylinders",
+            "Leave blinds half-open to protect seals and prevent damp",
+            "Keep leisure battery charged (solar, mains, or periodic charge)",
+            "Ventilate occasionally and check for damp on visits"
+        ]
+    }
+];
+
+/**
+ * Emergency procedures — kept short and action-first.
+ * In any life-threatening situation call 999 (UK) or 112 (Europe) first.
+ */
+const EMERGENCY = [
+    {
+        id: "gas-leak",
+        title: "Gas Leak (Smell of Gas)",
+        icon: "⚠️",
+        steps: [
+            "Extinguish all flames — hob, oven, cigarettes",
+            "Do NOT operate electrical switches, including lights",
+            "Turn gas off at the bottles in the gas locker",
+            "Open all doors, windows and roof lights to ventilate",
+            "Get everyone out of the vehicle",
+            "Do not use the vehicle until checked by a qualified gas engineer"
+        ]
+    },
+    {
+        id: "fire",
+        title: "Fire",
+        icon: "🧯",
+        steps: [
+            "Get everyone out immediately — people before possessions",
+            "Call 999 (UK) or 112 (Europe)",
+            "If safe and the fire is small, use the extinguisher or fire blanket",
+            "Turn off gas at the bottles if you can do so safely",
+            "Never re-enter a smoke-filled vehicle",
+            "Know your exits: habitation door, cab doors, and skylight"
+        ]
+    },
+    {
+        id: "electrical-fault",
+        title: "Electrical Fault / Burning Smell",
+        icon: "🔌",
+        steps: [
+            "Switch off the affected appliance immediately",
+            "Turn off 230V at the consumer unit (RCD) and disconnect hook-up",
+            "Turn off the 12V master switch at the control panel if needed",
+            "Do not reset a tripping RCD repeatedly — find the cause",
+            "Have the system inspected before reconnecting power"
+        ]
+    },
+    {
+        id: "water-leak",
+        title: "Water Leak Inside",
+        icon: "💦",
+        steps: [
+            "Switch off the water pump at the main control panel",
+            "Open a tap to release pressure in the system",
+            "Locate the leak and place towels/containers to limit damage",
+            "Drain the fresh tank if the leak cannot be isolated",
+            "Dry the area thoroughly to prevent damp damage"
+        ]
+    },
+    {
+        id: "breakdown",
+        title: "Breakdown on the Road",
+        icon: "🚧",
+        steps: [
+            "Pull off the carriageway or as far left as safely possible",
+            "Switch on hazard lights; sidelights in poor visibility",
+            "Put on high-visibility vests before leaving the cab",
+            "Exit away from traffic; wait behind a barrier if available",
+            "Place the warning triangle at least 45m behind (not on motorways)",
+            "Call your breakdown provider — give your exact location"
+        ]
+    }
+];
